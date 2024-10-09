@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
   <script async src="https://www.googletagmanager.com/gtag/js?id=GT-WF3JPD4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -15,33 +15,33 @@
   </script>
 </head>
 <body>
-  <header>
+  <!-- Header -->
+  <header class="site-header">
     <div class="container">
-      <nav>
-        <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+      <div class="logo">
+        <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      </div>
+      <nav class="site-nav">
         <ul>
           <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+          <!-- Add more navigation links as needed -->
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <article class="post-content">
-      {{ content }}
-    </article>
+  <!-- Main Content -->
+  <main class="site-content">
+    {{ content }}
   </main>
 
-  <div class="donate-container">
-    <a href="https://donate.stripe.com/3csaHr2xh1xLaek000" class="donate-button">Donate</a>
-  </div>
-
-  <footer>
+  <!-- Footer -->
+  <footer class="site-footer">
     <div class="container">
       <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <!-- Optional JavaScript -->
 </body>
 </html>
