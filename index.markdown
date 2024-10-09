@@ -13,7 +13,17 @@ layout: default
   {% endfor %}
 </ul>
 
-<!-- Stripe Donation Button -->
-<h2>Support Us</h2>
+
 <a href="https://donate.stripe.com/3csaHr2xh1xLaek000">
-  <button type="submit">Donate with Stripe</button>
+  <button type="submit" style="
+    background-color: #28a745;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'">Donate</button>
+</a>
