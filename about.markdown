@@ -1,6 +1,6 @@
 ---
 
-layout: page
+layout: home
 
 title: About
 
