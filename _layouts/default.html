@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-WF3JPD4"></script>
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+ <script async src="https://www.googletagmanager.com/gtag/js?id=GT-WF3JPD4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -15,33 +15,38 @@
   </script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
+  <header>
     <div class="container">
-      <div class="logo">
-        <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      </div>
-      <nav class="site-nav">
+      <nav>
+        <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
         <ul>
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
           <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-          <!-- Add more navigation links as needed -->
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="site-content">
-    {{ content }}
+  <main class="container">
+    {% if page.title %}
+      <h1>{{ page.title }}</h1>
+    {% endif %}
+    
+    <article class="post-content">
+      {{ content }}
+    </article>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
+  <div class="donate-container">
+    <a href="https://donate.stripe.com/3csaHr2xh1xLaek000" class="donate-button">Donate</a>
+  </div>
+
+  <footer>
     <div class="container">
       <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Optional JavaScript -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>

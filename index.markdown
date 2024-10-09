@@ -1,8 +1,8 @@
 ---
-
-layout: default
-
+layout: home
+title: Home
 ---
+
 
 <!-- Blog Posts -->
 <h2>Latest Blog Posts</h2>
