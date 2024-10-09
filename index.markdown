@@ -18,22 +18,3 @@ layout: default
   {% endfor %}
 </ul>
 
-<!-- Donate Button -->
-<div style="text-align: center; margin: 50px 0;">
-  <a href="https://donate.stripe.com/3csaHr2xh1xLaek000">
-    <button type="submit" style="
-      background-color: #28a745;
-      color: white;
-      padding: 15px 32px;
-      font-size: 18px;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    " onmouseover="this.style.backgroundColor='#218838'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='#28a745'; this.style.transform='translateY(0)';">Donate</button>
-  </a>
-</div>
-
----
