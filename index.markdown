@@ -1,6 +1,20 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+layout: default
 ---
+
+<!-- List of Posts -->
+<h1>Blog Posts</h1>
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span>{{ post.date | date: "%B %d, %Y" }}</span>
+    </li>
+  {% endfor %}
+</ul>
+
+<!-- Stripe Donation Button -->
+<h2>Support Us</h2>
+<form action="/.netlify/functions/create-checkout-session" method="POST">
+  <button type="submit">Donate with Stripe</button>
+</form>
