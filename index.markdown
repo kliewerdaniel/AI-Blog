@@ -4,7 +4,7 @@ layout: home
 
 
 <!-- Blog Posts -->
-<h2>Latest Blog Posts</h2>
+
 <ul style="list-style-type: none; padding: 0;">
   {% for post in site.posts %}
     <li style="margin-bottom: 1.5em; border-bottom: 1px solid #eee; padding-bottom: 1em;">
