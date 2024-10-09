@@ -29,29 +29,17 @@ Today, I've managed to save enough to cover three months of expenses as an emerg
 Every donation brings me one step closer to stability and the ability to contribute more meaningfully to the field of technology. With your help, I can continue this journey of growth and perhaps inspire others facing similar challenges to keep striving for a better future.
 
 <a href="https://donate.stripe.com/3csaHr2xh1xLaek000">
-
-<button type="submit" style="
-
-background-color: #28a745;
-
-color: white;
-
-padding: 15px 32px;
-
-font-size: 16px;
-
-font-weight: bold;
-
-border: none;
-
-border-radius: 5px;
-
-cursor: pointer;
-
-transition: background-color 0.3s ease;
-
-" onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'">Donate</button>
-
+  <button type="submit" style="
+    background-color: #28a745;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'">Donate</button>
 </a>
 
 ---
