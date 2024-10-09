@@ -4,17 +4,6 @@ layout: default
 
 ---
 
-<!-- Hero Section -->
-<div style="text-align: center; padding: 50px 0;">
-  <h1 style="font-size: 3em; margin-bottom: 0.5em;">Welcome to DanielKliewer.com</h1>
-  <p style="font-size: 1.2em; color: #666;">A Journey of Resilience, Creativity, and Technological Passion</p>
-</div>
-
-<!-- Introduction -->
-<p style="font-size: 1.1em; line-height: 1.6em;">
-  I'm **Daniel Kliewer**, and this is my personal space on the web where I share my story, projects, and insights into technology, art, and more. From overcoming significant life challenges to diving deep into the development of large language models, I invite you to join me on this journey of growth and discovery.
-</p>
-
 <!-- Blog Posts -->
 <h2>Latest Blog Posts</h2>
 <ul style="list-style-type: none; padding: 0;">
@@ -25,7 +14,6 @@ layout: default
       </a>
       <br />
       <span style="color: #888;">{{ post.date | date: "%B %d, %Y" }}</span>
-      <p style="color: #555;">{{ post.excerpt }}</p>
     </li>
   {% endfor %}
 </ul>
