@@ -15,6 +15,6 @@ layout: default
 
 <!-- Stripe Donation Button -->
 <h2>Support Us</h2>
-<form action="https://buy.stripe.com/3csaHr2xh1xLaek000" method="POST">
+<a href="https://buy.stripe.com/3csaHr2xh1xLaek000">
   <button type="submit">Donate with Stripe</button>
 </form>
