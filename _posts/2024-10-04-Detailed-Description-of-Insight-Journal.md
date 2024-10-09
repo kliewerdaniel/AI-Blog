@@ -1,13 +1,3 @@
-<head><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GT-WF3JPD4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'GT-WF3JPD4');
-</script>
-</head>
 ---
 date: 2024-10-04 07:40:44 -0500
 layout: home
