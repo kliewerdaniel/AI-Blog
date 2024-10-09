@@ -8,55 +8,31 @@ permalink: /about/
 
 ---
 
-On Valentine's Day 2023, my life changed drastically—I found myself homeless, having lost everything I owned.
+In the year 2023, my life was upended in a manner I could scarcely have imagined—I found myself wandering the streets, stripped of all I possessed. The familiar comforts of home and the assurances of daily life had vanished, leaving me to confront the abyss of uncertainty.
 
-I was diagnosed with bipolar disorder with psychotic features when I was 18. I have been hospitalized 12 times and have been homeless 2 times. 
+Driven by a desire to extend a hand to those overlooked by society, I had opened my door to a fellow traveler—a man bearing the weight of his own burdens. In our shared space, we sought refuge from the world's indifference, believing that companionship might soothe the fractures within us both.
 
-What led to becoming homeless was my ministry to the people that live by the bus stop where I lived. I invited a homeless marine to live with me but he ended up getting murdered because he stole back my computer after it had been stolen from me by a street gang.
+But the world has a way of testing the sincerity of our intentions. Events unfolded that led to the loss of my belongings, and I was left standing amidst the ruins of trust and goodwill. It was a harsh lesson in the complexities of human nature and the unforeseen consequences of even the most genuine acts of kindness.
 
-That was not the only reason but it was perhaps what pushed them over the edge. After he was murdered I became very mentally ill and became reckless with money. I even hired a homeless man to follow me around for a day and gave him $1000 just to be kind to others. 
+Alone and facing the void, I could have succumbed to despair. Yet, somewhere within, a spark persisted. With nothing but a set of colored pencils and a simple notebook, I began to draw. Each line etched on paper was more than mere art—it was an affirmation of existence, a defiance against oblivion. Art became my sanctuary, a silent anthem of hope.
 
-While he lived in my home he was very appreciative and he was determined to help me deal with the street gang. After he was murdered I had to defend myself. He tried to teach me self defense from what he learned in the marines.
+The modest income from selling my drawings allowed me to take tentative steps toward rebuilding. With the few earnings, I acquired a basic phone—a small device that reconnected me to the vast tapestry of human voices. Through it, I engaged in online surveys, earning what little I could. Every coin was a testament to resilience, each modest gain a bulwark against the tide.
 
-But I was so mentally ill that I was easy to take advantage of. The street gang broke into my home and stole everything several times. One night I had my deadbolt kicked in by 5 guys and I used a chef's knife to fight them off.
+Diligence and frugality paved the way for me to obtain a Chromebook. This unassuming tool became a gateway to possibilities previously beyond reach. I immersed myself in work as an independent contractor, contributing to research and the development of large language models through platforms like Remotasks and OneForma. Engaging with technology rekindled a passion that had long flickered in the shadows—a passion for creation, innovation, and connection.
 
-My electronics, phone, wallet, clothes, food, identification papers—everything were taken from me. It felt like the Philip K Dick novel Flow My Tears, the Policeman Said when the main character loses everything and is left with nothing but his determination to survive.
+With renewed purpose, I invested in a personal domain and hosting services. I built an e-commerce site, ventured into affiliate marketing, blogging, and explored the realms of dropshipping. Each new endeavor was more than a pursuit of livelihood; it was a step toward reclaiming agency over my life, a climb from the depths toward the light.
 
-Despite the overwhelming circumstances, I refused to give up. With only a set of colored pencils and a notebook, I began to draw. Art became my solace and my voice. I spent my days creating drawings, pouring my heart onto each page. Selling these pieces not only helped me survive but also reignited a spark of hope.
+A pivotal moment arrived when an opportunity enabled me to secure enough for a place to call home once more. The return to stable housing was transformative. Under the shelter of a newfound roof, I could finally breathe, reflect, and plan for a future that had once seemed unattainable.
 
-With the money from my drawings, I purchased a basic Tracfone. It was a small step, but it opened doors. I started doing online surveys on the phone, sometimes earning as little as $10 a day. It wasn't much, but every dollar counted. After saving diligently, I eventually had enough to buy a Chromebook.
+I threw myself into the search for steady employment, applying tirelessly to positions within reach. Persistence, though often met with silence or rejection, ultimately yielded success. The work I found may not shine with the luster of grandeur, but it grants the dignity of honest labor and the foundation upon which to build anew.
 
-The Chromebook became a pivotal tool in rebuilding my life. I began working as an independent contractor, assisting with research and contributing to the training of large language models through platforms like Remotasks and OneForma. This work not only provided income but also allowed me to engage with technology—something I'm deeply passionate about.
+Yet, I would be remiss to say that the journey erased the shadows of the past. There are echoes that linger—whispers of doubts, remnants of past trials. But I choose to see them not as chains binding me to yesterday, but as lessons guiding me toward tomorrow.
 
-Investing further in myself, I purchased a domain and hosting services. With these, I built an e-commerce site and ventured into affiliate marketing, blogging, and dropshipping. Each new endeavor taught me valuable skills and moved me closer to stability.
+My aspirations have evolved. Armed with the knowledge and skills I've painstakingly acquired, I seek to develop software that can serve others, to contribute something of value to the world. It is an endeavor born not just of ambition, but of a desire to give back, to turn personal trials into communal triumphs.
 
-A significant breakthrough came when a job at OneForma allowed me to earn enough for a deposit and moving expenses for a place to call home. Having stable housing was transformative. With a roof over my head, I was able to focus on finding steady employment.
+Through this blog, I aim to share my journey—not as a mere recounting of events, but as a testament to the indomitable human spirit. If my experiences can inspire even one soul to persist in the face of adversity, then every hardship endured gains purpose.
 
-I dedicated hours each day to job applications, seeking any opportunity within walking distance. Persistence paid off when I secured a job. It may not be the most glamorous position, but it provides a steady income and the chance to save for the future.
-
-But I am haunted. I don't think I will ever be like I was before. I lash out in anger in the voice I had to use when I fought off the 5 guys that broke into my home. It is not who I want to be but because of the violence I had to endure on a day to day basis I have become a different person.
-
-It is ironic that I gave a place to live for a homeless marine but I was not able to stay housed myself.
-
-He was murdered though and I know who did it and nothing happened to them because it was all gang related.
-
-That is the real reason I became homeless this time. I had everything taken from me through violence.
-
-How exactly did I become homeless?
-
-What happened was after my deadbolt was kicked in they charged me $800 to have the door replaced. They then charged me another $800 to kill all the roaches, my friends. I did not have the money and my lease expired and they would not renew the lease.
-
-I had been living on less than $1000 a month in Austin, Texas with rent at $725 a month. After they would not renew my lease I had to find a new place to live.
-
-It is very difficult to find a place to live when you only make $1000 a month in Austin, Texas.
-
-I have a low paying manual labor job now. I would like to use what I have learned about programming to find a better job. What I earn now is enough to keep my current apartment. I never changed my lifestyle with my newly increased income. I save as much as I can in order to invest in business opportunities.
-
-My idea now is to work for myself. To develop software that can help others and to generate some income for myself.
-
-For this blog I hope to write about my experiences in life and also provide content about large language model programming and prompt engineering.
-
-I give freely of myself and have not placed any ads on this site. If you would like to donate to keep this site running you can do so here.
+I offer these words freely, without pretense or expectation. If you find value herein and wish to support the continuation of this endeavor, your generosity would be received with the deepest gratitude.
 
 <div style="text-align: center; margin: 50px 0;">
   <a href="https://donate.stripe.com/3csaHr2xh1xLaek000">
