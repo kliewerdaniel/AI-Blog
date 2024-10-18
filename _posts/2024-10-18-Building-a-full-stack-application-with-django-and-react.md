@@ -339,8 +339,6 @@ def save_blog_post(blog_post, title):
 
 ```
 
-**Note:** Replace the placeholders in `analyze_writing_sample` and `generate_content` with actual logic to interact with your AI model.
-
 ### Building Views
 
 Create views to handle API requests in `core/views.py`:
