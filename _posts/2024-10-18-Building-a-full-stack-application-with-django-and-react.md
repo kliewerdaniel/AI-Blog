@@ -7,26 +7,7 @@ date:   2024-10-18 05:40:44 -0500
 
 In this comprehensive guide, we'll walk through the process of building a full-stack application using Django for the backend and React for the frontend. The application allows users to upload a writing sample, analyzes it using an AI language model, and generates blog posts in the style of the uploaded sample.
 
-## Table of Contents
-
-1. [Introduction](#introduction)
-2. [Setting Up the Backend with Django](#setting-up-the-backend-with-django)
-   - [Creating a Django Project](#creating-a-django-project)
-   - [Configuring Settings](#configuring-settings)
-   - [Defining Models](#defining-models)
-   - [Creating Serializers](#creating-serializers)
-   - [Writing Utility Functions](#writing-utility-functions)
-   - [Building Views](#building-views)
-   - [Setting Up URLs](#setting-up-urls)
-3. [Setting Up the Frontend with React](#setting-up-the-frontend-with-react)
-   - [Creating a React App](#creating-a-react-app)
-   - [Configuring Axios](#configuring-axios)
-   - [Building Components](#building-components)
-   - [Integrating React Router](#integrating-react-router)
-4. [Running and Testing the Application](#running-and-testing-the-application)
-5. [Conclusion](#conclusion)
-
----
+https://github.com/kliewerdaniel/Django-React-Ollama-Integration
 
 ## Introduction
 
