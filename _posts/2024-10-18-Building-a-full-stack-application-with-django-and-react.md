@@ -528,10 +528,8 @@ Create the following components:
 Allows users to upload a writing sample.
 
 ```typescript
-// src/components/UploadSample.tsx
-
 import React, { useState } from 'react';
-import axios from '../axiosConfig';
+import axios from '../axiosConfig';  // Adjust the path if necessary
 
 const UploadSample: React.FC = () => {
   const [name, setName] = useState('');
@@ -541,18 +539,68 @@ const UploadSample: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    // [Your form submission logic here]
+
+    const payload = {
+      name: name.trim(),
+      writing_sample: writingSample.trim(),
+    };
+
+    try {
+      console.log('Payload being sent:', payload);
+      const response = await axios.post('analyze/', payload);
+      console.log('Response received:', response.data);
+      setSuccess(`Persona "${response.data.name}" created successfully!`);
+      setError(null);
+      setName('');
+      setWritingSample('');
+    } catch (error: any) {
+      console.error('Error uploading writing sample:', error);
+      console.log('Error response:', error.response);
+      if (error.response && error.response.data) {
+        setError(JSON.stringify(error.response.data));
+      } else {
+        setError('An error occurred while uploading the writing sample.');
+      }
+      setSuccess(null);
+    }
   };
 
   return (
     <div>
       <h2>Upload Writing Sample</h2>
-      {/* [Your form JSX here] */}
+      {error && <div style={{ color: 'red' }}>Error: {error}</div>}
+      {success && <div style={{ color: 'green' }}>{success}</div>}
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name">Persona Name:</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            maxLength={100}
+          />
+        </div>
+        <div>
+          <label htmlFor="writingSample">Writing Sample:</label>
+          <textarea
+            id="writingSample"
+            value={writingSample}
+            onChange={(e) => setWritingSample(e.target.value)}
+            required
+            rows={10}
+            cols={50}
+          ></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 };
 
 export default UploadSample;
+
 ```
 
 #### PersonaList Component
@@ -567,10 +615,68 @@ import axios from '../axiosConfig';
 import { useNavigate } from 'react-router-dom';
 
 const PersonaList: React.FC = () => {
-  // [Your component logic here]
+ import React, { useEffect, useState } from 'react';
+import axios from '../axiosConfig';  // Adjust the path if necessary
+import { useNavigate } from 'react-router-dom';
+
+interface Persona {
+  id: number;
+  name: string;
+  data: Record<string, any>;
+}
+
+const PersonaList: React.FC = () => {
+  const [personas, setPersonas] = useState<Persona[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchPersonas = async () => {
+      try {
+        const response = await axios.get('personas/');
+        setPersonas(response.data);
+      } catch (err) {
+        console.error('Error fetching personas:', err);
+        setError('Failed to load personas.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPersonas();
+  }, []);
+
+  const handleSelectPersona = (personaId: number) => {
+    navigate(`/generate?personaId=${personaId}`);
+  };
+
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div className="error">{error}</div>;
+
+  return (
+    <div>
+      <h2>Saved Personas</h2>
+      {personas.length === 0 ? (
+        <p>No personas found.</p>
+      ) : (
+        <ul>
+          {personas.map((persona) => (
+            <li key={persona.id}>
+              {persona.name}
+              <button onClick={() => handleSelectPersona(persona.id)}>
+                Generate Content
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 };
 
 export default PersonaList;
+
 ```
 
 #### GenerateContent Component
@@ -585,10 +691,90 @@ import axios from '../axiosConfig';
 import { useSearchParams } from 'react-router-dom';
 
 const GenerateContent: React.FC = () => {
-  // [Your component logic here]
+import React, { useState } from 'react';
+import axios from '../axiosConfig';  // Adjust the path if necessary
+import { useSearchParams } from 'react-router-dom';
+
+interface BlogPost {
+  id: number;
+  persona: string;
+  title: string;
+  content: string;
+  created_at: string;
+}
+
+const GenerateContent: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const personaIdParam = searchParams.get('personaId');
+  const personaId = personaIdParam ? Number(personaIdParam) : null;
+  const [prompt, setPrompt] = useState<string>('');
+  const [content, setContent] = useState<BlogPost | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleGenerate = async () => {
+    if (!prompt) {
+      setError('Please enter a prompt.');
+      return;
+    }
+    if (!personaId) {
+      setError('Invalid Persona ID.');
+      return;
+    }
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await axios.post('generate/', {
+        persona_id: personaId,
+        prompt: prompt,
+      });
+      setContent(response.data);
+      setError(null);
+      setPrompt('');
+    } catch (err: any) {
+      console.error('Error generating content:', err);
+      if (err.response && err.response.data) {
+        setError(JSON.stringify(err.response.data));
+      } else {
+        setError('Failed to generate content.');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Generate Content</h2>
+      <div>
+        <label htmlFor="prompt">Prompt:</label>
+        <textarea
+          id="prompt"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          placeholder="Enter a topic or prompt..."
+          rows={4}
+          cols={50}
+          required
+        />
+      </div>
+      <button onClick={handleGenerate} disabled={loading}>
+        {loading ? 'Generating...' : 'Generate Content'}
+      </button>
+      {error && <p className="error">Error: {error}</p>}
+      {content && (
+        <div>
+          <h3>{content.title}</h3>
+          <p>{content.content}</p>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default GenerateContent;
+
 ```
 
 #### BlogPosts Component
@@ -596,16 +782,65 @@ export default GenerateContent;
 Displays generated blog posts.
 
 ```typescript
-// src/components/BlogPosts.tsx
-
 import React, { useEffect, useState } from 'react';
-import axios from '../axiosConfig';
+import axios from '../axiosConfig';  // Adjust the path if necessary
+interface BlogPost {
+  id: number;
+  persona: string;
+  title: string;
+  content: string;
+  created_at: string;
+}
 
 const BlogPosts: React.FC = () => {
-  // [Your component logic here]
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        const response = await axios.get('blog-posts/');
+        setBlogPosts(response.data);
+      } catch (err) {
+        console.error('Error fetching blog posts:', err);
+        setError('Failed to load blog posts.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogPosts();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p className="error">{error}</p>;
+
+  return (
+    <div>
+      <h2>Blog Posts</h2>
+      {blogPosts.length === 0 ? (
+        <p>No blog posts found.</p>
+      ) : (
+        <ul>
+          {blogPosts.map((post) => (
+            <li key={post.id}>
+              <h3>{post.title || 'Untitled'}</h3>
+              <p>{post.content}</p>
+              <small>
+                By: {post.persona} on{' '}
+                {new Date(post.created_at).toLocaleString()}
+              </small>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 };
 
 export default BlogPosts;
+
 ```
 
 ### Integrating React Router
