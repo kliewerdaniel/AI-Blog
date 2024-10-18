@@ -920,36 +920,241 @@ npm start
    - Navigate to `http://localhost:3000/blog-posts`.
    - Read the generated blog posts.
 
+## Setting Up Ollama and `llama3.2`
+
+To analyze the writing samples and generate content, we'll use [Ollama](https://ollama.ai/), a tool for running AI language models locally. We'll be using the `llama3.2` model in this guide.
+
+### Installing Ollama
+
+First, install Ollama on your machine. Ollama currently supports macOS.
+
+#### For macOS:
+
+If you have Homebrew installed, you can install Ollama by running:
+
+```bash
+brew install ollama
+```
+
+If you don't have Homebrew, install it from [here](https://brew.sh/) and then run the above command.
+
+### Downloading the `llama3.2` Model
+
+Once Ollama is installed, you can download the `llama3.2` model:
+
+```bash
+ollama pull llama3.2
+```
+
+This command will download and install the `llama3.2` model locally.
+
+**Note:** If `llama3.2` is not available, replace it with the latest version of the Llama model supported by Ollama, such as `llama2`.
+
+### Running Ollama
+
+Ollama runs as a background service. Start the Ollama server:
+
+```bash
+ollama serve
+```
+
+This will start the server on `http://localhost:11434`, which is the default API endpoint for Ollama.
+
+### Testing the Model
+
+To ensure everything is set up correctly, test the model using the Ollama CLI:
+
+```bash
+ollama generate llama3.2 "Hello, how are you?"
+```
+
+You should see the model generate a response in your terminal.
+
+### Integrating Ollama with Django
+
+Now that Ollama is running with the `llama3.2` model, we'll integrate it into our Django application.
+
+#### Installing `python-decouple`
+
+We need `python-decouple` to manage environment variables. Install it using:
+
+```bash
+pip install python-decouple
+```
+
+#### Configuring Environment Variables
+
+Create a `.env` file in your `backend` directory to store sensitive information and environment variables:
+
+```bash
+touch .env
+```
+
+Add the following line to your `.env` file:
+
+```
+OLLAMA_API_URL=http://localhost:11434/api/generate
+```
+
+This sets the API URL for Ollama.
+
+#### Updating `settings.py`
+
+Ensure that `python-decouple` is set up in your Django settings:
+
+```python
+# backend/settings.py
+
+from decouple import config
+
+# ... rest of your settings ...
+
+OLLAMA_API_URL = config('OLLAMA_API_URL', default='http://localhost:11434/api/generate')
+```
+
+#### Updating `utils.py`
+
+Modify your `analyze_writing_sample` and `generate_content` functions in `backend/core/utils.py` to use Ollama and the `llama3.2` model.
+
+```python
+# core/utils.py
+
+import logging
+import requests
+import json
+from decouple import config
+
+logger = logging.getLogger(__name__)
+OLLAMA_API_URL = config('OLLAMA_API_URL', default='http://localhost:11434/api/generate')
+
+def analyze_writing_sample(writing_sample):
+    encoding_prompt = f'''
+Please analyze the writing style and personality of the given writing sample. Provide a detailed assessment of their characteristics using the following template. Rate each applicable characteristic on a scale of 1-10 where relevant, or provide a descriptive value. Return the results in a JSON format.
+
+"vocabulary_complexity": [1-10],
+"sentence_structure": "[simple/complex/varied]",
+# ... [rest of your JSON template] ...
+
+Writing Sample:
+{writing_sample}
+'''
+
+    payload = {
+        'model': 'llama3.2',  # Using llama3.2 model
+        'prompt': encoding_prompt,
+        'stream': False
+    }
+    headers = {'Content-Type': 'application/json'}
+
+    try:
+        response = requests.post(OLLAMA_API_URL, json=payload, headers=headers)
+        response.raise_for_status()
+        response_text = response.json().get('response', '')
+        analyzed_data = extract_json(response_text)
+        if analyzed_data is None:
+            logger.error("No JSON object found in the response.")
+            return None
+        return analyzed_data
+    except (requests.RequestException, json.JSONDecodeError, AttributeError) as e:
+        logger.error(f"Error during analyze_writing_sample: {str(e)}")
+        return None
+
+def generate_content(persona_data, prompt):
+    decoding_prompt = f'''
+You are to write a blog post in the style of {persona_data.get('name', 'Unknown Author')}, a writer with the following characteristics:
+
+{json.dumps(persona_data, indent=2)}
+
+Now, please write a response in this style about the following topic:
+"{prompt}"
+Begin with a compelling title that reflects the content of the post.
+'''
+
+    payload = {
+        'model': 'llama3.2',  # Using llama3.2 model
+        'prompt': decoding_prompt,
+        'stream': False
+    }
+    headers = {'Content-Type': 'application/json'}
+
+    try:
+        logger.info(f"Sending request to Ollama API with payload: {payload}")
+        response = requests.post(OLLAMA_API_URL, json=payload, headers=headers)
+        response.raise_for_status()
+        response_json = response.json()
+        response_content = response_json.get('response', '').strip()
+        if not response_content:
+            logger.error("Ollama API response 'response' field is empty.")
+            return ''
+        return response_content
+    except requests.RequestException as e:
+        logger.error(f"Error during generate_content: {e}")
+        if e.response:
+            logger.error(f"Ollama Response Status: {e.response.status_code}")
+            logger.error(f"Ollama Response Body: {e.response.text}")
+        return ''
+```
+
+#### Updating the `extract_json` Function
+
+Modify the `extract_json` function to parse the JSON data correctly:
+
+```python
+def extract_json(response_text):
+    try:
+        # If the response contains extra text, extract the JSON object using regex
+        json_str = re.search(r'\{.*\}', response_text, re.DOTALL).group()
+        json_data = json.loads(json_str)
+        return json_data
+    except (json.JSONDecodeError, AttributeError) as e:
+        logger.error(f"JSON decoding failed: {e}")
+        return None
+```
+
+This function uses regular expressions to find the JSON object within the response text.
+
+### Testing the Integration
+
+Restart the Django development server to apply the changes:
+
+```bash
+python manage.py runserver
+```
+
+Ensure that Ollama is running and the `llama3.2` model is loaded.
+
+### Using the Application
+
+Now, when you use the frontend to upload a writing sample, the backend will:
+
+1. Send the writing sample to Ollama's API with the `llama3.2` model.
+2. Receive the analysis in JSON format.
+3. Store the analysis in the `Persona` model.
+4. Generate content based on the persona data when prompted.
+
 ---
 
 ## Conclusion
 
-Congratulations! You've built a full-stack application that leverages the power of AI language models to analyze writing samples and generate content. This guide covered setting up the backend with Django, creating RESTful APIs, and building a responsive frontend with React.
+By setting up Ollama and integrating the `llama3.2` model, your application can now analyze writing samples and generate content using AI capabilities locally. This enhances the functionality of your application, allowing for personalized content generation.
 
-**Next Steps:**
+**Final Steps:**
 
-- **Enhancements:**
-  - Implement user authentication.
-  - Add pagination to the list views.
-  - Improve error handling and input validation.
-
-- **Deployment:**
-  - Deploy the backend using services like Heroku or DigitalOcean.
-  - Deploy the frontend using Netlify or Vercel.
-
-- **Learning:**
-  - Explore more features of Django REST framework.
-  - Dive deeper into React hooks and state management.
+- **Ensure Ollama Starts on Boot:** Consider configuring Ollama to start automatically when your system boots if you plan to use it frequently.
+- **Model Updates:** Keep an eye on updates to Ollama and available models to enhance your application's capabilities.
+- **Resource Management:** Running AI models locally can consume significant resources. Monitor system performance and adjust as necessary.
 
 ---
 
 **References:**
 
+- [Ollama Documentation](https://ollama.ai/docs)
 - [Django Documentation](https://docs.djangoproject.com/en/5.1/)
-- [Django REST Framework](https://www.django-rest-framework.org/)
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
-- [Axios Documentation](https://axios-http.com/)
+- [Requests Library](https://docs.python-requests.org/en/latest/)
 
 ---
 
-*Disclaimer: This guide assumes you have a basic understanding of Python, Django, JavaScript, and React. Adjustments may be necessary based on the specific versions of the tools and libraries you are using.*
+*Note: Replace `'llama3.2'` with the appropriate model name if `llama3.2` is not available or if you are using a different model supported by Ollama.*
+
+Let me know if you have any questions or need further assistance!
