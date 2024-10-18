@@ -900,26 +900,6 @@ In the `frontend` directory, start the React development server:
 npm start
 ```
 
-### Testing the Application
-
-1. **Upload a Writing Sample:**
-   - Navigate to `http://localhost:3000/`.
-   - Fill in the persona name and paste a writing sample.
-   - Submit the form to create a new persona.
-
-2. **View Saved Personas:**
-   - Navigate to `http://localhost:3000/personas`.
-   - See the list of personas you've created.
-
-3. **Generate Content:**
-   - From the personas list, click "Generate Content" next to a persona.
-   - Enter a prompt or topic.
-   - Generate content styled after the selected persona.
-
-4. **View Blog Posts:**
-   - Navigate to `http://localhost:3000/blog-posts`.
-   - Read the generated blog posts.
-
 ## Setting Up Ollama and `llama3.2`
 
 To analyze the writing samples and generate content, we'll use [Ollama](https://ollama.ai/), a tool for running AI language models locally. We'll be using the `llama3.2` model in this guide.
@@ -1131,6 +1111,26 @@ Now, when you use the frontend to upload a writing sample, the backend will:
 2. Receive the analysis in JSON format.
 3. Store the analysis in the `Persona` model.
 4. Generate content based on the persona data when prompted.
+
+### Testing the Application
+
+1. **Upload a Writing Sample:**
+   - Navigate to `http://localhost:3000/`.
+   - Fill in the persona name and paste a writing sample.
+   - Submit the form to create a new persona.
+
+2. **View Saved Personas:**
+   - Navigate to `http://localhost:3000/personas`.
+   - See the list of personas you've created.
+
+3. **Generate Content:**
+   - From the personas list, click "Generate Content" next to a persona.
+   - Enter a prompt or topic.
+   - Generate content styled after the selected persona.
+
+4. **View Blog Posts:**
+   - Navigate to `http://localhost:3000/blog-posts`.
+   - Read the generated blog posts.
 
 ---
 
