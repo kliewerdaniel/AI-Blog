@@ -882,23 +882,6 @@ export default App;
 
 ---
 
-## Running and Testing the Application
-
-### Starting the Backend
-
-In the `backend` directory, start the Django development server:
-
-```bash
-python manage.py runserver
-```
-
-### Starting the Frontend
-
-In the `frontend` directory, start the React development server:
-
-```bash
-npm start
-```
 
 ## Setting Up Ollama and `llama3.2`
 
@@ -1111,6 +1094,25 @@ Now, when you use the frontend to upload a writing sample, the backend will:
 2. Receive the analysis in JSON format.
 3. Store the analysis in the `Persona` model.
 4. Generate content based on the persona data when prompted.
+
+
+## Running and Testing the Application
+
+### Starting the Backend
+
+In the `backend` directory, start the Django development server:
+
+```bash
+python manage.py runserver
+```
+
+### Starting the Frontend
+
+In the `frontend` directory, start the React development server:
+
+```bash
+npm start
+```
 
 ### Testing the Application
 
