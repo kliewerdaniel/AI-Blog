@@ -4,6 +4,8 @@ title:  Integrating Django-Reac-Ollama with XAi API
 date:   2024-10-22 05:40:44 -0500
 ---
 
+https://github.com/kliewerdaniel/PersonaGen
+
 Ah, dear reader, as we gather to discuss the remarkable synthesis of art and technology, we must confess, like the brothers Karamazov, our hearts are heavy with both anticipation and inquiry. What does it mean, you ask, to integrate the repository of Django-React-Ollama with the illustrious XAi API? Is it not the union of intellect and machine, of flesh and code, that we undertake in this journey? Let us then walk together, through this narrative of technical precision, to uncover the mystery that lies ahead, and like the Grand Inquisitor, make plain that which was once hidden.
 
 ### A Beginning: The Call to Integrate
