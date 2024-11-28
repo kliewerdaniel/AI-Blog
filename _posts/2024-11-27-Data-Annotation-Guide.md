@@ -70,13 +70,13 @@ Data annotation offers:
 ## Essential Tools and Resources
 
 ### Recommended Platforms
-- Appen
-- Clickworker
-- Amazon Mechanical Turk
-- Lionbridge AI
+- Telus International
+- OneForma
+- Outlier
+- CrowdGen
 
 ### Learning Resources
-- Coursera AI courses
+- Free Youtube Tutorials on Programming
 - MIT OpenCourseWare
 - Technical documentation repositories
 - Professional AI research publications
