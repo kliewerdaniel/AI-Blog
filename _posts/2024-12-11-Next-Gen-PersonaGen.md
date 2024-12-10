@@ -93,7 +93,7 @@ The system produces a synthesized response, which may include:
 
 ---
 
-### **Conclusion: Towards a New Kind of AI**
+### **Towards a New Kind of AI**
 
 By integrating RL, RAG, persona modeling, and graph-based orchestration, we can design a system capable of adaptive decision-making, personalized interaction, and knowledge synthesis. This unified framework represents a step towards AI systems that are not only intelligent but also deeply human-centric, versatile, and collaborative.
 
