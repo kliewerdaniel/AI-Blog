@@ -1454,7 +1454,7 @@ By incorporating detailed personas with stylistic attributes, the application ca
 
 Debugged final main.py
 
-'''python
+```python
 # main.py
 
 import os
@@ -1619,4 +1619,4 @@ for node_id in nx.topological_sort(G):
         analyze_responses(node)
 
 print("Conversation has been generated and logged to conversation.md")
-'''
+```
