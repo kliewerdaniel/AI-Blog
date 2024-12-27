@@ -1452,3 +1452,171 @@ By incorporating detailed personas with stylistic attributes, the application ca
 
 ---
 
+Debugged final main.py
+
+'''
+# main.py
+
+import os
+import networkx as nx
+from langchain import PromptTemplate, LLMChain
+from langchain.llms import Ollama
+import json
+
+
+
+
+
+# Define the Node class
+class Node:
+    def __init__(self, node_id, prompt_text, persona_name):
+        self.id = node_id
+        self.prompt_text = prompt_text
+        self.response_text = None
+        self.context = ""
+        self.persona_name = persona_name
+        self.persona_attributes = {}
+
+# Initialize the graph
+G = nx.DiGraph()
+
+# Define personas
+personas = {
+    "Historian": "You are a knowledgeable historian specializing in the industrial revolution.",
+    "Scientist": "You are a scientist with expertise in technological advancements.",
+    "Philosopher": "You are a philosopher pondering societal impacts.",
+    "Analyst": "You analyze information critically to provide insights.",
+    # Add additional personas as needed
+}
+
+def load_personas(persona_dir):
+    personas = {}
+    for filename in os.listdir(persona_dir):
+        if filename.endswith('.json'):
+            filepath = os.path.join(persona_dir, filename)
+            with open(filepath, 'r', encoding='utf-8') as f:
+                persona_data = json.load(f)
+                name = persona_data.get('name')
+                if name:
+                    personas[name] = persona_data
+    return personas
+
+# Load personas
+persona_dir = 'personas'  # Directory where persona JSON files are stored
+personas = load_personas(persona_dir)
+
+# Function to collect context from predecessor nodes
+def collect_context(node_id):
+    predecessors = list(G.predecessors(node_id))
+    context = ""
+    for pred_id in predecessors:
+        pred_node = G.nodes[pred_id]['data']
+        if pred_node.response_text:
+            context += f"From {pred_node.persona}:\n{pred_node.response_text}\n\n"
+    return context
+
+# Function to generate responses using LangChain and Ollama
+def generate_response(node):
+    persona = personas.get(node.persona_name)
+    if not persona:
+        raise ValueError(f"Persona '{node.persona_name}' not found.")
+    
+    node.persona_attributes = persona
+
+    # Build the system prompt based on persona attributes
+    system_prompt = build_system_prompt(persona)
+
+    # Build the complete prompt
+    prompt_template = PromptTemplate(
+        input_variables=["system_prompt", "context", "prompt"],
+        template="{system_prompt}\n\n{context}\n\n{prompt}"
+    )
+    # Instantiate the Ollama LLM
+    llm = Ollama(
+        base_url="http://localhost:11434",  # Default Ollama server URL
+        model="qwq",  # Replace with the model you have downloaded
+    )
+    chain = LLMChain(llm=llm, prompt=prompt_template)
+    response = chain.run(
+        system_prompt=system_prompt,
+        context=node.context,
+        prompt=node.prompt_text
+    )
+    return response
+
+def build_system_prompt(persona):
+    # Construct descriptive sentences based on persona attributes
+    # We'll focus on key attributes for brevity
+    name = persona.get('name', 'The speaker')
+    tone = persona.get('tone', 'neutral')
+    sentence_structure = persona.get('sentence_structure', 'varied')
+    vocabulary_complexity = persona.get('vocabulary_complexity', 5)
+    formality_level = persona.get('formality_level', 5)
+    pronoun_preference = persona.get('pronoun_preference', 'third-person')
+    language_abstraction = persona.get('language_abstraction', 'mixed')
+
+    # Create a description
+    description = (
+        f"You are {name}, writing in a {tone} tone using {sentence_structure} sentences. "
+        f"Your vocabulary complexity is {vocabulary_complexity}/10, and your formality level is {formality_level}/10. "
+        f"You prefer {pronoun_preference} narration and your language abstraction is {language_abstraction}."
+    )
+
+    # Include any other attributes as needed
+    # ...
+
+    return description
+
+
+# Function to log interactions to a markdown file
+def update_markdown(node):
+    with open("conversation.md", "a", encoding="utf-8") as f:
+        f.write(f"## Node {node.id}: {node.persona_name}\n\n")
+        f.write(f"**Prompt:**\n\n{node.prompt_text}\n\n")
+        f.write(f"**Response:**\n\n{node.response_text}\n\n---\n\n")
+
+# Function for nodes that perform analysis
+def analyze_responses(node):
+    # Collect responses from predecessor nodes
+    predecessors = list(G.predecessors(node.id))
+    analysis_input = ""
+    for pred_id in predecessors:
+        pred_node = G.nodes[pred_id]['data']
+        analysis_input += f"{pred_node.persona_name}'s response:\n{pred_node.response_text}\n\n"
+
+    node.prompt_text = f"Provide an analysis comparing the following perspectives:\n\n{analysis_input}"
+    node.context = ""  # Analysis is based solely on the provided responses
+    node.response_text = generate_response(node)
+    update_markdown(node)
+
+# Build the graph
+
+# Create initial prompt nodes with different personas
+node1 = Node(1, prompt_text="Discuss the impacts of the industrial revolution.", persona_name="Ernest Hemingway")
+G.add_node(node1.id, data=node1)
+
+# You can create more nodes with different personas
+node2 = Node(2, prompt_text="Explain quantum mechanics in simple terms.", persona_name="Albert Einstein")
+G.add_node(node2.id, data=node2)
+
+# Add edges between nodes if needed
+# G.add_edge(node1.id, node2.id)
+
+# Add an analysis node (you can define a generic analyst persona)
+node3 = Node(3, prompt_text="", persona_name="Analyst")
+G.add_node(node3.id, data=node3)
+G.add_edge(node1.id, node3.id)
+G.add_edge(node2.id, node3.id)
+
+# Process the nodes
+for node_id in nx.topological_sort(G):
+    node = G.nodes[node_id]['data']
+    if node.persona_name != "Analyst":
+        node.context = collect_context(node_id)
+        node.response_text = generate_response(node)
+        update_markdown(node)
+    else:
+        analyze_responses(node)
+
+print("Conversation has been generated and logged to conversation.md")
+'''
