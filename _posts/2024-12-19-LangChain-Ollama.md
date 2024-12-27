@@ -2223,3 +2223,474 @@ if __name__ == '__main__':
     cli()
 
 ```
+
+
+
+## Then I added the ability to increase the number of iterations through the cli command --iterations X where X is number of iterations.
+
+```python
+# main.py
+
+import click
+
+import os
+
+import networkx as nx
+
+from langchain import PromptTemplate, LLMChain
+
+from langchain.llms import Ollama
+
+import json
+
+  
+  
+  
+  
+  
+
+# Define the Node class
+
+class Node:
+
+def __init__(self, node_id, prompt_text, persona_name):
+
+self.id = node_id
+
+self.prompt_text = prompt_text
+
+self.response_text = None
+
+self.context = ""
+
+self.persona_name = persona_name
+
+self.persona_attributes = {}
+
+  
+
+# Initialize the graph
+
+G = nx.DiGraph()
+
+  
+
+def build_graph(nodes_info, edges_info):
+
+G = nx.DiGraph()
+
+nodes = {}
+
+# Create nodes
+
+for node_info in nodes_info:
+
+node_id = node_info['id']
+
+prompt_text = node_info['prompt_text']
+
+persona_name = node_info['persona_name']
+
+node = Node(node_id, prompt_text, persona_name)
+
+G.add_node(node_id, data=node)
+
+nodes[node_id] = node
+
+  
+
+# Add edges
+
+for edge in edges_info:
+
+G.add_edge(edge['from'], edge['to'])
+
+return G
+
+  
+
+def process_graph(G, iterations):
+
+"""Process the graph for the specified number of iterations."""
+
+for iteration in range(iterations):
+
+print(f"\nProcessing iteration {iteration + 1}/{iterations}")
+
+# Store previous responses for context
+
+previous_responses = {}
+
+for node_id in G.nodes():
+
+node = G.nodes[node_id]['data']
+
+if node.response_text:
+
+previous_responses[node_id] = node.response_text
+
+  
+
+# Process each node in topological order
+
+for node_id in nx.topological_sort(G):
+
+node = G.nodes[node_id]['data']
+
+if node.persona_name != "Analyst":
+
+node.context = collect_context(node_id, G, iteration, previous_responses)
+
+node.response_text = generate_response(node, iteration)
+
+update_markdown(node, iteration)
+
+else:
+
+analyze_responses(node, G, iteration)
+
+  
+  
+
+def load_personas(persona_dir):
+
+personas = {}
+
+for filename in os.listdir(persona_dir):
+
+if filename.endswith('.json'):
+
+filepath = os.path.join(persona_dir, filename)
+
+with open(filepath, 'r', encoding='utf-8') as f:
+
+persona_data = json.load(f)
+
+name = persona_data.get('name')
+
+if name:
+
+personas[name] = persona_data
+
+return personas
+
+  
+
+# Load personas
+
+persona_dir = 'personas' # Directory where persona JSON files are stored
+
+personas = load_personas(persona_dir)
+
+  
+
+# Function to collect context from predecessor nodes
+
+def collect_context(node_id, G, iteration, previous_responses):
+
+"""Collect context including previous iterations."""
+
+predecessors = list(G.predecessors(node_id))
+
+context = ""
+
+# Add context from previous iterations if they exist
+
+if iteration > 0:
+
+context += f"\nPrevious iteration responses:\n"
+
+for pred_id in predecessors:
+
+if pred_id in previous_responses:
+
+pred_node = G.nodes[pred_id]['data']
+
+context += f"From {pred_node.persona_name} (previous round):\n{previous_responses[pred_id]}\n\n"
+
+# Add context from current iteration
+
+context += f"\nCurrent iteration responses:\n"
+
+for pred_id in predecessors:
+
+pred_node = G.nodes[pred_id]['data']
+
+if pred_node.response_text:
+
+context += f"From {pred_node.persona_name}:\n{pred_node.response_text}\n\n"
+
+return context
+
+  
+
+# Function to generate responses using LangChain and Ollama
+
+def generate_response(node, iteration):
+
+"""Generate response with awareness of the current iteration."""
+
+persona = personas.get(node.persona_name)
+
+if not persona:
+
+raise ValueError(f"Persona '{node.persona_name}' not found.")
+
+node.persona_attributes = persona
+
+system_prompt = build_system_prompt(persona)
+
+# Modify the prompt to include iteration information
+
+iteration_prompt = f"This is round {iteration + 1} of the conversation. "
+
+if iteration > 0:
+
+iteration_prompt += "Please consider the previous responses in your reply. "
+
+prompt_template = PromptTemplate(
+
+input_variables=["system_prompt", "iteration_prompt", "context", "prompt"],
+
+template="{system_prompt}\n\n{iteration_prompt}\n\n{context}\n\n{prompt}"
+
+)
+
+llm = Ollama(
+
+base_url="http://localhost:11434",
+
+model="qwq",
+
+)
+
+chain = LLMChain(llm=llm, prompt=prompt_template)
+
+response = chain.run(
+
+system_prompt=system_prompt,
+
+iteration_prompt=iteration_prompt,
+
+context=node.context,
+
+prompt=node.prompt_text
+
+)
+
+return response
+
+  
+
+def build_system_prompt(persona):
+
+# Construct descriptive sentences based on persona attributes
+
+# We'll focus on key attributes for brevity
+
+name = persona.get('name', 'The speaker')
+
+tone = persona.get('tone', 'neutral')
+
+sentence_structure = persona.get('sentence_structure', 'varied')
+
+vocabulary_complexity = persona.get('vocabulary_complexity', 5)
+
+formality_level = persona.get('formality_level', 5)
+
+pronoun_preference = persona.get('pronoun_preference', 'third-person')
+
+language_abstraction = persona.get('language_abstraction', 'mixed')
+
+  
+
+# Create a description
+
+description = (
+
+f"You are {name}, writing in a {tone} tone using {sentence_structure} sentences. "
+
+f"Your vocabulary complexity is {vocabulary_complexity}/10, and your formality level is {formality_level}/10. "
+
+f"You prefer {pronoun_preference} narration and your language abstraction is {language_abstraction}."
+
+)
+
+  
+
+# Include any other attributes as needed
+
+# ...
+
+  
+
+return description
+
+  
+  
+
+# Function to log interactions to a markdown file
+
+def update_markdown(node, iteration):
+
+"""Update markdown file with iteration information."""
+
+with open("conversation.md", "a", encoding="utf-8") as f:
+
+f.write(f"## Iteration {iteration + 1} - Node {node.id}: {node.persona_name}\n\n")
+
+f.write(f"**Prompt:**\n\n{node.prompt_text}\n\n")
+
+f.write(f"**Response:**\n\n{node.response_text}\n\n---\n\n")
+
+  
+
+# Function for nodes that perform analysis
+
+def analyze_responses(node, G, iteration):
+
+"""Analyze responses with awareness of iteration context."""
+
+predecessors = list(G.predecessors(node.id))
+
+analysis_input = f"Analysis for Iteration {iteration + 1}:\n\n"
+
+for pred_id in predecessors:
+
+pred_node = G.nodes[pred_id]['data']
+
+analysis_input += f"{pred_node.persona_name}'s response:\n{pred_node.response_text}\n\n"
+
+  
+
+node.prompt_text = (
+
+f"Provide an analysis comparing the following perspectives from iteration {iteration + 1}:\n\n"
+
+f"{analysis_input}\n"
+
+f"Consider how the conversation has evolved across iterations."
+
+)
+
+node.context = ""
+
+node.response_text = generate_response(node, iteration)
+
+update_markdown(node, iteration)
+
+  
+  
+
+@click.group()
+
+def cli():
+
+pass
+
+  
+
+@cli.command()
+
+def list_personas():
+
+"""List all available personas."""
+
+for persona_name in personas.keys():
+
+print(persona_name)
+
+  
+
+@cli.command()
+
+@click.option('--nodes', '-n', default=2, help='Number of nodes (excluding the analyst node).')
+
+@click.option('--iterations', '-i', default=1, help='Number of conversation iterations.')
+
+def run(nodes, iterations):
+
+"""Run the application with the specified number of nodes and iterations."""
+
+# Clear previous conversation file
+
+with open("conversation.md", "w", encoding="utf-8") as f:
+
+f.write("# Conversation Log\n\n")
+
+  
+
+# Let the user select personas and input prompts for each node
+
+nodes_info = []
+
+for i in range(1, nodes + 1):
+
+print(f"\nConfiguring Node {i}")
+
+persona_name = click.prompt('Enter the persona name', type=str)
+
+while persona_name not in personas:
+
+print('Persona not found. Available personas:')
+
+for name in personas.keys():
+
+print(f" - {name}")
+
+persona_name = click.prompt('Enter the persona name', type=str)
+
+prompt_text = click.prompt('Enter the prompt text', type=str)
+
+node_info = {
+
+'id': i,
+
+'prompt_text': prompt_text,
+
+'persona_name': persona_name
+
+}
+
+nodes_info.append(node_info)
+
+# Add the analyst node
+
+analyst_node_id = nodes + 1
+
+analyst_node_info = {
+
+'id': analyst_node_id,
+
+'prompt_text': '',
+
+'persona_name': 'Analyst'
+
+}
+
+nodes_info.append(analyst_node_info)
+
+# Define edges
+
+edges_info = []
+
+for i in range(1, nodes + 1):
+
+edges_info.append({'from': i, 'to': analyst_node_id})
+
+# Build and process the graph
+
+G = build_graph(nodes_info, edges_info)
+
+# Process the graph for the specified number of iterations
+
+process_graph(G, iterations)
+
+print(f"\nConversation with {iterations} iterations has been generated and logged to conversation.md")
+
+  
+
+if __name__ == '__main__':
+
+cli()
+```
