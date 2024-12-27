@@ -1620,3 +1620,606 @@ for node_id in nx.topological_sort(G):
 
 print("Conversation has been generated and logged to conversation.md")
 ```
+
+
+Given that a CLI is generally quicker to implement and can provide immediate utility, let's start with creating a CLI using the `argparse` or `click` library. After that, I'll provide guidance on how you can set up a GUI using **Streamlit**, which is a Python library that allows for quick and easy creation of web apps.
+
+---
+
+## **Option 1: Creating a Command Line Interface (CLI)**
+
+We'll enhance your application to allow users to:
+
+- List available personas.
+- Select personas for nodes.
+- Input custom prompts.
+- Customize the graph structure if desired.
+
+### **1. Install the Required Libraries**
+
+We can use the `argparse` module from the standard library or the `click` library, which is more user-friendly for complex CLIs.
+
+Let's use `click`:
+
+```bash
+pip install click
+```
+
+Add this to your `requirements.txt`:
+
+```
+click
+```
+
+### **2. Modify `main.py` to Include CLI Functionality**
+
+#### **2.1. Import `click` Module**
+
+At the top of your `main.py`, import `click`:
+
+```python
+import click
+```
+
+#### **2.2. Refactor the Code into Functions**
+
+We'll encapsulate the main logic into functions that we can call from the CLI commands.
+
+**Encapsulate Graph Building into a Function:**
+
+```python
+def build_graph(nodes_info, edges_info):
+    G = nx.DiGraph()
+    nodes = {}
+    # Create nodes
+    for node_info in nodes_info:
+        node_id = node_info['id']
+        prompt_text = node_info['prompt_text']
+        persona_name = node_info['persona_name']
+        node = Node(node_id, prompt_text, persona_name)
+        G.add_node(node_id, data=node)
+        nodes[node_id] = node
+
+    # Add edges
+    for edge in edges_info:
+        G.add_edge(edge['from'], edge['to'])
+    
+    return G
+```
+
+**Encapsulate Node Processing into a Function:**
+
+```python
+def process_graph(G):
+    for node_id in nx.topological_sort(G):
+        node = G.nodes[node_id]['data']
+        if node.persona_name != "Analyst":
+            node.context = collect_context(node_id, G)
+            node.response_text = generate_response(node)
+            update_markdown(node)
+        else:
+            analyze_responses(node, G)
+```
+
+**Update the `collect_context` and `analyze_responses` functions to accept `G` as a parameter:**
+
+```python
+def collect_context(node_id, G):
+    # Existing code...
+```
+
+```python
+def analyze_responses(node, G):
+    # Existing code...
+```
+
+#### **2.3. Create CLI Commands with `click`**
+
+Below all the functions, add the CLI commands:
+
+```python
+@click.group()
+def cli():
+    pass
+```
+
+**Command to List Available Personas:**
+
+```python
+@cli.command()
+def list_personas():
+    """List all available personas."""
+    for persona_name in personas.keys():
+        print(persona_name)
+```
+
+**Command to Run the Application with Custom Inputs:**
+
+```python
+@cli.command()
+@click.option('--nodes', '-n', default=2, help='Number of nodes (excluding the analyst node).')
+def run(nodes):
+    """Run the application with the specified number of nodes."""
+    # Let the user select personas and input prompts for each node
+    nodes_info = []
+    for i in range(1, nodes + 1):
+        print(f"\nConfiguring Node {i}")
+        persona_name = click.prompt('Enter the persona name', type=str)
+        while persona_name not in personas:
+            print('Persona not found. Available personas:')
+            for name in personas.keys():
+                print(f" - {name}")
+            persona_name = click.prompt('Enter the persona name', type=str)
+        
+        prompt_text = click.prompt('Enter the prompt text', type=str)
+        node_info = {
+            'id': i,
+            'prompt_text': prompt_text,
+            'persona_name': persona_name
+        }
+        nodes_info.append(node_info)
+    
+    # Add the analyst node
+    analyst_node_id = nodes + 1
+    analyst_node_info = {
+        'id': analyst_node_id,
+        'prompt_text': '',
+        'persona_name': 'Analyst'
+    }
+    nodes_info.append(analyst_node_info)
+    
+    # Define edges (here we assume that the analyst node depends on all other nodes)
+    edges_info = []
+    for i in range(1, nodes + 1):
+        edges_info.append({'from': i, 'to': analyst_node_id})
+    
+    # Build and process the graph
+    G = build_graph(nodes_info, edges_info)
+    process_graph(G)
+    print("\nConversation has been generated and logged to conversation.md")
+```
+
+#### **2.4. Update the Main Execution Block**
+
+Replace the existing execution code at the bottom of `main.py` with:
+
+```python
+if __name__ == '__main__':
+    cli()
+```
+
+---
+
+### **3. Running the Updated Application**
+
+#### **3.1. List Available Personas**
+
+```bash
+python main.py list-personas
+```
+
+Output:
+
+```
+Ernest Hemingway
+Albert Einstein
+Analyst
+```
+
+#### **3.2. Run the Application with Custom Inputs**
+
+```bash
+python main.py run --nodes 2
+```
+
+The application will prompt you for inputs:
+
+```
+Configuring Node 1
+Enter the persona name: Ernest Hemingway
+Enter the prompt text: Discuss the impacts of the industrial revolution.
+
+Configuring Node 2
+Enter the persona name: Albert Einstein
+Enter the prompt text: Explain quantum mechanics in simple terms.
+
+Conversation has been generated and logged to conversation.md
+```
+
+---
+
+## **Option 2: Creating a Graphical User Interface (GUI) with Streamlit**
+
+**Streamlit** allows you to turn your Python scripts into interactive web apps with minimal effort.
+
+### **1. Install Streamlit**
+
+```bash
+pip install streamlit
+```
+
+Add this to your `requirements.txt`:
+
+```
+streamlit
+```
+
+### **2. Create a New Streamlit App File**
+
+Create a new file called `app.py` in your project directory.
+
+### **3. Write the Streamlit App**
+
+**Import Necessary Modules in `app.py`:**
+
+```python
+import streamlit as st
+import os
+import json
+import networkx as nx
+from main import Node, generate_response, collect_context, analyze_responses, build_system_prompt, load_personas, update_markdown, process_graph, build_graph
+```
+
+**Ensure `main.py` Functions are Importable**
+
+- Modify your `main.py` functions to be importable without executing the CLI commands.
+- Place the CLI commands under `if __name__ == '__main__':`.
+
+**Load Personas**
+
+```python
+# Load personas
+persona_dir = 'personas'
+personas = load_personas(persona_dir)
+```
+
+**Streamlit Interface**
+
+```python
+def main():
+    st.title("LangChain Graph App")
+    
+    st.header("Create a Conversation Graph")
+    
+    # Select number of nodes
+    num_nodes = st.number_input('Number of nodes (excluding the analyst node):', min_value=1, value=2)
+    
+    nodes_info = []
+    for i in range(1, int(num_nodes) + 1):
+        st.subheader(f"Node {i} Configuration")
+        persona_name = st.selectbox(f"Select persona for Node {i}:", options=list(personas.keys()), key=f"persona_{i}")
+        prompt_text = st.text_area(f"Enter the prompt for Node {i}:", key=f"prompt_{i}")
+        node_info = {
+            'id': i,
+            'prompt_text': prompt_text,
+            'persona_name': persona_name
+        }
+        nodes_info.append(node_info)
+    
+    # Assume the analyst node
+    analyst_node_id = int(num_nodes) + 1
+    analyst_node_info = {
+        'id': analyst_node_id,
+        'prompt_text': '',
+        'persona_name': 'Analyst'
+    }
+    nodes_info.append(analyst_node_info)
+    
+    # Define edges
+    edges_info = []
+    for i in range(1, int(num_nodes) + 1):
+        edges_info.append({'from': i, 'to': analyst_node_id})
+    
+    if st.button("Generate Conversation"):
+        G = build_graph(nodes_info, edges_info)
+        process_graph(G)
+        st.success("Conversation has been generated and logged to conversation.md")
+        
+        # Display the conversation
+        with open("conversation.md", "r", encoding="utf-8") as f:
+            content = f.read()
+            st.markdown(content)
+```
+
+**Run the Streamlit App in `app.py`:**
+
+```python
+if __name__ == '__main__':
+    main()
+```
+
+### **4. Running the Streamlit App**
+
+In your terminal, run:
+
+```bash
+streamlit run app.py
+```
+
+A web browser will open displaying your app.
+
+### **5. Interact with the GUI**
+
+- Select the number of nodes.
+- Choose personas from dropdown menus.
+- Enter prompts for each node.
+- Click "Generate Conversation" to run the application.
+- The conversation will be displayed on the page.
+
+---
+
+## **Adjustments to `main.py`**
+
+To make the functions importable for the GUI, ensure that your `main.py` does not execute any code upon import.
+
+- Place the CLI commands and any execution code under:
+
+```python
+if __name__ == '__main__':
+    cli()
+```
+
+---
+
+## **Summary**
+
+- **CLI Option:**
+  - **Use `click` to create a user-friendly command-line interface.**
+  - **Allows users to select personas and customize prompts interactively in the terminal.**
+
+- **GUI Option:**
+  - **Use Streamlit to build a simple web application.**
+  - **Users can select personas and enter prompts in a web browser interface.**
+
+---
+
+## **Next Steps**
+
+- **Add Error Handling:**
+  - Validate user inputs for personas and prompts.
+  - Handle exceptions that may occur during execution.
+
+- **Enhance the GUI:**
+  - Allow users to define custom personas through the interface.
+  - Provide visualization of the conversation graph.
+
+- **Improve the CLI:**
+  - Add more options for advanced customization.
+  - Save and load previous configurations.
+
+- **Documentation:**
+  - Update README files with instructions on how to use the CLI and GUI.
+  - Provide examples and screenshots for clarity.
+
+---
+
+## **Testing**
+
+- **CLI Testing:**
+  - Run various configurations through the CLI to ensure functionality.
+  - Test with different numbers of nodes and personas.
+
+- **GUI Testing:**
+  - Interact with the app in the browser.
+  - Confirm that conversations are generated as expected.
+
+---
+
+## **Conclusion**
+
+By implementing either the CLI or GUI, you've enhanced your application to be more user-friendly and interactive. Users can now select personas and customize prompts without modifying the code directly.
+
+Final main.py:
+
+```python
+
+# main.py
+import click
+import os
+import networkx as nx
+from langchain import PromptTemplate, LLMChain
+from langchain.llms import Ollama
+import json
+
+
+
+
+
+# Define the Node class
+class Node:
+    def __init__(self, node_id, prompt_text, persona_name):
+        self.id = node_id
+        self.prompt_text = prompt_text
+        self.response_text = None
+        self.context = ""
+        self.persona_name = persona_name
+        self.persona_attributes = {}
+
+# Initialize the graph
+G = nx.DiGraph()
+
+def build_graph(nodes_info, edges_info):
+    G = nx.DiGraph()
+    nodes = {}
+    # Create nodes
+    for node_info in nodes_info:
+        node_id = node_info['id']
+        prompt_text = node_info['prompt_text']
+        persona_name = node_info['persona_name']
+        node = Node(node_id, prompt_text, persona_name)
+        G.add_node(node_id, data=node)
+        nodes[node_id] = node
+
+    # Add edges
+    for edge in edges_info:
+        G.add_edge(edge['from'], edge['to'])
+    
+    return G
+
+def process_graph(G):
+    for node_id in nx.topological_sort(G):
+        node = G.nodes[node_id]['data']
+        if node.persona_name != "Analyst":
+            node.context = collect_context(node_id, G)
+            node.response_text = generate_response(node)
+            update_markdown(node)
+        else:
+            analyze_responses(node, G)
+
+def load_personas(persona_dir):
+    personas = {}
+    for filename in os.listdir(persona_dir):
+        if filename.endswith('.json'):
+            filepath = os.path.join(persona_dir, filename)
+            with open(filepath, 'r', encoding='utf-8') as f:
+                persona_data = json.load(f)
+                name = persona_data.get('name')
+                if name:
+                    personas[name] = persona_data
+    return personas
+
+# Load personas
+persona_dir = 'personas'  # Directory where persona JSON files are stored
+personas = load_personas(persona_dir)
+
+# Function to collect context from predecessor nodes
+def collect_context(node_id, G):
+    predecessors = list(G.predecessors(node_id))
+    context = ""
+    for pred_id in predecessors:
+        pred_node = G.nodes[pred_id]['data']
+        if pred_node.response_text:
+            context += f"From {pred_node.persona}:\n{pred_node.response_text}\n\n"
+    return context
+
+# Function to generate responses using LangChain and Ollama
+def generate_response(node):
+    persona = personas.get(node.persona_name)
+    if not persona:
+        raise ValueError(f"Persona '{node.persona_name}' not found.")
+    
+    node.persona_attributes = persona
+
+    # Build the system prompt based on persona attributes
+    system_prompt = build_system_prompt(persona)
+
+    # Build the complete prompt
+    prompt_template = PromptTemplate(
+        input_variables=["system_prompt", "context", "prompt"],
+        template="{system_prompt}\n\n{context}\n\n{prompt}"
+    )
+    # Instantiate the Ollama LLM
+    llm = Ollama(
+        base_url="http://localhost:11434",  # Default Ollama server URL
+        model="qwq",  # Replace with the model you have downloaded
+    )
+    chain = LLMChain(llm=llm, prompt=prompt_template)
+    response = chain.run(
+        system_prompt=system_prompt,
+        context=node.context,
+        prompt=node.prompt_text
+    )
+    return response
+
+def build_system_prompt(persona):
+    # Construct descriptive sentences based on persona attributes
+    # We'll focus on key attributes for brevity
+    name = persona.get('name', 'The speaker')
+    tone = persona.get('tone', 'neutral')
+    sentence_structure = persona.get('sentence_structure', 'varied')
+    vocabulary_complexity = persona.get('vocabulary_complexity', 5)
+    formality_level = persona.get('formality_level', 5)
+    pronoun_preference = persona.get('pronoun_preference', 'third-person')
+    language_abstraction = persona.get('language_abstraction', 'mixed')
+
+    # Create a description
+    description = (
+        f"You are {name}, writing in a {tone} tone using {sentence_structure} sentences. "
+        f"Your vocabulary complexity is {vocabulary_complexity}/10, and your formality level is {formality_level}/10. "
+        f"You prefer {pronoun_preference} narration and your language abstraction is {language_abstraction}."
+    )
+
+    # Include any other attributes as needed
+    # ...
+
+    return description
+
+
+# Function to log interactions to a markdown file
+def update_markdown(node):
+    with open("conversation.md", "a", encoding="utf-8") as f:
+        f.write(f"## Node {node.id}: {node.persona_name}\n\n")
+        f.write(f"**Prompt:**\n\n{node.prompt_text}\n\n")
+        f.write(f"**Response:**\n\n{node.response_text}\n\n---\n\n")
+
+# Function for nodes that perform analysis
+def analyze_responses(node, G):
+    # Collect responses from predecessor nodes
+    predecessors = list(G.predecessors(node.id))
+    analysis_input = ""
+    for pred_id in predecessors:
+        pred_node = G.nodes[pred_id]['data']
+        analysis_input += f"{pred_node.persona_name}'s response:\n{pred_node.response_text}\n\n"
+
+    node.prompt_text = f"Provide an analysis comparing the following perspectives:\n\n{analysis_input}"
+    node.context = ""  # Analysis is based solely on the provided responses
+    node.response_text = generate_response(node)
+    update_markdown(node)
+
+
+@click.group()
+def cli():
+    pass
+
+@cli.command()
+def list_personas():
+    """List all available personas."""
+    for persona_name in personas.keys():
+        print(persona_name)
+        
+@cli.command()
+@click.option('--nodes', '-n', default=2, help='Number of nodes (excluding the analyst node).')
+def run(nodes):
+    """Run the application with the specified number of nodes."""
+    # Let the user select personas and input prompts for each node
+    nodes_info = []
+    for i in range(1, nodes + 1):
+        print(f"\nConfiguring Node {i}")
+        persona_name = click.prompt('Enter the persona name', type=str)
+        while persona_name not in personas:
+            print('Persona not found. Available personas:')
+            for name in personas.keys():
+                print(f" - {name}")
+            persona_name = click.prompt('Enter the persona name', type=str)
+        
+        prompt_text = click.prompt('Enter the prompt text', type=str)
+        node_info = {
+            'id': i,
+            'prompt_text': prompt_text,
+            'persona_name': persona_name
+        }
+        nodes_info.append(node_info)
+    
+    # Add the analyst node
+    analyst_node_id = nodes + 1
+    analyst_node_info = {
+        'id': analyst_node_id,
+        'prompt_text': '',
+        'persona_name': 'Analyst'
+    }
+    nodes_info.append(analyst_node_info)
+    
+    # Define edges (here we assume that the analyst node depends on all other nodes)
+    edges_info = []
+    for i in range(1, nodes + 1):
+        edges_info.append({'from': i, 'to': analyst_node_id})
+    
+    # Build and process the graph
+    G = build_graph(nodes_info, edges_info)
+    process_graph(G)
+    print("\nConversation has been generated and logged to conversation.md")
+
+if __name__ == '__main__':
+    cli()
+
+```
