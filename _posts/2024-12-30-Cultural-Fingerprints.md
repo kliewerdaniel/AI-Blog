@@ -14,9 +14,7 @@ The methodology involves creating standardized prompts across sensitive topics i
 
 This work contributes to our understanding of AI ethics as culturally constructed rather than universal, highlighting the importance of recognizing these biases in global AI deployment. The findings suggest that current approaches to AI safety and misinformation control may inadvertently perpetuate cultural hegemony through technological means.
 
-Response
 
-MarkdownText
 
 DISSERTATION STRUCTURE
 
