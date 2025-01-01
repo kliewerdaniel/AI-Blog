@@ -3,6 +3,9 @@ layout: default
 permalink: /about/
 ---
 
+![Alt text](../static/images/cpatain.jpg){:loading="lazy"}
+
+
 In the year 2023, my life was upended in a manner I could scarcely have imagined—I found myself wandering the streets, stripped of all I possessed. The familiar comforts of home and the assurances of daily life had vanished, leaving me to confront the abyss of uncertainty.
 
 Driven by a desire to extend a hand to those overlooked by society, I had opened my door to a fellow traveler—a man bearing the weight of his own burdens. In our shared space, we sought refuge from the world's indifference, believing that companionship might soothe the fractures within us both.
