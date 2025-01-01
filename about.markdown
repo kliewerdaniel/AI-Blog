@@ -3,7 +3,7 @@ layout: default
 permalink: /about/
 ---
 
-![Alt text](../static/images/cpatain.jpg){:loading="lazy"}
+![Alt text](/static/images/cpatain.jpg){:loading="lazy"}
 
 
 In the year 2023, my life was upended in a manner I could scarcely have imagined—I found myself wandering the streets, stripped of all I possessed. The familiar comforts of home and the assurances of daily life had vanished, leaving me to confront the abyss of uncertainty.
