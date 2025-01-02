@@ -23,90 +23,163 @@ Title: Cultural Fingerprints in AI: A Comparative Analysis of Ethical Guardrails
 TABLE OF CONTENTS
 
 CHAPTER 1: 
+
 INTRODUCTION 
+
 1.1 Background and Context 
+
 1.2 Research Objectives 
+
 1.3 Significance of the Study 
+
 1.4 Research Questions 
+
 1.5 Theoretical Framework 
+
 1.6 Scope and Limitations
 
+
 CHAPTER 2: 
+
 LITERATURE REVIEW 
+
 2.1 Evolution of Large Language Models 
+
 2.2 Cultural Theory in AI Development 
+
 2.3 Ethical AI and Guardrails 
+
 2.4 Cross-Cultural Information Control 
+
 2.5 Defining Misinformation Across Cultures 
+
 2.6 Previous Comparative Studies 
+
 2.7 Research Gap
 
-CHAPTER 3: METHODOLOGY 
+CHAPTER 3: 
+
+METHODOLOGY 
+
 3.1 Research Design 
+
 3.2 Model Selection and Specifications 
+
 3.2.1 LLaMA (US) 
+
 3.2.2 QwQ (China) 
+
 3.2.3 Mistral (France) 
+
 3.3 Data Collection Methods 
+
 3.4 Testing Framework 
+
 3.5 Analysis Protocols 
+
 3.6 Ethical Considerations
 
+
 CHAPTER 4: 
+
 TESTING PROTOCOLS 
+
 4.1 Prompt Design 
+
 4.2 Topic Selection 
+
 4.2.1 Geopolitical Issues 
+
 4.2.2 Historical Events 
+
 4.2.3 Social Issues 
+
 4.2.4 Economic Policies 
+
 4.3 Response Analysis Framework 
+
 4.4 Guardrail Detection Methods 
+
 4.5 Cross-Validation Techniques
 
 CHAPTER 5: 
+
 RESULTS AND ANALYSIS 
+
 5.1 Comparative Response Analysis 
+
 5.1.1 Geopolitical Narratives 
+
 5.1.2 Historical Interpretations 
+
 5.1.3 Social Value Systems 
+
 5.1.4 Economic Perspectives 
+
 5.2 Guardrail Patterns 
+
 5.3 Cultural Bias Indicators 
+
 5.4 Statistical Analysis 
+
 5.5 Pattern Recognition 
+
 5.6 Anomaly Detection
 
 CHAPTER 6: 
+
 DISCUSSION 
+
 6.1 Cultural Imprints in AI Responses 
+
 6.2 Divergent Definitions of Truth 
+
 6.3 Impact of Political Systems 
+
 6.4 Technological Hegemony 
+
 6.5 Ethical Implications 
+
 6.6 Future Applications
 
 CHAPTER 7: 
+
 IMPLICATIONS AND RECOMMENDATIONS 
+
 7.1 Theoretical Implications 
+
 7.2 Practical Applications 
+
 7.3 Policy Recommendations 
+
 7.4 Industry Guidelines 
+
 7.5 Future Research Directions
 
 CHAPTER 8: 
+
 CONCLUSION 
+
 8.1 Summary of Findings 
+
 8.2 Research Contributions 
+
 8.3 Limitations 
+
 8.4 Future Work
 
 APPENDICES 
+
 A. Test Prompts Database 
+
 B. Raw Response Data 
+
 C. Statistical Analysis Details 
+
 D. Technical Specifications 
+
 E. Code Repository 
+
 F. Ethics Committee Approval
 
 BIBLIOGRAPHY
