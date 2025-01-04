@@ -3,6 +3,12 @@ layout: home
 title:  High-Level Architecture for the LangChain Application using Ollama
 date:   2024-12-27 07:42:44 -0500
 ---
+
+
+![Alt text](/static/images/langchain.png){:loading="lazy"}
+
+
+
 **High-Level Architecture for the LangChain Application using Ollama:**
 
 The application leverages a graph structure to manage and orchestrate interactions with a Language Model (LLM) using LangChain and Ollama. The key components and their interactions are:
