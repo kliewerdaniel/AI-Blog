@@ -2,6 +2,8 @@
 layout: home
 ---
 
+![Alt text](/static/images/a.png){:loading="lazy"}
+
 
 <!-- Blog Posts -->
 
