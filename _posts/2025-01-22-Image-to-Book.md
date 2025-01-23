@@ -272,7 +272,9 @@ def retrieve_context(self, query):
 ```
 
 3. **Validation Layer**
+
 ```python
+
 # validation.py
 from pydantic import BaseModel, validator
 
