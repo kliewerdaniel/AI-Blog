@@ -31,9 +31,7 @@ Transform visual inputs into structured narratives using cutting-edge AI technol
 - [Architecture](#architecture)
 - [Production Deployment](#production-deployment)
 - [Troubleshooting](#troubleshooting)
-- [Ethical Considerations](#ethical-consideration)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Quick Start
 
