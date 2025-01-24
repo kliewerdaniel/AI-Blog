@@ -4,7 +4,7 @@ title:  Building a Multimodal Story Generation System Complete Setup Guide
 date:   2025-01-23 07:42:44 -0500
 ---
 
-https://github.com/kliewerdaniel/ITB02
+
 
 **Crafting Dynamic Narratives with AI: Complete Implementation Guide**  
 *Build and Deploy a Multimodal Story Generation System*  
