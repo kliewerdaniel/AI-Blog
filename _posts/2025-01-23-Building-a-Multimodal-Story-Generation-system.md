@@ -14,7 +14,7 @@ date:   2025-01-23 07:42:44 -0500
 
 Transform visual inputs into structured narratives using cutting-edge AI technologies. This system combines computer vision and large language models to generate dynamic, multi-chapter stories from images.
 
-![System Architecture](https://via.placeholder.com/800x400?text=Multimodal+Story+Generation+Architecture)
+
 
 ## Features
 
