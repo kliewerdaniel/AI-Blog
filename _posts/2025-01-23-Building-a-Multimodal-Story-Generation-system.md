@@ -161,12 +161,6 @@ pip install torch --extra-index-url https://download.pytorch.org/whl/cu117
 - User-controlled output constraints  
 - Attribution tracking for generated content  
 
----
-
-### **Development Roadmap**  
-- **Q3 2024**: Audio narrative input support  
-- **Q4 2024**: Collaborative editing features  
-- **Q1 2025**: Mobile optimization  
 
 ---
 
@@ -178,4 +172,3 @@ This system demonstrates the power of multimodal AI while emphasizing:
 
 For detailed API documentation and contributor guidelines, refer to the [project repository](https://github.com/kliewerdaniel/ITB02).
 
-© 2024 Daniel Kliewer. Released under MIT License.
