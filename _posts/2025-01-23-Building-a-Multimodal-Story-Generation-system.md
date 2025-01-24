@@ -56,7 +56,7 @@ brew install libjpeg webp  # Image processing dependencies
 ```bash
 # Download LLMs via Ollama
 ollama pull gemma2:27b
-ollama pull deepseek-llm:70b
+ollama pull llava
 ```
 
 **4. Launch Services**  
