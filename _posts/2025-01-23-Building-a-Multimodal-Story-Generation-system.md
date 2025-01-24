@@ -190,13 +190,9 @@ In an era where AI reshapes creative industries, we present an innovative system
 
 ---
 
-### **Getting Started**  
-Ready to transform images into epic narratives? Proceed to our  
-[Step-by-Step Setup Guide](#) for installation instructions and system requirements.
 
----
 
-**Final Thoughts**  
+
 This system represents a significant leap in human-AI collaborative creativity. While not replacing human authors, it serves as a powerful ideation partner, helping overcome creative hurdles and explore narrative possibilities that might otherwise remain undiscovered. As we continue refining the technology, our focus remains on enhancing human creativity rather than replacing it—the true promise of AI in artistic domains.
 
 
