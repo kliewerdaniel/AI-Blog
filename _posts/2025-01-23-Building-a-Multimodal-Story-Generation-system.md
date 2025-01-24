@@ -5,7 +5,7 @@ date:   2025-01-23 07:42:44 -0500
 ---
 
 
-```markdown
+
 # Multimodal Story Generation System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -164,4 +164,3 @@ services:
 **Daniel Kliewer**  
 [GitHub Profile](https://github.com/kliewerdaniel)  
 *AI Systems Developer*  
-```
