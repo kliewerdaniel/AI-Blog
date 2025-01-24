@@ -5,111 +5,130 @@ date:   2025-01-23 07:42:44 -0500
 ---
 
 
+```markdown
+# Multimodal Story Generation System
 
-**Crafting Dynamic Narratives with AI: Complete Implementation Guide**  
-*Build and Deploy a Multimodal Story Generation System*  
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
+[![Ollama Required](https://img.shields.io/badge/Ollama-Required-important.svg)](https://ollama.ai/)
 
----
+Transform visual inputs into structured narratives using cutting-edge AI technologies. This system combines computer vision and large language models to generate dynamic, multi-chapter stories from images.
 
-### **Project Overview**  
-**[GitHub Repository](https://github.com/kliewerdaniel/ITB02)**  
-This system transforms visual inputs into structured narratives using:  
-- **Computer Vision**: Analyze images for story elements  
-- **LLM Orchestration**: Gemma2-27B for dynamic story generation  
-- **RAG Architecture**: ChromaDB for narrative consistency  
-- **React Visualization**: Interactive story graph interface  
+![System Architecture](https://via.placeholder.com/800x400?text=Multimodal+Story+Generation+Architecture)
 
----
+## Features
 
-### **System Requirements**  
-- Python 3.11+  
-- Node.js 18+ (Frontend)  
-- 16GB+ RAM (24GB+ for GPU acceleration)  
-- Ollama runtime (Local LLM management)  
+- 🖼️ **Image Analysis** - Extract narrative elements from images using LLaVA
+- 📖 **Adaptive Story Generation** - Generate 5-chapter stories with Gemma2-27B
+- 🧠 **Context Awareness** - Maintain narrative consistency with ChromaDB RAG
+- 📊 **Interactive Visualization** - ReactFlow-powered story graph interface
+- 🚀 **Production Ready** - Dockerized microservices architecture
 
----
+## Table of Contents
 
-### **Quick Start: Local Development**  
-**1. Environment Setup**  
-```bash
-# Clone repository
-git clone https://github.com/kliewerdaniel/ITB02
-cd ITB02
+- [Quick Start](#quick-start)
+- [System Requirements](#system-requirements)
+- [Architecture](#architecture)
+- [Production Deployment](#production-deployment)
+- [Troubleshooting](#troubleshooting)
+- [Ethical Considerations](#ethical-consideration)
+- [Contributing](#contributing)
+- [License](#license)
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
+## Quick Start
+
+### Local Development Setup
+
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/kliewerdaniel/ITB02
+   cd ITB02
+   ```
+
+2. **Create Virtual Environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux/Mac
+   venv\Scripts\activate     # Windows
+   ```
+
+3. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   
+   # Apple Silicon Special Setup
+   pip install --pre torch --extra-index-url https://download.pytorch.org/whl/nightly/cpu
+   brew install libjpeg webp
+   ```
+
+4. **Initialize AI Models**
+   ```bash
+   ollama pull gemma2:27b
+   ollama pull llava
+   ```
+
+5. **Start Services**
+   ```bash
+   # Backend (FastAPI)
+   uvicorn backend.main:app --reload
+
+   # Frontend (new terminal)
+   cd frontend
+   npm install && npm run dev
+   ```
+
+6. **Verify Installation**
+   ```bash
+   curl http://localhost:8000/health
+   # Expected response: {"status":"healthy"}
+   ```
+
+## System Requirements
+
+- Python 3.11+
+- Node.js 18+
+- Ollama runtime
+- 16GB RAM (24GB+ recommended for GPU acceleration)
+- 10GB+ Disk Space
+
+## Architecture
+
+```text
+[Frontend] ←HTTP→ [FastAPI]  
+                 ↓     ↑  
+              [Ollama] ←→ [ChromaDB]  
+                 ↓  
+              [Redis]  
+                 ↓  
+            [Celery Workers]
 ```
 
-**2. Install Dependencies**  
+### Key Components
+
+| Component           | Technology Stack       | Function                           |
+|---------------------|------------------------|------------------------------------|
+| Image Analysis      | LLaVA, Pillow          | Visual narrative extraction        |
+| Story Engine        | Gemma2-27B, LangChain  | Context-aware chapter generation   |
+| Knowledge Base      | ChromaDB               | Narrative consistency management   |
+| API Layer           | FastAPI                | REST endpoint management           |
+| Visualization       | ReactFlow, Zustand     | Interactive story mapping          |
+
+## Production Deployment
+
+### Docker Setup
+
 ```bash
-# Core requirements
-pip install -r requirements.txt
-
-# Apple Silicon Special Setup
-pip install --pre torch --extra-index-url https://download.pytorch.org/whl/nightly/cpu
-brew install libjpeg webp  # Image processing dependencies
-```
-
-**3. Initialize AI Models**  
-```bash
-# Download LLMs via Ollama
-ollama pull gemma2:27b
-ollama pull llava
-```
-
-**4. Launch Services**  
-*In separate terminals:*  
-
-**Backend (FastAPI):**  
-```bash
-uvicorn backend.main:app --reload
-```
-
-**Frontend:**  
-```bash
-cd frontend
-npm install && npm run dev
-```
-
----
-
-### **System Verification**  
-```bash
-# Check API health
-curl http://localhost:8000/health
-
-# Test story generation
-curl -X POST -F "image=@./test_image.jpg" http://localhost:8000/story/generate-story
-```
-
----
-
-### **Key Components**  
-| **Module** | **Technology** | **Function** |  
-|------------|----------------|--------------|  
-| Image Analysis | LLaVA, Pillow | Extract visual narrative elements |  
-| Story Engine | Gemma2-27B, LangChain | Generate context-aware chapters |  
-| Knowledge Base | ChromaDB | Maintain narrative consistency |  
-| API Layer | FastAPI | REST endpoint management |  
-| Visualization | ReactFlow | Interactive story mapping |  
-
----
-
-### **Production Deployment**  
-**1. Docker Setup**  
-```bash
-# Build and launch
+# Build and launch all services
 docker-compose up --build
 
 # Initialize vector store
 docker exec -it backend python -c "from backend.core.rag_manager import NarrativeRAG; NarrativeRAG()"
 ```
 
-**2. Cluster Configuration**  
+### Cluster Configuration
+
 ```yaml
-# docker-compose.yml
+# docker-compose.yml excerpt
 services:
   ollama:
     deploy:
@@ -119,56 +138,30 @@ services:
           cpus: '4'
 ```
 
----
+## Troubleshooting
 
-### **Architecture**  
-```
-[Frontend] ←HTTP→ [FastAPI]  
-                   ↓     ↑  
-                [Ollama] ←→ [ChromaDB]  
-                   ↓  
-                [Redis]  
-                   ↓  
-              [Celery Workers]
-```
+### Common Issues
 
----
+1. **Missing Vector Store**
+   ```bash
+   rm -rf chroma_db && mkdir chroma_db
+   ```
 
-### **Troubleshooting**  
-**Common Issues:**  
+2. **Out-of-Memory Errors**
+   ```bash
+   export OLLAMA_MAX_LOADED_MODELS=2
+   ```
 
-1. **Missing Vector Store**  
-```bash
-rm -rf chroma_db && mkdir chroma_db
-```
-
-2. **OOM Errors**  
-```bash
-# Limit Ollama memory usage
-export OLLAMA_MAX_LOADED_MODELS=2
-```
-
-3. **CUDA Compatibility**  
-```bash
-pip uninstall torch
-pip install torch --extra-index-url https://download.pytorch.org/whl/cu117
-```
-
----
-
-### **Ethical Implementation**  
-- Content filtering layer with 3-tier moderation  
-- User-controlled output constraints  
-- Attribution tracking for generated content  
+3. **CUDA Compatibility Issues**
+   ```bash
+   pip uninstall torch
+   pip install torch --extra-index-url https://download.pytorch.org/whl/cu117
+   ```
 
 
 ---
 
-**Final Implementation Notes**  
-This system demonstrates the power of multimodal AI while emphasizing:  
-- Local-first architecture for privacy  
-- Modular design for component swapping  
-- Progressive enhancement capabilities  
-
-For detailed API documentation and contributor guidelines, refer to the [project repository](https://github.com/kliewerdaniel/ITB02).
-
+**Daniel Kliewer**  
+[GitHub Profile](https://github.com/kliewerdaniel)  
+*AI Systems Developer*  
+```
