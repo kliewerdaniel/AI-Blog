@@ -1,7 +1,7 @@
 ---
 layout: home
 title:  Building a Multimodal Story Generation System Complete Setup Guide
-date:   2025-01-24 07:42:44 -0500
+date:   2025-01-23 07:42:44 -0500
 ---
 
 
