@@ -7,7 +7,7 @@ date:   2025-02-03 07:42:44 -0500
 <img src="/static/images/Screenshot1.png" alt="My image" loading="lazy">
 ()
 
-<img src="/static/images/Screenshot2.png.png" alt="My image" loading="lazy">
+<img src="/static/images/Screenshot2.png" alt="My image" loading="lazy">
 ()
 
 [https://github.com/kliewerdaniel/RedToBlog02](https://github.com/kliewerdaniel/RedToBlog02)
