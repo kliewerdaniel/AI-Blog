@@ -4,6 +4,11 @@ title:  Scrape Your Reddit Feed to Analyze Yourself and Generate Blog Posts
 date:   2025-02-03 07:42:44 -0500
 ---
 
+
+# **Reddit Content Analyzer: Complete Guide**  
+*Transform Your Social Media Activity Into Insights*
+
+
 <img src="/static/images/Screenshot1.png" alt="My image" loading="lazy">
 ()
 
@@ -12,9 +17,6 @@ date:   2025-02-03 07:42:44 -0500
 
 [https://github.com/kliewerdaniel/RedToBlog02](https://github.com/kliewerdaniel/RedToBlog02)
 
-
-# **Reddit Content Analyzer: Complete Guide**  
-*Transform Your Social Media Activity Into Insights*
 
 ## 🔍 **How It Works**  
 *From Reddit Scraping to AI-Powered Analysis*
