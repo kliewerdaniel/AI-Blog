@@ -4,7 +4,7 @@ title:  Scrape Your Reddit Feed to Analyze Yourself and Generate Blog Posts
 date:   2025-01-23 07:42:44 -0500
 ---
 
-https://github.com/kliewerdaniel/RedToBlog02
+[https://github.com/kliewerdaniel/RedToBlog02]https://github.com/kliewerdaniel/RedToBlog02
 
 # Reddit Content Analysis and Blog Generator
 
