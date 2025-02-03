@@ -8,6 +8,7 @@ date:   2025-02-03 07:42:44 -0500
 ()
 
 <img src="/static/images/Screenshot2.png.png" alt="My image" loading="lazy">
+()
 
 [https://github.com/kliewerdaniel/RedToBlog02](https://github.com/kliewerdaniel/RedToBlog02)
 
@@ -46,7 +47,9 @@ date:   2025-02-03 07:42:44 -0500
    - Historical result browser  
    - Customizable settings panel
 
-![Workflow Diagram: Reddit API → AI Agents → Database → Streamlit UI](https://via.placeholder.com/600x300?text=System+Architecture)
+## Workflow Diagram: 
+
+### Reddit API → AI Agents → Database → Streamlit UI]
 
 ---
 
