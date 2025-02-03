@@ -1,7 +1,7 @@
 ---
 layout: home
 title:  Scrape Your Reddit Feed to Analyze Yourself and Generate Blog Posts
-date:   2025-01-23 07:42:44 -0500
+date:   2025-02-03 07:42:44 -0500
 ---
 
 ![ Alt Text](static/images/Screenshot1.png)
