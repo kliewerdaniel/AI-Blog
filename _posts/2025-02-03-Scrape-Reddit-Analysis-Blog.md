@@ -4,9 +4,10 @@ title:  Scrape Your Reddit Feed to Analyze Yourself and Generate Blog Posts
 date:   2025-02-03 07:42:44 -0500
 ---
 
-![Alt Text image link](Screenshot1.png)
+<img src="/static/images/Screenshot1.png" alt="My image" loading="lazy">
+()
 
-![Alt Text image link](Screenshot2.png)
+<img src="/static/images/Screenshot2.png.png" alt="My image" loading="lazy">
 
 [https://github.com/kliewerdaniel/RedToBlog02](https://github.com/kliewerdaniel/RedToBlog02)
 
