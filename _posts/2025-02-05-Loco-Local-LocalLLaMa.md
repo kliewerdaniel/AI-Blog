@@ -21,7 +21,7 @@ The AI revolution is here—but access shouldn’t depend on corporate budgets. 
 ### **How It Works**  
 - **Who**: Solo coders or teams (all skill levels welcome!).  
 - **When**: February 13th, 2025—kickoff at 8 AM UTC.  
-- **Where**: Collaborate on Reddit ([r/LocoLLM](https://reddit.com/r/LocoLLM)), Discord, or X (use **#LocoLLMHack**).  
+- **Where**: Collaborate on Reddit ([r/LocoLLM](https://reddit.com/r/LocoLLM))
 - **Goal**: Build **one functional tool** by midnight that expands local LLM capabilities (e.g., vision integration, agentic workflows).  
 
 ### **The Vision**  
@@ -34,7 +34,7 @@ This isn’t just a hackathon—it’s a step toward **decentralizing AI’s fut
 **Join Us**  
 Whether you’re tweaking a LLaMA-4B model on a Raspberry Pi or scaling Mistral on a home server, your code can help level the playing field. Let’s prove that open-source, local AI isn’t just viable—it’s *essential*.  
 
-👉 **RSVP Now**: [Reddit Thread](https://reddit.com/r/LocoLLM) | [Discord](https://discord.gg/locollm)  
+👉 **RSVP Now**: [Reddit Thread](https://reddit.com/r/LocoLLM) 
 🔗 **Framework Details**: [Open Deep Research Blog](https://huggingface.co/blog/open-deep-research)  
 
 *Together, we’ll make cutting-edge AI accessible to all—not just Silicon Valley.* 🚀  
