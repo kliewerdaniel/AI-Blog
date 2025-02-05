@@ -26,7 +26,6 @@ The AI revolution is here—but access shouldn’t depend on corporate budgets. 
 
 ### **The Vision**  
 This isn’t just a hackathon—it’s a step toward **decentralizing AI’s future**. Winning projects will:  
-- Be featured on Hugging Face’s Open Source Spotlight.  
 - Connect creators with AI startups/job opportunities.  
 - Lay groundwork for a grassroots ecosystem of ethical, accessible AI tools.  
 
