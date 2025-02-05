@@ -3,62 +3,72 @@ layout: home
 title:  Ollama Smolagents Open Deep Research Integration
 date:   2025-02-05 09:42:44 -0500
 ---
-# Understanding the Code: An In-Depth Analysis of Building a SmolAgent with Ollama and External Tools
+**Unlocking Open-Source AI Power: How to Run Your Own Deep Research Agent with Ollama and Smolagents**  
 
-In this blog post, we’ll take an in-depth look at a piece of Python code that leverages multiple tools to build a sophisticated agent capable of interacting with users, conducting web searches, generating images, and processing messages using an advanced language model powered by Ollama.
+The AI landscape is rapidly evolving, but relying solely on proprietary models like OpenAI’s GPT-4 comes with limitations: cost, lack of transparency, and restricted customization. Enter **Ollama** and **smolagents**—a dynamic open-source duo that lets you build powerful, customizable AI agents for deep research, creative tasks, and more. In this guide, we’ll explore how to harness these tools to create your own AI research assistant, complete with web search, image generation, and advanced reasoning capabilities—all while maintaining full control over your stack.
 
-The code integrates smolagents, ollama, and a couple of external tools like DuckDuckGo search and text-to-image generation, providing us with a very flexible and powerful way to interact with AI. Let’s break down the code and understand how it all works.
+---
 
-# What is smolagents?
+### Why Open-Source AI Agents Matter
 
-Before we dive into the code, it’s important to understand what the smolagents package is. smolagents is a lightweight framework that allows you to create “agents” — these are entities that can perform tasks using various tools, plan actions, and execute them intelligently. It’s designed to be easy to use and flexible, offering a range of capabilities that can be extended with custom models, tools, and interaction logic.
+Before diving into the code, let’s address the *why*:  
 
-The main components we’ll work with in this code are:
+1. **Transparency & Control**: Open-source models let you inspect, modify, and understand the AI’s decision-making process.  
+2. **Cost Efficiency**: Avoid per-API-call pricing models.  
+3. **Privacy**: Keep sensitive data in-house instead of sending it to third-party servers.  
+4. **Customization**: Integrate domain-specific tools and workflows seamlessly.  
 
-	•	CodeAgent: A specialized type of agent that can execute code.
+By combining Ollama (a lightweight framework for running local LLMs) with smolagents (a modular agent-building toolkit), you gain the flexibility to create AI solutions tailored to your needs—whether that’s academic research, content generation, or data analysis.
 
-	•	DuckDuckGoSearchTool: A tool to search the web using DuckDuckGo.
-    
-	•	load_tool: A utility function to load external tools dynamically.
+---
 
-Now, let’s explore the code!
+### The Architecture: Ollama + Smolagents + Tools
 
-Importing Libraries and Setting Up the Environment
+Our setup uses three core components:  
 
-```python
-from smolagents import load_tool, CodeAgent, DuckDuckGoSearchTool
-from dotenv import load_dotenv
-import ollama
-from dataclasses import dataclass
+1. **Ollama**: Runs local language models (like Mistral) for text generation.  
+2. **Smolagents**: Manages task planning, tool integration, and agent logic.  
+3. **External Tools**: DuckDuckGo (web search) and text-to-image generation.  
 
-# Load environment variables
-load_dotenv()
+Here’s how they interact:  
+![Architecture diagram: User → Agent → Ollama → Tools → Output]  
+*(Imagine a flowchart here showing the flow of prompts, model processing, and tool usage.)*
+
+---
+
+### Step-by-Step Setup Guide
+
+#### 1. Prerequisites  
+- Python 3.10+ installed  
+- Basic terminal/command-line knowledge  
+- Ollama installed ([Installation Guide](https://ollama.ai/download))  
+
+#### 2. Install Dependencies  
+```bash
+pip install smolagents python-dotenv ollama
 ```
 
-The code starts by importing necessary libraries. Here’s what each one does:
+#### 3. Configure Environment  
+Create a `.env` file for secrets (even if empty for now):  
+```bash
+touch .env
+```
 
-	•	load_tool, CodeAgent, DuckDuckGoSearchTool are imported from the smolagents library. These will be used to load external tools, create the agent, and facilitate web searches.
+---
 
-	•	load_dotenv is from the dotenv package. This is used to load environment variables from a .env file, which is often used to store sensitive information like API keys or configuration values.
+### Deep Dive: The Code Explained
 
-	•	ollama is a library to interact with Ollama’s language model API, which will be used to process and generate text.
+Let’s break down the provided code into key sections:  
 
-	•	dataclass is from the dataclasses module, which simplifies the creation of classes that are primarily used to store data.
-
-The call to load_dotenv() loads environment variables from a .env file, which could contain configuration details like API keys. This ensures that sensitive information is not hard-coded into the script.
-
-The Message Class: Defining the Message Format
-
+#### **1. Message Handling**  
 ```python
 @dataclass
 class Message:
-    content: str  # Required attribute for smolagents
+    content: str
 ```
+This simple class standardizes communication between the agent and tools, ensuring compatibility with smolagents’ expectations.
 
-Here, a Message class is defined using the dataclass decorator. This simple class has one field: content. The purpose of this class is to encapsulate the content of a message sent or received by the agent. By using the dataclass decorator, we simplify the creation of this class without having to write boilerplate code for methods like __init__.
-
-The OllamaModel Class: A Custom Wrapper for Ollama API
-
+#### **2. Ollama Model Wrapper**  
 ```python
 class OllamaModel:
     def __init__(self, model_name):
@@ -66,113 +76,91 @@ class OllamaModel:
         self.client = ollama.Client()
 
     def __call__(self, messages, **kwargs):
-        formatted_messages = []
-        
-        # Ensure messages are correctly formatted
-        for msg in messages:
-            if isinstance(msg, str):
-                formatted_messages.append({
-                    "role": "user",  # Default to 'user' for plain strings
-                    "content": msg
-                })
-            elif isinstance(msg, dict):
-                role = msg.get("role", "user")
-                content = msg.get("content", "")
-                if isinstance(content, list):
-                    content = " ".join(part.get("text", "") for part in content if isinstance(part, dict) and "text" in part)
-                formatted_messages.append({
-                    "role": role if role in ['user', 'assistant', 'system', 'tool'] else 'user',
-                    "content": content
-                })
-            else:
-                formatted_messages.append({
-                    "role": "user",  # Default role for unexpected types
-                    "content": str(msg)
-                })
+        # [Message formatting logic...]
+        response = self.client.chat(...)
+        return Message(content=response["message"]["content"])
+```  
+This class acts as a bridge between smolagents and Ollama’s API. Key features:  
+- Handles multiple message types (strings, dictionaries)  
+- Enforces role-based formatting (“user”, “assistant”, etc.)  
+- Sets model parameters like temperature (0.7 for balanced creativity)  
 
-        response = self.client.chat(
-            model=self.model_name,
-            messages=formatted_messages,
-            options={'temperature': 0.7, 'stream': False}
-        )
-        
-        # Return a Message object with the 'content' attribute
-        return Message(
-            content=response.get("message", {}).get("content", "")
-        )
-```
-
-The OllamaModel class is a custom wrapper around the ollama.Client to make it easier to interact with the Ollama API. It is initialized with a model name (e.g., mistral-small:24b-instruct-2501-q8_0) and uses the ollama.Client() to send requests to the Ollama language model.
-
-The __call__ method is used to format the input messages appropriately before passing them to the Ollama API. It supports several types of input:
-
-	•	Strings, which are assumed to be from the user.
-
-	•	Dictionaries, which may contain a role and content. The role could be user, assistant, system, or tool.
-
-	•	Other types are converted to strings and treated as messages from the user.
-
-Once the messages are formatted, they are sent to the Ollama model using the chat() method, which returns a response. The content of the response is extracted and returned as a Message object.
-
-Defining External Tools: Image Generation and Web Search
-
-# Define tools
-
+#### **3. Tool Integration**  
 ```python
 image_generation_tool = load_tool("m-ric/text-to-image", trust_remote_code=True)
 search_tool = DuckDuckGoSearchTool()
-```
+```  
+- **DuckDuckGoSearchTool**: Enables real-time web searches for up-to-date information.  
+- **Text-to-Image Tool**: Generates images from prompts using Hugging Face’s ecosystem.  
 
-Two external tools are defined here:
-
-	•	image_generation_tool is loaded using load_tool and refers to a tool capable of generating images from text. The tool is loaded with the trust_remote_code=True flag, meaning the code of the tool is trusted and can be executed.
-
-	•	search_tool is an instance of DuckDuckGoSearchTool, which enables web searches via DuckDuckGo. This tool can be used by the agent to gather information from the web.
-
-Creating the Agent
-
-# Define the custom Ollama model
-
+#### **4. Agent Initialization**  
 ```python
-ollama_model = OllamaModel("mistral-small:24b-instruct-2501-q8_0")
-
-# Create the agent
 agent = CodeAgent(
     tools=[search_tool, image_generation_tool],
     model=ollama_model,
     planning_interval=3
 )
-```
+```  
+The `CodeAgent` is configured to:  
+- Use Mistral 24B (a powerful open-source model) via Ollama  
+- Re-plan actions every 3 steps to adapt to new information  
+- Access both web search and image generation  
 
-Here, we create an instance of OllamaModel with a specified model name (mistral-small:24b-instruct-2501-q8_0). This model will be used by the agent to generate responses.
+---
 
-Then, we create an instance of CodeAgent, passing in the list of tools (search_tool and image_generation_tool), the custom ollama_model, and a planning_interval of 3 (which determines how often the agent should plan its actions). The CodeAgent is a specialized agent designed to execute code, and it will use the provided tools and model to handle its tasks.
+### Running Your Agent
 
-# Running the Agent
-
+Replace `"YOUR_PROMPT"` with a research question or task:  
 ```python
-# Run the agent
 result = agent.run(
-    "YOUR_PROMPT"
+    "Explain quantum entanglement in simple terms, then generate a visualization."
 )
-```
+```  
+**Example Output Workflow:**  
+1. Agent plans: “First search for quantum entanglement basics.”  
+2. DuckDuckGo returns top 3 results.  
+3. Ollama summarizes findings into layman’s terms.  
+4. Image tool creates a conceptual diagram.  
+5. Final response combines text and image URL.
 
-This line runs the agent with a specific prompt. The agent will use its tools and model to generate a response based on the prompt. The prompt could be anything — for example, asking the agent to perform a web search, generate an image, or provide a detailed answer to a question.
+---
 
-# Outputting the Result
+### Why This Beats Proprietary Alternatives
 
-```python
-# Output the result
-print(result)
-```
+1. **Full Control**: Adjust temperature, max tokens, and other parameters at will.  
+2. **Tool Flexibility**: Swap DuckDuckGo for arXiv search, add Python execution, etc.  
+3. **Cost**: Zero per-query fees after initial setup.  
+4. **Privacy**: All data stays on your infrastructure.  
 
-Finally, the result of the agent’s execution is printed. This result could be a generated message, a link to a search result, or an image, depending on the agent’s response to the prompt.
+---
 
-# Conclusion
+### Advanced Customization Ideas
 
-This code demonstrates how to build a sophisticated agent using the smolagents framework, Ollama’s language model, and external tools like DuckDuckGo search and image generation. The agent can process user input, plan its actions, and execute tasks like web searches and image generation, all while using a powerful language model to generate responses.
+1. **Domain-Specific Models**: Fine-tune Ollama with medical, legal, or technical datasets.  
+2. **Multi-Agent Teams**: Create specialized agents (researcher, writer, fact-checker) that collaborate.  
+3. **Custom Tools**: Integrate internal APIs or databases.  
+4. **Human-in-the-Loop**: Add approval steps for sensitive tasks.  
 
-By combining these components, we can create intelligent agents capable of handling a wide range of tasks, making them useful for a variety of applications like virtual assistants, content generation, and research automation.
+---
+
+### Troubleshooting Tips
+
+- **Ollama Model Not Loading**: Ensure the model is downloaded via `ollama pull mistral-small:24b-instruct-2501-q8_0`  
+- **Permission Issues**: Use `trust_remote_code=True` cautiously—only with trusted tools.  
+- **Memory Constraints**: Smaller models like Mistral 7B work if 24B is too resource-heavy.  
+
+---
+
+### The Future of Open-Source AI Research
+
+This setup is just the beginning. As the open-source ecosystem grows, expect:  
+- Better multimodality (video processing, 3D generation)  
+- Improved tool-learning frameworks  
+- Lower hardware requirements via quantization  
+
+By building with Ollama and smolagents today, you’re positioning yourself at the forefront of accessible, ethical AI development.
+
+---
 
 
 ```python
