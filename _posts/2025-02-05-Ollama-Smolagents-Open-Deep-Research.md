@@ -14,8 +14,11 @@ The code integrates smolagents, ollama, and a couple of external tools like Duck
 Before we dive into the code, it’s important to understand what the smolagents package is. smolagents is a lightweight framework that allows you to create “agents” — these are entities that can perform tasks using various tools, plan actions, and execute them intelligently. It’s designed to be easy to use and flexible, offering a range of capabilities that can be extended with custom models, tools, and interaction logic.
 
 The main components we’ll work with in this code are:
+
 	•	CodeAgent: A specialized type of agent that can execute code.
+
 	•	DuckDuckGoSearchTool: A tool to search the web using DuckDuckGo.
+    
 	•	load_tool: A utility function to load external tools dynamically.
 
 Now, let’s explore the code!
@@ -123,7 +126,7 @@ search_tool = DuckDuckGoSearchTool()
 Two external tools are defined here:
 
 	•	image_generation_tool is loaded using load_tool and refers to a tool capable of generating images from text. The tool is loaded with the trust_remote_code=True flag, meaning the code of the tool is trusted and can be executed.
-    
+
 	•	search_tool is an instance of DuckDuckGoSearchTool, which enables web searches via DuckDuckGo. This tool can be used by the agent to gather information from the web.
 
 Creating the Agent
