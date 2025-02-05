@@ -33,9 +33,13 @@ load_dotenv()
 ```
 
 The code starts by importing necessary libraries. Here’s what each one does:
+
 	•	load_tool, CodeAgent, DuckDuckGoSearchTool are imported from the smolagents library. These will be used to load external tools, create the agent, and facilitate web searches.
+
 	•	load_dotenv is from the dotenv package. This is used to load environment variables from a .env file, which is often used to store sensitive information like API keys or configuration values.
+
 	•	ollama is a library to interact with Ollama’s language model API, which will be used to process and generate text.
+
 	•	dataclass is from the dataclasses module, which simplifies the creation of classes that are primarily used to store data.
 
 The call to load_dotenv() loads environment variables from a .env file, which could contain configuration details like API keys. This ensures that sensitive information is not hard-coded into the script.
@@ -98,8 +102,11 @@ class OllamaModel:
 The OllamaModel class is a custom wrapper around the ollama.Client to make it easier to interact with the Ollama API. It is initialized with a model name (e.g., mistral-small:24b-instruct-2501-q8_0) and uses the ollama.Client() to send requests to the Ollama language model.
 
 The __call__ method is used to format the input messages appropriately before passing them to the Ollama API. It supports several types of input:
+
 	•	Strings, which are assumed to be from the user.
+
 	•	Dictionaries, which may contain a role and content. The role could be user, assistant, system, or tool.
+
 	•	Other types are converted to strings and treated as messages from the user.
 
 Once the messages are formatted, they are sent to the Ollama model using the chat() method, which returns a response. The content of the response is extracted and returned as a Message object.
@@ -114,7 +121,9 @@ search_tool = DuckDuckGoSearchTool()
 ```
 
 Two external tools are defined here:
+
 	•	image_generation_tool is loaded using load_tool and refers to a tool capable of generating images from text. The tool is loaded with the trust_remote_code=True flag, meaning the code of the tool is trusted and can be executed.
+    
 	•	search_tool is an instance of DuckDuckGoSearchTool, which enables web searches via DuckDuckGo. This tool can be used by the agent to gather information from the web.
 
 Creating the Agent
