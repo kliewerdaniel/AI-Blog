@@ -161,3 +161,81 @@ Finally, the result of the agent’s execution is printed. This result could be 
 This code demonstrates how to build a sophisticated agent using the smolagents framework, Ollama’s language model, and external tools like DuckDuckGo search and image generation. The agent can process user input, plan its actions, and execute tasks like web searches and image generation, all while using a powerful language model to generate responses.
 
 By combining these components, we can create intelligent agents capable of handling a wide range of tasks, making them useful for a variety of applications like virtual assistants, content generation, and research automation.
+
+
+```python
+from smolagents import load_tool, CodeAgent, DuckDuckGoSearchTool
+from dotenv import load_dotenv
+import ollama
+from dataclasses import dataclass
+
+# Load environment variables
+load_dotenv()
+
+@dataclass
+class Message:
+    content: str  # Required attribute for smolagents
+
+class OllamaModel:
+    def __init__(self, model_name):
+        self.model_name = model_name
+        self.client = ollama.Client()
+
+    def __call__(self, messages, **kwargs):
+        formatted_messages = []
+        
+        # Ensure messages are correctly formatted
+        for msg in messages:
+            if isinstance(msg, str):
+                formatted_messages.append({
+                    "role": "user",  # Default to 'user' for plain strings
+                    "content": msg
+                })
+            elif isinstance(msg, dict):
+                role = msg.get("role", "user")
+                content = msg.get("content", "")
+                if isinstance(content, list):
+                    content = " ".join(part.get("text", "") for part in content if isinstance(part, dict) and "text" in part)
+                formatted_messages.append({
+                    "role": role if role in ['user', 'assistant', 'system', 'tool'] else 'user',
+                    "content": content
+                })
+            else:
+                formatted_messages.append({
+                    "role": "user",  # Default role for unexpected types
+                    "content": str(msg)
+                })
+
+        response = self.client.chat(
+            model=self.model_name,
+            messages=formatted_messages,
+            options={'temperature': 0.7, 'stream': False}
+        )
+        
+        # Return a Message object with the 'content' attribute
+        return Message(
+            content=response.get("message", {}).get("content", "")
+        )
+
+# Define tools
+image_generation_tool = load_tool("m-ric/text-to-image", trust_remote_code=True)
+search_tool = DuckDuckGoSearchTool()
+
+# Define the custom Ollama model
+ollama_model = OllamaModel("mistral-small:24b-instruct-2501-q8_0")
+
+# Create the agent
+agent = CodeAgent(
+    tools=[search_tool, image_generation_tool],
+    model=ollama_model,
+    planning_interval=3
+)
+
+# Run the agent
+result = agent.run(
+    "YOUR_PROMPT"
+)
+
+# Output the result
+print(result)
+```
