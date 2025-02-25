@@ -8,15 +8,22 @@
     "build": "jekyll build",
     "serve": "jekyll serve",
     "minify-css": "cleancss -o assets/css/main.min.css assets/css/main.css",
-    "minify-js": "uglifyjs assets/js/main.js -o assets/js/main.min.js"
+    "minify-js": "uglifyjs assets/js/main.js -o assets/js/main.min.js",
+    "build:tailwind": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/tailwind.min.css --minify",
+    "watch:tailwind": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/tailwind.min.css --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "autoprefixer": "^10.4.20",
     "dotenv": "^16.4.5",
-    "stripe": "^17.1.0"
+    "framer-motion": "^12.4.7",
+    "postcss": "^8.5.3",
+    "stripe": "^17.1.0",
+    "tailwindcss": "^4.0.9"
   },
   "devDependencies": {
     "clean-css-cli": "^5.6.3",

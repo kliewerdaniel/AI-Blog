@@ -28,17 +28,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
   <!-- Preload critical fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"></noscript>
   
-  <!-- Inline critical CSS -->
-  <style>
-*{margin:0;padding:0;box-sizing:border-box}:root{--primary-color:#2d3748;--primary-light:#4a5568;--secondary-color:#f7fafc;--accent-color:#e53e3e;--neutral-light:#f7fafc;--neutral-dark:#1a202c;--text-color:#2d3748;--text-light:#718096;--white:#ffffff;--shadow:rgba(0,0,0,0.05);--heading-font:'Playfair Display',serif;--body-font:'Montserrat',sans-serif;--space-xs:0.5rem;--space-sm:1rem;--space-md:1.5rem;--space-lg:2rem;--space-xl:3rem}body{font-family:var(--body-font);line-height:1.7;color:var(--text-color);background-color:var(--neutral-light);font-size:16px;overflow-x:hidden}h1,h2,h3,h4,h5,h6{font-family:var(--heading-font);font-weight:700;line-height:1.3;margin-bottom:var(--space-sm);color:var(--neutral-dark)}a{color:var(--primary-color);text-decoration:none;transition:all 0.3s ease;padding:0.25rem;display:inline-block;position:relative}a:hover{color:var(--primary-light)}.container{max-width:1400px;margin:0 auto;padding:0 var(--space-md);width:100%}header.transparent{background-color:transparent;box-shadow:none;position:absolute;width:100%;top:0;left:0;z-index:1000}header.transparent .site-title,header.transparent .main-nav li a{color:var(--white)}header.transparent .mobile-menu-toggle span{background-color:var(--white)}nav{display:flex;justify-content:space-between;align-items:center;padding:var(--space-md) 0}.site-title{font-family:var(--heading-font);font-size:1.8rem;font-weight:bold;color:var(--primary-color);text-decoration:none}.main-nav{list-style-type:none;display:flex;margin:0;padding:0}.main-nav li{margin-left:var(--space-lg);position:relative}.main-nav li a{color:var(--text-color);text-decoration:none;font-weight:500;padding:var(--space-sm) var(--space-xs);display:flex;align-items:center;transition:color 0.3s ease;min-height:44px;min-width:44px;border-radius:4px;position:relative;letter-spacing:0.5px;text-transform:uppercase;font-size:0.9rem}.main-nav li a:hover{color:var(--primary-color)}.mobile-menu-toggle{display:none;flex-direction:column;justify-content:space-between;width:30px;height:21px;cursor:pointer;padding:var(--space-sm);margin:-var(--space-sm);z-index:200}.mobile-menu-toggle span{display:block;height:3px;width:100%;background-color:var(--primary-color);border-radius:3px;transition:all 0.3s ease}.hero-header{height:100vh;background-color:var(--primary-color);color:var(--white);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}.hero-content{max-width:800px;margin:0 auto;padding:0 var(--space-md);text-align:center;z-index:2}.hero-title{font-size:4rem;margin-bottom:var(--space-md);color:var(--white);opacity:0;transform:translateY(30px);animation:fadeInUp 1s ease forwards 0.3s}.hero-subtitle{font-size:1.5rem;margin-bottom:var(--space-lg);color:rgba(255,255,255,0.9);font-weight:300;opacity:0;transform:translateY(30px);animation:fadeInUp 1s ease forwards 0.6s}.hero-buttons{display:flex;justify-content:center;gap:var(--space-md);opacity:0;transform:translateY(30px);animation:fadeInUp 1s ease forwards 0.9s}.hero-background{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;opacity:0.2;z-index:1}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}main{padding:var(--space-xl) 0}.content-wrapper{display:grid;grid-template-columns:1fr 300px;gap:var(--space-xl)}@media (max-width:992px){.content-wrapper{grid-template-columns:1fr;display:flex;flex-direction:column}}@media (max-width:768px){.mobile-menu-toggle{display:flex}.main-nav{position:absolute;top:100%;left:0;right:0;background-color:var(--white);flex-direction:column;padding:var(--space-md);box-shadow:0 4px 12px var(--shadow);display:none;z-index:100}.main-nav.active{display:flex}.main-nav li{margin:0 0 var(--space-sm) 0}.hero-title{font-size:2.5rem}.hero-subtitle{font-size:1.25rem}.hero-buttons{flex-direction:column;align-items:center}}
-  </style>
-  
-  <!-- Non-critical CSS loaded asynchronously -->
-  <link rel="preload" href="{{ '/assets/css/min/main-redesign.min.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="{{ '/assets/css/min/main-redesign.min.css' | relative_url }}"></noscript>
+  <!-- Modern CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/tailwind.min.css' | relative_url }}">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GT-WF3JPD4"></script>
@@ -47,11 +41,6 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'GT-WF3JPD4');
-  </script>
-  
-  <!-- Preload CSS polyfill for older browsers -->
-  <script>
-    !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
   </script>
   
   <!-- Structured Data for Website -->
@@ -85,21 +74,53 @@
     }
   }
   </script>
+  
+  {% if page.layout == 'post' %}
+  <!-- Structured Data for Blog Post -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    },
+    "headline": "{{ page.title | escape }}",
+    "description": "{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ page.content | strip_html | strip_newlines | truncate: 160 }}{% endif %}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "Daniel Kliewer"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}/static/images/a.png"
+      }
+    }
+  }
+  </script>
+  {% endif %}
 </head>
 <body>
-  <!-- Full-page hero header -->
-  <header class="transparent">
+  <!-- Header with modern styling -->
+  <header class="header py-4 sticky top-0 bg-white shadow-md z-50">
     <div class="container">
-      <nav>
-        <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
-        <ul class="main-nav">
-          <li><a href="{{ '/' | relative_url }}">Home</a></li>
-          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-          <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-          <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
-          <li><a href="{{ '/guides/' | relative_url }}">Guides</a></li>
-          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+      <nav class="flex justify-between items-center">
+        <a href="{{ '/' | relative_url }}" class="text-2xl font-display font-bold text-primary hover:text-secondary transition-colors duration-300">{{ site.title }}</a>
+        
+        <ul class="main-nav flex space-x-6">
+          <li><a href="{{ '/' | relative_url }}" class="nav-link">Home</a></li>
+          <li><a href="{{ '/about/' | relative_url }}" class="nav-link">About</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}" class="nav-link">Blog</a></li>
+          <li><a href="{{ '/projects/' | relative_url }}" class="nav-link">Projects</a></li>
+          <li><a href="{{ '/guides/' | relative_url }}" class="nav-link">Guides</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}" class="nav-link">Contact</a></li>
         </ul>
+        
         <div class="mobile-menu-toggle">
           <span></span>
           <span></span>
@@ -109,181 +130,186 @@
     </div>
   </header>
 
-  <section class="hero-header">
-    <div class="hero-background"></div>
-    <div class="hero-content">
-      <h1 class="hero-title">Daniel Kliewer</h1>
-      <p class="hero-subtitle">Writer, Researcher, Software Developer</p>
-      <div class="hero-buttons">
-        <a href="{{ '/blog/' | relative_url }}" class="btn">Read Blog</a>
-        <a href="{{ '/about/' | relative_url }}" class="btn btn-secondary">About Me</a>
-      </div>
-    </div>
-  </section>
-
-  <main>
+  <!-- Main content with modern styling -->
+  <main class="py-16">
     <div class="container">
-      <!-- Featured Posts Section -->
-      <section class="featured-section">
-        <h2 class="section-title animate-on-scroll">Featured Posts</h2>
-        <div class="post-list">
-          {% assign featured_posts = "" | split: "" %}
-              
-          {% for post in site.posts %}
-            {% if post.title == "Step-by-Step Guide to Running Open Deep Research with smolagents" %}
-              {% assign featured_posts = featured_posts | push: post %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-          
-          {% for post in site.posts %}
-            {% if post.title == "Building a Multimodal Story Generation System Complete Setup Guide" %}
-              {% assign featured_posts = featured_posts | push: post %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-          
-          {% for post in site.posts %}
-            {% if post.title == "Ollama Smolagents Open Deep Research Integration" %}
-              {% assign featured_posts = featured_posts | push: post %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-          
-          {% for post in site.posts %}
-            {% if post.title == "Setting Up Continue.dev with Ollama for Local LLMs in VSCode" %}
-              {% assign featured_posts = featured_posts | push: post %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-          
-          {% for post in site.posts %}
-            {% if post.title == "Homeless Guide Austin" %}
-              {% assign featured_posts = featured_posts | push: post %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-          
-          {% for post in site.posts %}
-            {% if post.title == "Building an AI-Powered Filename Generator Chrome Extension" %}
-              {% assign featured_posts = featured_posts | push: post %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-          
-          {% for post in featured_posts %}
-            <div class="post-item animate-on-scroll">
-              <span class="image-placeholder" aria-label="{{ post.title }}"></span>
-              <div class="post-item-content">
-                <h3>
-                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                </h3>
-                <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
-                {% if post.description %}
-                  <p class="post-excerpt">{{ post.description | truncate: 120 }}</p>
-                {% else %}
-                  <p class="post-excerpt">{{ post.content | strip_html | truncate: 120 }}</p>
-                {% endif %}
-                <a href="{{ post.url | relative_url }}" class="btn">Read More</a>
-              </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Main content area -->
+        <article class="lg:col-span-2 animate-on-scroll" data-animation="fade-in">
+          <!-- Hero section -->
+          <section class="mb-12 animate-on-scroll" data-animation="slide-up">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-primary">Welcome to {{ site.title }}</h1>
+            <p class="text-lg text-gray-700 mb-8">Exploring AI, machine learning, and software development with practical guides and insights.</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">Read the Blog</a>
+              <a href="{{ '/projects/' | relative_url }}" class="btn btn-secondary">View Projects</a>
             </div>
-          {% endfor %}
-        </div>
-      </section>
-      
-      <!-- Recent Posts Section -->
-      <section class="recent-posts-section">
-        <h2 class="section-title animate-on-scroll">Recent Posts</h2>
-        <div class="post-list">
-          {% for post in site.posts limit:6 %}
-            <div class="post-item animate-on-scroll">
-              <span class="image-placeholder" aria-label="{{ post.title }}"></span>
-              <div class="post-item-content">
-                <h3>
-                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                </h3>
-                <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
-                {% if post.description %}
-                  <p class="post-excerpt">{{ post.description | truncate: 120 }}</p>
-                {% else %}
-                  <p class="post-excerpt">{{ post.content | strip_html | truncate: 120 }}</p>
-                {% endif %}
-                <a href="{{ post.url | relative_url }}" class="btn">Read More</a>
+          </section>
+          
+          <!-- Featured Posts Carousel -->
+          <section class="mb-16 animate-on-scroll" data-animation="slide-up">
+            <h2 class="text-3xl font-bold mb-6 text-center">Featured Posts</h2>
+            <div class="carousel-container">
+              <div class="carousel-track">
+                {% assign featured_posts = "" | split: "" %}
+                
+                {% for post in site.posts %}
+                  {% if post.title == "Step-by-Step Guide to Running Open Deep Research with smolagents" %}
+                    {% assign featured_posts = featured_posts | push: post %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                
+                {% for post in site.posts %}
+                  {% if post.title == "Building a Multimodal Story Generation System Complete Setup Guide" %}
+                    {% assign featured_posts = featured_posts | push: post %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                
+                {% for post in site.posts %}
+                  {% if post.title == "Ollama Smolagents Open Deep Research Integration" %}
+                    {% assign featured_posts = featured_posts | push: post %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                
+                {% for post in site.posts %}
+                  {% if post.title == "Setting Up Continue.dev with Ollama for Local LLMs in VSCode" %}
+                    {% assign featured_posts = featured_posts | push: post %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                
+                {% for post in site.posts %}
+                  {% if post.title == "Scrape Your Reddit Feed to Analyze Yourself and Generate Blog Posts" %}
+                    {% assign featured_posts = featured_posts | push: post %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                
+                {% for post in site.posts %}
+                  {% if post.title == "Data Annotation Guide" %}
+                    {% assign featured_posts = featured_posts | push: post %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                
+                {% for post in featured_posts %}
+                  <div class="carousel-slide">
+                    <div class="card p-6">
+                      <div class="carousel-content">
+                        <h3 class="text-xl font-bold mb-2"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                        <span class="text-sm text-gray-500 block mb-2">{{ post.date | date: "%B %d, %Y" }}</span>
+                        {% if post.description %}
+                          <p class="mb-4">{{ post.description | truncate: 120 }}</p>
+                        {% else %}
+                          <p class="mb-4">{{ post.content | strip_html | truncate: 120 }}</p>
+                        {% endif %}
+                        <a href="{{ post.url | relative_url }}" class="btn btn-primary">Read More</a>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
               </div>
+              <button class="carousel-button prev" aria-label="Previous slide">&lt;</button>
+              <button class="carousel-button next" aria-label="Next slide">&gt;</button>
             </div>
-          {% endfor %}
-        </div>
+          </section>
+          
+          <!-- Recent Posts Section -->
+          <section class="mb-16 animate-on-scroll" data-animation="slide-up">
+            <h2 class="text-3xl font-bold mb-6">Recent Posts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {% for post in site.posts limit:6 %}
+                <div class="card p-6 animate-on-scroll" data-animation="fade-in">
+                  <h3 class="text-xl font-bold mb-2"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                  <span class="text-sm text-gray-500 block mb-2">{{ post.date | date: "%B %d, %Y" }}</span>
+                  {% if post.description %}
+                    <p class="mb-4">{{ post.description | truncate: 120 }}</p>
+                  {% else %}
+                    <p class="mb-4">{{ post.content | strip_html | truncate: 120 }}</p>
+                  {% endif %}
+                  <a href="{{ post.url | relative_url }}" class="btn btn-primary">Read More</a>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="text-center mt-8">
+              <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary">View All Posts</a>
+            </div>
+          </section>
+          
+          {{ content }}
+        </article>
         
-        <div class="view-all-posts">
-          <a href="{{ '/blog/' | relative_url }}" class="view-all-button">View All Posts</a>
-        </div>
-      </section>
-      
-      <section class="parallax-section">
-        <div class="parallax-bg"></div>
-        <div class="parallax-content animate-on-scroll">
-          <h2>Explore My Projects</h2>
-          <p>Check out my latest software development and research projects.</p>
-          <a href="{{ '/projects/' | relative_url }}" class="btn">View Projects</a>
-        </div>
-      </section>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="card p-6 mb-8 animate-on-scroll" data-animation="slide-in-right">
+            <h3 class="text-xl font-bold mb-4">Search</h3>
+            <form action="{{ '/search/' | relative_url }}" method="get" class="flex">
+              <input type="text" name="q" placeholder="Search..." class="flex-grow p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary">
+              <button type="submit" class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-secondary transition-colors">Search</button>
+            </form>
+          </div>
+          
+          <div class="card p-6 mb-8 animate-on-scroll" data-animation="slide-in-right">
+            <h3 class="text-xl font-bold mb-4">Recent Posts</h3>
+            <ul class="space-y-4">
+              {% for post in site.posts limit:5 %}
+                <li class="border-b border-gray-200 pb-2 last:border-0">
+                  <a href="{{ post.url | relative_url }}" class="font-medium hover:text-secondary">{{ post.title }}</a>
+                  <span class="text-sm text-gray-500 block">{{ post.date | date: "%B %d, %Y" }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          
+          <div class="card p-6 animate-on-scroll" data-animation="slide-in-right">
+            <h3 class="text-xl font-bold mb-4">Categories</h3>
+            <ul class="space-y-2">
+              <li><a href="{{ '/blog/' | relative_url }}?category=ai" class="hover:text-secondary">Artificial Intelligence</a></li>
+              <li><a href="{{ '/blog/' | relative_url }}?category=ml" class="hover:text-secondary">Machine Learning</a></li>
+              <li><a href="{{ '/blog/' | relative_url }}?category=dev" class="hover:text-secondary">Software Development</a></li>
+              <li><a href="{{ '/blog/' | relative_url }}?category=guides" class="hover:text-secondary">Guides & Tutorials</a></li>
+              <li><a href="{{ '/blog/' | relative_url }}?category=research" class="hover:text-secondary">Research</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
   </main>
 
-  <footer>
+  <footer class="bg-primary text-white py-12 mt-16">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-nav">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="{{ '/' | relative_url }}">Home</a></li>
-            <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-            <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-            <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
-            <li><a href="{{ '/guides/' | relative_url }}">Guides</a></li>
-            <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 border-b border-white/20 pb-2">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="{{ '/' | relative_url }}" class="text-white/80 hover:text-white">Home</a></li>
+            <li><a href="{{ '/about/' | relative_url }}" class="text-white/80 hover:text-white">About</a></li>
+            <li><a href="{{ '/blog/' | relative_url }}" class="text-white/80 hover:text-white">Blog</a></li>
+            <li><a href="{{ '/projects/' | relative_url }}" class="text-white/80 hover:text-white">Projects</a></li>
+            <li><a href="{{ '/guides/' | relative_url }}" class="text-white/80 hover:text-white">Guides</a></li>
+            <li><a href="{{ '/contact/' | relative_url }}" class="text-white/80 hover:text-white">Contact</a></li>
           </ul>
         </div>
         
-        <div class="footer-social">
-          <h3>Connect</h3>
-          <div class="social-icons">
-            <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" class="social-icon twitter">Twitter</a>
-            <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer" class="social-icon github">GitHub</a>
+        <div>
+          <h3 class="text-xl font-bold mb-4 border-b border-white/20 pb-2">Connect</h3>
+          <div class="flex space-x-4">
+            <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white">Twitter</a>
+            <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white">GitHub</a>
           </div>
         </div>
       </div>
       
-      <div class="footer-bottom">
+      <div class="border-t border-white/10 pt-4 text-center text-white/70 text-sm">
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Deferred JavaScript loading -->
-  <script src="{{ '/assets/js/min/main-redesign.min.js' | relative_url }}" defer></script>
-  
-  <!-- Additional styles for view-all-button -->
-  <style>
-    .view-all-posts {
-      margin-top: 2rem;
-      text-align: center;
-    }
-    
-    .view-all-button {
-      display: inline-block;
-      background-color: #333333;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    
-    .view-all-button:hover {
-      background-color: #666666;
-    }
-  </style>
+  <!-- Animation JavaScript -->
+  <script src="{{ '/assets/js/animations.js' | relative_url }}" defer></script>
 </body>
 </html>
