@@ -1,13 +1,23 @@
 ---
-layout: contact
+layout: default
 title: Contact
 permalink: /contact/
 description: Get in touch with Daniel Kliewer for questions, feedback, collaboration opportunities, or just to say hello.
 ---
 
-## Get in Touch
+# Get in Touch
 
-I'd love to hear from you! Whether you have a question, feedback, or want to discuss a potential collaboration, feel free to reach out through any of the channels below.
+<div class="contact-intro">
+
+  <div class="contact-text">
+    <p>I'd love to hear from you! Whether you have a question, feedback, or want to discuss a potential collaboration, feel free to reach out through any of the channels below.</p>
+  </div>
+</div>
+
+
+## Direct Email
+
+You can also reach me directly via email at <a href="mailto:{{ site.email }}" class="email-link">{{ site.email }}</a>.
 
 ## Connect on Social Media
 
@@ -39,6 +49,46 @@ I typically respond to all inquiries within 24-48 hours. For urgent matters, ple
 </div>
 
 <style>
+  .contact-intro {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .contact-image {
+    flex: 0 0 200px;
+  }
+  
+  .contact-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  }
+  
+  .contact-image img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px var(--shadow-hover);
+  }
+  
+  .contact-text {
+    flex: 1;
+  }
+  
+  
+  .email-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color var(--transition-normal);
+  }
+  
+  .email-link:hover {
+    color: var(--accent-color);
+  }
+  
   .social-container {
     margin: 2rem 0;
   }
@@ -54,20 +104,20 @@ I typically respond to all inquiries within 24-48 hours. For urgent matters, ple
     display: inline-flex;
     align-items: center;
     padding: 1rem 1.5rem;
-    background-color: #fff;
-    border-radius: 4px;
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
     text-decoration: none;
-    color: #333;
+    color: var(--text-color);
     font-weight: 500;
-    transition: all 0.3s ease;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: all var(--transition-normal);
+    border: 1px solid var(--secondary-color);
+    box-shadow: 0 2px 6px var(--shadow);
   }
   
   .social-link:hover {
-    background-color: #f8f9fa;
+    background-color: var(--secondary-color);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 12px var(--shadow-hover);
   }
   
   .social-link .icon {
@@ -101,16 +151,29 @@ I typically respond to all inquiries within 24-48 hours. For urgent matters, ple
   }
   
   .contact-cta {
-    background-color: #f8f9fa;
+    background-color: var(--secondary-color);
     padding: 2rem;
-    border-radius: 4px;
+    border-radius: var(--border-radius-lg);
     margin: 3rem 0;
     text-align: center;
-    border-left: 4px solid #042b6e;
+    border-left: 4px solid var(--primary-color);
   }
   
   .contact-cta h3 {
     margin-top: 0;
-    color: #042b6e;
+    color: var(--primary-color);
+  }
+  
+  @media (max-width: 768px) {
+    .contact-intro {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .contact-image {
+      flex: 0 0 auto;
+      max-width: 150px;
+      margin: 0 auto;
+    }
   }
 </style>
