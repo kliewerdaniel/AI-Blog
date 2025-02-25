@@ -7,6 +7,10 @@ description: Learn about Daniel Kliewer's journey, expertise, and passion for te
 
 # About Me
 
+<div class="about-image">
+  <img src="/static/images/captain.jpg" alt="Daniel Kliewer" loading="lazy" class="profile-image">
+</div>
+
 ## My Journey
 
 In the year 2023, my life was upended in a manner I could scarcely have imagined—I found myself wandering the streets, stripped of all I possessed. The familiar comforts of home and the assurances of daily life had vanished, leaving me to confront the abyss of uncertainty.
