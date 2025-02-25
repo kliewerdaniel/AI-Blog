@@ -1,0 +1,88 @@
+/* Black and white theme overrides */
+
+/* Color overrides */
+:root {
+  --primary-color: #000000 !important;
+  --primary-dark: #333333 !important;
+  --secondary: #666666 !important;
+  --black: #000000 !important;
+  --white: #ffffff !important;
+  --white-offset: #f8f8f8 !important;
+  --steel: #444444 !important;
+}
+
+/* Text colors */
+body {
+  color: #000000 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000000 !important;
+}
+
+a {
+  color: #000000 !important;
+}
+
+a:hover {
+  color: #333333 !important;
+}
+
+/* Button colors */
+.button, .button-primary {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.button:hover, .button-primary:hover {
+  background-color: #333333 !important;
+}
+
+/* Header and footer */
+.header {
+  background-color: #ffffff !important;
+}
+
+.footer {
+  background-color: #000000 !important;
+}
+
+.sub-footer {
+  background-color: #000000 !important;
+}
+
+/* Strip backgrounds */
+.strip {
+  background-color: #ffffff !important;
+}
+
+.strip-grey {
+  background-color: #f0f0f0 !important;
+}
+
+/* Feature styling */
+.feature {
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.feature-title {
+  color: #000000 !important;
+}
+
+/* Logo text */
+.logo-text {
+  color: #000000 !important;
+}
+
+/* Remove intro image */
+.intro-image {
+  display: none !important;
+}
+
+/* Remove feature images */
+.feature-image {
+  display: none !important;
+}
