@@ -1,14 +1,12 @@
 ---
-layout: default
+layout: page
 title: About Me
 permalink: /about/
 description: Learn about Daniel Kliewer's journey, expertise, and passion for technology, writing, and helping others through innovative solutions.
 ---
 
-# About Me
-
 <div class="about-image">
-  <img src="/static/images/captain.jpg" alt="Daniel Kliewer" loading="lazy" class="profile-image">
+  <img src="/images/team/captain.jpg" alt="Daniel Kliewer" loading="lazy" class="profile-image">
 </div>
 
 ## My Journey
@@ -119,27 +117,27 @@ I offer these words freely, without pretense or expectation. If you find value h
   .profile-image {
     max-width: 300px;
     border-radius: 50%;
-    box-shadow: 0 4px 12px var(--shadow);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .profile-image:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 24px var(--shadow-hover);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   }
   
   .quote-box {
-    background-color: var(--secondary-color);
-    border-left: 4px solid var(--primary-color);
+    background-color: #f8f9fa;
+    border-left: 4px solid #042b6e;
     padding: 1.5rem;
     margin: 2rem 0;
-    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    border-radius: 0 4px 4px 0;
   }
   
   .quote-box blockquote {
     font-style: italic;
     font-size: 1.2rem;
-    color: var(--primary-color);
+    color: #042b6e;
     margin: 0;
   }
   
@@ -156,7 +154,7 @@ I offer these words freely, without pretense or expectation. If you find value h
     left: 0;
     height: 100%;
     width: 2px;
-    background-color: var(--primary-color);
+    background-color: #042b6e;
   }
   
   .timeline-item {
@@ -170,9 +168,9 @@ I offer these words freely, without pretense or expectation. If you find value h
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background-color: var(--primary-color);
-    border: 2px solid var(--white);
-    box-shadow: 0 0 0 2px var(--primary-color);
+    background-color: #042b6e;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #042b6e;
   }
   
   .timeline-content {
@@ -181,7 +179,7 @@ I offer these words freely, without pretense or expectation. If you find value h
   
   .timeline-content h4 {
     margin-top: 0;
-    color: var(--primary-color);
+    color: #042b6e;
   }
   
   .skills-section {
@@ -196,21 +194,21 @@ I offer these words freely, without pretense or expectation. If you find value h
   }
   
   .skill-item {
-    background-color: var(--white);
+    background-color: #fff;
     padding: 1.5rem;
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 4px 12px var(--shadow);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .skill-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 24px var(--shadow-hover);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   }
   
   .skill-item h4 {
     margin-top: 0;
-    color: var(--primary-color);
+    color: #042b6e;
   }
   
   .cta-container {

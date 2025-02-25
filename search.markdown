@@ -1,22 +1,19 @@
 ---
-layout: default
+layout: page
 title: Search Results
 permalink: /search/
+description: Search through Daniel Kliewer's blog posts, guides, and projects.
 ---
 
-<div class="search-results">
-  <h1>Search Results</h1>
-  
-  <div id="search-container">
-    <form action="{{ '/search/' | relative_url }}" method="get">
-      <input type="text" id="search-input" name="q" placeholder="Search..." value="{{ page.url | split: '=' | last | url_decode }}">
-      <button type="submit">Search</button>
-    </form>
-  </div>
-  
-  <div id="results-container">
-    <p>Loading results...</p>
-  </div>
+<div id="search-container">
+  <form action="{{ '/search/' | relative_url }}" method="get">
+    <input type="text" id="search-input" name="q" placeholder="Search..." value="{{ page.url | split: '=' | last | url_decode }}">
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+<div id="results-container">
+  <p>Loading results...</p>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script>
@@ -54,10 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-  .search-results {
-    margin-bottom: 2rem;
-  }
-  
   #search-container {
     margin-bottom: 2rem;
   }
@@ -76,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   #search-container button {
-    background-color: #333333;
+    background-color: #042b6e;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -89,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   #search-container button:hover {
-    background-color: #666666;
+    background-color: #2a5caa;
   }
   
   .search-result-item {
@@ -103,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   .search-result-item h2 a {
-    color: #007bff;
+    color: #042b6e;
     text-decoration: none;
   }
   

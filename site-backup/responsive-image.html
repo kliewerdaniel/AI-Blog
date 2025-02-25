@@ -1,0 +1,16 @@
+{% comment %}
+Responsive image include file
+Usage: 
+{% include responsive-image.html 
+  src="path/to/image.jpg" 
+  alt="Image description" 
+  sizes="(max-width: 768px) 100vw, 50vw" 
+  class="optional-class" 
+%}
+{% endcomment %}
+
+{% assign base_path = include.src | split: '.' %}
+{% assign file_name = base_path[0] %}
+{% assign file_ext = base_path[1] %}
+
+

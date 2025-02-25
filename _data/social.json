@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Twitter",
+    "link": "https://twitter.com/kliewer_daniel",
+    "image": "images/social/twitter.svg"
+  },
+  {
+    "name": "Github",
+    "link": "https://github.com/kliewerdaniel",
+    "image": "images/social/github.svg"
+  }
+]
