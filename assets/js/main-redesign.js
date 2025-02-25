@@ -62,13 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
     postList.classList.add('styled-post-list');
     
     const postItems = postList.querySelectorAll('li');
-    postItems.forEach((item, index) => {
+    postItems.forEach(item => {
       item.classList.add('post-item');
-      
-      // Add animation delay based on index
-      item.style.opacity = '0';
-      item.style.transform = 'translateY(20px)';
-      item.style.animation = `fadeInUp 0.6s ease forwards ${0.2 + (index * 0.1)}s`;
     });
   }
   
@@ -100,14 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     lastScrollTop = scrollTop;
-    
-    // Parallax effect for sections with parallax-bg class
-    const parallaxBgs = document.querySelectorAll('.parallax-bg');
-    parallaxBgs.forEach(bg => {
-      const speed = 0.5;
-      const yPos = -(scrollTop * speed);
-      bg.style.transform = `translate3d(0, ${yPos}px, 0)`;
-    });
   });
   
   // Smooth scroll for anchor links
@@ -161,51 +148,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Animate elements when they come into view
-  const animateOnScroll = function() {
-    const elements = document.querySelectorAll('.animate-on-scroll');
+  // Animation for hero section
+  const heroSection = document.querySelector('.hero-header');
+  if (heroSection) {
+    // The animations are handled by CSS, but we can add additional effects here if needed
     
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animated');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-    
-    elements.forEach(element => {
-      observer.observe(element);
-    });
-  };
-  
-  // Initialize animation on scroll if supported
-  if ('IntersectionObserver' in window) {
-    animateOnScroll();
-  }
-  
-  // Add parallax effect to hero background if exists
-  const heroBackground = document.querySelector('.hero-background');
-  if (heroBackground) {
+    // Parallax effect for hero background
     window.addEventListener('scroll', function() {
       const scrollPosition = window.pageYOffset;
-      heroBackground.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+      const heroBackground = document.querySelector('.hero-background');
+      
+      if (heroBackground) {
+        heroBackground.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+      }
     });
   }
   
-  // Add hover effect to featured items
-  const featuredItems = document.querySelectorAll('.featured-item');
-  featuredItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-10px)';
-      this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+  // Parallax sections
+  const parallaxSections = document.querySelectorAll('.parallax-section');
+  if (parallaxSections.length > 0) {
+    window.addEventListener('scroll', function() {
+      parallaxSections.forEach(section => {
+        const scrollPosition = window.pageYOffset;
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        
+        if (scrollPosition > sectionTop - window.innerHeight && 
+            scrollPosition < sectionTop + sectionHeight) {
+          const parallaxBg = section.querySelector('.parallax-bg');
+          if (parallaxBg) {
+            const speed = 0.5;
+            const yPos = (scrollPosition - sectionTop) * speed;
+            parallaxBg.style.transform = `translateY(${yPos}px)`;
+          }
+        }
+      });
     });
-    
-    item.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0)';
-      this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
-    });
-  });
+  }
 });

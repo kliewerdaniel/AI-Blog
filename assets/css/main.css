@@ -9,15 +9,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
 
 :root {
-  /* Enhanced Color Palette - 60-30-10 Rule with improved contrast */
-  --primary-color: #2c5282; /* Darker blue for better contrast */
-  --primary-light: #4a7dbd; /* Lighter version for hover states */
-  --secondary-color: #e6f0ff; /* Lighter blue for backgrounds */
-  --accent-color: #e53e3e; /* Brighter red for better visibility */
-  --neutral-light: #f8f9fa; /* Light neutral - off-white */
-  --neutral-dark: #1a202c; /* Darker for better contrast */
-  --text-color: #2d3748; /* Main text color */
-  --text-light: #4a5568; /* Darker light text for better readability */
+  /* Monochromatic Color Palette - Black and White with Shades of Gray */
+  --primary-color: #333333; /* Dark gray (almost black) for primary elements */
+  --primary-light: #666666; /* Medium gray for hover states */
+  --secondary-color: #f0f0f0; /* Light gray for backgrounds */
+  --accent-color: #000000; /* Black for accents */
+  --neutral-light: #f8f8f8; /* Very light gray - off-white */
+  --neutral-dark: #1a1a1a; /* Very dark gray for contrast */
+  --text-color: #333333; /* Dark gray for main text */
+  --text-light: #666666; /* Medium gray for secondary text */
   --white: #ffffff;
   --shadow: rgba(0, 0, 0, 0.1);
   --shadow-hover: rgba(0, 0, 0, 0.2);
@@ -433,7 +433,7 @@ main {
 .search-widget input[type="text"]:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.2);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .search-widget button {
@@ -461,7 +461,7 @@ main {
 
 .search-widget button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.2);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Preserve markdown formatting */
@@ -552,7 +552,7 @@ main {
 }
 
 .post-content tr:hover {
-  background-color: rgba(74, 125, 189, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Donate button styles */
@@ -579,7 +579,7 @@ main {
 }
 
 .donate-button:hover {
-  background-color: #e45a5a;
+  background-color: #333333;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   color: var(--white);
@@ -712,7 +712,7 @@ footer {
 }
 
 .post-item h2 a:hover {
-  color: var(--accent-color);
+  color: var(--primary-light);
 }
 
 .post-date {
@@ -748,7 +748,7 @@ footer {
 }
 
 .btn:hover {
-  background-color: var(--accent-color);
+  background-color: var(--primary-light);
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   color: var(--white);
