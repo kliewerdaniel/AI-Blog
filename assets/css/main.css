@@ -217,68 +217,7 @@ nav {
   width: 100%;
 }
 
-/* Dropdown menu styles */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--white);
-  box-shadow: 0 4px 12px var(--shadow);
-  border-radius: var(--border-radius-md);
-  min-width: 220px;
-  padding: var(--space-xs) 0;
-  display: none;
-  z-index: 100;
-  transform: translateY(10px);
-  opacity: 0;
-  transition: transform var(--transition-normal), opacity var(--transition-normal);
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.dropdown-menu li {
-  margin: 0;
-}
-
-.dropdown-menu li a {
-  padding: var(--space-sm) var(--space-md);
-  font-weight: normal;
-  /* Enhanced touch target size */
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  border-radius: 0;
-}
-
-.dropdown-menu li a:after {
-  display: none;
-}
-
-.dropdown-menu li a:hover {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-}
-
-/* Dropdown indicator */
-.dropdown > a:after {
-  content: '▼';
-  font-size: 0.7em;
-  margin-left: 0.5em;
-  display: inline-block;
-  transition: transform var(--transition-normal);
-}
-
-.dropdown:hover > a:after {
-  transform: rotate(180deg);
-}
+/* Dropdown menu styles removed */
 
 /* Mobile menu toggle */
 .mobile-menu-toggle {
@@ -839,19 +778,7 @@ footer {
     margin: 0 0 var(--space-sm) 0;
   }
   
-  .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    display: none;
-    padding-left: var(--space-md);
-    background-color: var(--secondary-color);
-    border-radius: 6px;
-    margin-top: var(--space-xs);
-  }
-  
-  .dropdown.active .dropdown-menu {
-    display: block;
-  }
+  /* Dropdown menu styles removed for mobile */
 }
 
 @media (max-width: 576px) {

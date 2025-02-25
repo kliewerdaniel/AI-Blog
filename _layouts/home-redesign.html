@@ -95,14 +95,7 @@
         <ul class="main-nav">
           <li><a href="{{ '/' | relative_url }}">Home</a></li>
           <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-          <li class="dropdown">
-            <a href="{{ '/blog/' | relative_url }}">Blog</a>
-            <ul class="dropdown-menu">
-              <li><a href="{{ '/blog/ai-projects/' | relative_url }}">AI Projects</a></li>
-              <li><a href="{{ '/blog/personal-development/' | relative_url }}">Personal Development</a></li>
-              <li><a href="{{ '/blog/tutorials/' | relative_url }}">Tutorials</a></li>
-            </ul>
-          </li>
+          <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
           <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
           <li><a href="{{ '/guides/' | relative_url }}">Guides</a></li>
           <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
@@ -168,37 +161,6 @@
         </div>
       </section>
       
-      <section class="featured-section">
-        <h2 class="section-title animate-on-scroll">Featured Categories</h2>
-        <div class="featured-grid">
-          <div class="featured-item animate-on-scroll">
-            <img src="/static/images/a.png" alt="AI Projects" class="featured-image" loading="lazy">
-            <div class="featured-content">
-              <h3 class="featured-title">AI Projects</h3>
-              <p class="featured-excerpt">Explore my latest artificial intelligence and machine learning projects.</p>
-              <a href="{{ '/blog/ai-projects/' | relative_url }}" class="btn">Explore</a>
-            </div>
-          </div>
-          
-          <div class="featured-item animate-on-scroll">
-            <img src="/static/images/culture.png" alt="Personal Development" class="featured-image" loading="lazy">
-            <div class="featured-content">
-              <h3 class="featured-title">Personal Development</h3>
-              <p class="featured-excerpt">Insights and strategies for personal and professional growth.</p>
-              <a href="{{ '/blog/personal-development/' | relative_url }}" class="btn">Explore</a>
-            </div>
-          </div>
-          
-          <div class="featured-item animate-on-scroll">
-            <img src="/static/images/langchain.png" alt="Tutorials" class="featured-image" loading="lazy">
-            <div class="featured-content">
-              <h3 class="featured-title">Tutorials</h3>
-              <p class="featured-excerpt">Step-by-step guides and tutorials on various technologies and tools.</p>
-              <a href="{{ '/blog/tutorials/' | relative_url }}" class="btn">Explore</a>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   </main>
 

@@ -20,41 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mainNav.setAttribute('aria-hidden', 'true');
   }
   
-  // Dropdown menu for mobile
-  const dropdowns = document.querySelectorAll('.dropdown');
-  
-  dropdowns.forEach(dropdown => {
-    const dropdownLink = dropdown.querySelector('a');
-    const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-    
-    if (dropdownLink && dropdownMenu) {
-      // Add ARIA attributes
-      dropdownLink.setAttribute('aria-haspopup', 'true');
-      dropdownLink.setAttribute('aria-expanded', 'false');
-      dropdownMenu.setAttribute('aria-hidden', 'true');
-      
-      dropdown.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
-          // Only prevent default if it's a direct click on the dropdown link
-          if (e.target === dropdownLink) {
-            e.preventDefault();
-            
-            const isActive = this.classList.toggle('active');
-            dropdownLink.setAttribute('aria-expanded', isActive);
-            dropdownMenu.setAttribute('aria-hidden', !isActive);
-          }
-        }
-      });
-      
-      // For keyboard navigation
-      dropdownLink.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          dropdown.click();
-        }
-      });
-    }
-  });
+  // Dropdown menu code removed as categories have been removed from mobile and main site
   
   // Add post list styling
   const postList = document.querySelector('.post-list');

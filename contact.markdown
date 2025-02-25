@@ -8,9 +8,7 @@ description: Get in touch with Daniel Kliewer for questions, feedback, collabora
 # Get in Touch
 
 <div class="contact-intro">
-  <div class="contact-image">
-    <img src="/static/images/a.png" alt="Contact" loading="lazy">
-  </div>
+
   <div class="contact-text">
     <p>I'd love to hear from you! Whether you have a question, feedback, or want to discuss a potential collaboration, feel free to reach out through any of the channels below.</p>
   </div>
