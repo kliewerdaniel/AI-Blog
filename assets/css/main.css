@@ -63,6 +63,9 @@ a {
   color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s ease, background-color 0.3s ease;
+  /* Enhanced touch target size */
+  padding: 0.25rem;
+  display: inline-block;
 }
 
 a:hover {
@@ -114,9 +117,14 @@ nav {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 600;
-  padding: var(--space-xs) 0;
+  padding: var(--space-sm) var(--space-xs);
   display: block;
   transition: color 0.3s ease;
+  /* Enhanced touch target size */
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .main-nav li a:hover {
@@ -150,8 +158,12 @@ nav {
 }
 
 .dropdown-menu li a {
-  padding: var(--space-xs) var(--space-md);
+  padding: var(--space-sm) var(--space-md);
   font-weight: normal;
+  /* Enhanced touch target size */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .dropdown-menu li a:hover {
@@ -166,6 +178,9 @@ nav {
   width: 30px;
   height: 21px;
   cursor: pointer;
+  /* Enhanced touch target size */
+  padding: var(--space-sm);
+  margin: -var(--space-sm);
 }
 
 .mobile-menu-toggle span {
@@ -238,6 +253,9 @@ main {
   text-decoration: none;
   transition: color 0.3s ease;
   display: block;
+  /* Enhanced touch target size */
+  padding: var(--space-sm) 0;
+  min-height: 44px;
 }
 
 .sidebar-widget ul li a:hover {
@@ -257,6 +275,8 @@ main {
   font-size: 0.95rem;
   font-family: var(--body-font);
   transition: border-color 0.3s ease;
+  /* Enhanced touch target size */
+  min-height: 44px;
 }
 
 .search-widget input[type="text"]:focus {
@@ -274,6 +294,9 @@ main {
   transition: background-color 0.3s ease;
   font-family: var(--body-font);
   font-weight: 600;
+  /* Enhanced touch target size */
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .search-widget button:hover {
@@ -345,6 +368,12 @@ main {
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  /* Enhanced touch target size */
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .donate-button:hover {
@@ -395,6 +424,10 @@ footer {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: color 0.3s ease;
+  /* Enhanced touch target size */
+  padding: var(--space-sm) 0;
+  min-height: 44px;
+  display: block;
 }
 
 .footer-nav ul li a:hover {
@@ -412,6 +445,10 @@ footer {
   transition: color 0.3s ease, transform 0.2s ease;
   display: flex;
   align-items: center;
+  /* Enhanced touch target size */
+  padding: var(--space-sm);
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .social-icon:hover {
@@ -499,6 +536,13 @@ footer {
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Enhanced touch target size */
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-xs);
 }
 
 .btn:hover {
@@ -522,10 +566,17 @@ footer {
 @media (max-width: 992px) {
   .content-wrapper {
     grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .post-content {
+    order: 1; /* Main content first */
   }
   
   .sidebar {
     width: 100%;
+    order: 2; /* Sidebar second */
   }
   
   .footer-content {
