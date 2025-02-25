@@ -142,6 +142,36 @@
     <div class="content-wrapper">
       <article class="post-content">
         {{ content }}
+        
+        <!-- Featured Posts Carousel -->
+        <div class="featured-posts-carousel">
+          <h2>Featured Posts</h2>
+          <div class="carousel-container">
+            <div class="carousel-track">
+              {% for post in site.posts limit:5 %}
+                <div class="carousel-slide">
+                  <div class="carousel-card">
+                    {% if post.image %}
+                      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="carousel-image" loading="lazy">
+                    {% else %}
+                      <img src="/static/images/a.png" alt="{{ post.title }}" class="carousel-image" loading="lazy">
+                    {% endif %}
+                    <div class="carousel-content">
+                      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                      <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                      {% if post.description %}
+                        <p class="post-excerpt">{{ post.description | truncate: 100 }}</p>
+                      {% endif %}
+                      <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <button class="carousel-button prev" aria-label="Previous slide">&lt;</button>
+            <button class="carousel-button next" aria-label="Next slide">&gt;</button>
+          </div>
+        </div>
       </article>
       
       <aside class="sidebar">

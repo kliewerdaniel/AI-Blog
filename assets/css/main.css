@@ -623,6 +623,119 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Featured Posts Carousel */
+.featured-posts-carousel {
+  margin: var(--space-xl) 0;
+}
+
+.featured-posts-carousel h2 {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex: 0 0 100%;
+}
+
+.carousel-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  height: 100%;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.carousel-content {
+  padding: var(--space-lg);
+}
+
+.carousel-content h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-xs);
+}
+
+.carousel-content .post-date {
+  margin-bottom: var(--space-sm);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.carousel-content .post-excerpt {
+  margin-bottom: var(--space-md);
+}
+
+.carousel-content .read-more {
+  display: inline-block;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: color var(--transition-normal);
+}
+
+.carousel-content .read-more:hover {
+  color: var(--primary-light);
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-normal);
+  z-index: 10;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 200px;
+  }
+  
+  .carousel-content {
+    padding: var(--space-md);
+  }
+}
+
 /* Post list styling */
 .post-list {
   list-style-type: none;

@@ -113,4 +113,95 @@ document.addEventListener('DOMContentLoaded', function() {
       imageObserver.observe(img);
     });
   }
+  
+  // Featured Posts Carousel
+  const carousel = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevButton = document.querySelector('.carousel-button.prev');
+  const nextButton = document.querySelector('.carousel-button.next');
+  
+  if (carousel && slides.length > 0) {
+    let currentIndex = 0;
+    const slideCount = slides.length;
+    
+    // Initialize carousel
+    updateCarousel();
+    
+    // Add event listeners to buttons
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateCarousel();
+      });
+    }
+    
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateCarousel();
+      });
+    }
+    
+    // Auto-advance carousel every 5 seconds
+    let autoplayInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % slideCount;
+      updateCarousel();
+    }, 5000);
+    
+    // Pause autoplay on hover
+    if (carousel.parentElement) {
+      carousel.parentElement.addEventListener('mouseenter', () => {
+        clearInterval(autoplayInterval);
+      });
+      
+      carousel.parentElement.addEventListener('mouseleave', () => {
+        autoplayInterval = setInterval(() => {
+          currentIndex = (currentIndex + 1) % slideCount;
+          updateCarousel();
+        }, 5000);
+      });
+    }
+    
+    // Update carousel position
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateCarousel();
+      } else if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateCarousel();
+      }
+    });
+    
+    // Add swipe support for touch devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      if (touchEndX < touchStartX - swipeThreshold) {
+        // Swipe left - next slide
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateCarousel();
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        // Swipe right - previous slide
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateCarousel();
+      }
+    }
+  }
 });
