@@ -13,21 +13,4 @@ Usage:
 {% assign file_name = base_path[0] %}
 {% assign file_ext = base_path[1] %}
 
-{% if page.permalink == '/about/' %}
-<img 
-  src="{{ include.src }}" 
-  srcset="
-    {{ file_name }}-320.{{ file_ext }} 320w,
-    {{ file_name }}-640.{{ file_ext }} 640w,
-    {{ file_name }}-960.{{ file_ext }} 960w,
-    {{ file_name }}-1280.{{ file_ext }} 1280w
-  "
-  sizes="{{ include.sizes | default: '(max-width: 768px) 100vw, 50vw' }}"
-  alt="{{ include.alt }}"
-  loading="lazy"
-  {% if include.class %}class="{{ include.class }}"{% endif %}
->
-{% else %}
-<!-- Image hidden: Only showing images on About page -->
-<span class="image-placeholder" aria-label="{{ include.alt }}"></span>
-{% endif %}
+
