@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default-redesign
 title: Blog
 permalink: /blog/
 ---

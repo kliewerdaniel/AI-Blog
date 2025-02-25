@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default-redesign
 title: About Me
 permalink: /about/
 description: Learn about Daniel Kliewer's journey, expertise, and passion for technology, writing, and helping others through innovative solutions.

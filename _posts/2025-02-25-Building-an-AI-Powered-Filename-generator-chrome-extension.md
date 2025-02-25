@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Building an AI-Powered Filename Generator Chrome Extension
 date:   2025-02-25 07:42:44 -0500
 ---
@@ -142,4 +142,3 @@ The AI Filename Generator Chrome extension is a small but powerful tool that enh
 You can also install the extension directly from the Chrome Web Store: [AI Filename Generator](https://chromewebstore.google.com/detail/ai-filename-generator/eocbkbnabbmclgneeakdbglicbhbimbj).
 
 What features would you like to see added? Let me know in the comments!
-

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default-redesign
 title: Contact
 permalink: /contact/
 description: Get in touch with Daniel Kliewer for questions, feedback, collaboration opportunities, or just to say hello.
