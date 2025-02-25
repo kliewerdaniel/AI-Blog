@@ -211,6 +211,20 @@
                 {% endif %}
               {% endfor %}
               
+              {% for post in site.posts %}
+                {% if post.title == "Homeless Guide Austin" %}
+                  {% assign featured_posts = featured_posts | push: post %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              
+              {% for post in site.posts %}
+                {% if post.title == "Building an AI-Powered Filename Generator Chrome Extension" %}
+                  {% assign featured_posts = featured_posts | push: post %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              
               {% for post in featured_posts %}
                 <div class="carousel-slide">
                   <div class="carousel-card">
