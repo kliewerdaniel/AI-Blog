@@ -19,30 +19,116 @@
     <div class="container">
       <nav>
         <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
-        <ul>
-
+        <ul class="main-nav">
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
           <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+          <li class="dropdown">
+            <a href="{{ '/blog/' | relative_url }}">Blog</a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ '/blog/ai-projects/' | relative_url }}">AI Projects</a></li>
+              <li><a href="{{ '/blog/personal-development/' | relative_url }}">Personal Development</a></li>
+              <li><a href="{{ '/blog/tutorials/' | relative_url }}">Tutorials</a></li>
+            </ul>
+          </li>
+          <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+          <li><a href="{{ '/guides/' | relative_url }}">Guides</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
         </ul>
+        <div class="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
     </div>
   </header>
 
   <main class="container">
-
-    
-    <article class="post-content">
-      {{ content }}
-    </article>
+    <div class="content-wrapper">
+      <article class="post-content">
+        {{ content }}
+      </article>
+      
+      <aside class="sidebar">
+        <div class="sidebar-widget search-widget">
+          <h3>Search</h3>
+          <form action="{{ '/search/' | relative_url }}" method="get">
+            <input type="text" name="q" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+        </div>
+        
+        <div class="sidebar-widget recent-posts-widget">
+          <h3>Recent Posts</h3>
+          <ul>
+            {% for post in site.posts limit:5 %}
+              <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <div class="sidebar-widget categories-widget">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="{{ '/blog/ai-projects/' | relative_url }}">AI Projects</a></li>
+            <li><a href="{{ '/blog/personal-development/' | relative_url }}">Personal Development</a></li>
+            <li><a href="{{ '/blog/tutorials/' | relative_url }}">Tutorials</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
   </main>
 
 
 
   <footer>
     <div class="container">
-      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+      <div class="footer-content">
+        <div class="footer-nav">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="{{ '/' | relative_url }}">Home</a></li>
+            <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+            <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+            <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+            <li><a href="{{ '/guides/' | relative_url }}">Guides</a></li>
+            <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h3>Connect</h3>
+          <div class="social-icons">
+            <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" class="social-icon twitter">Twitter</a>
+            <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer" class="social-icon github">GitHub</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+      document.querySelector('.main-nav').classList.toggle('active');
+      this.classList.toggle('active');
+    });
+    
+    // Dropdown menu for mobile
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+      dropdown.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.classList.toggle('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
