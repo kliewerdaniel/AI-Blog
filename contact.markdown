@@ -16,33 +16,6 @@ description: Get in touch with Daniel Kliewer for questions, feedback, collabora
   </div>
 </div>
 
-## Contact Form
-
-<div class="contact-form-container">
-  <form id="contact-form" class="contact-form" action="https://formspree.io/f/{{ site.formspree_id }}" method="POST">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    
-    <div class="form-group">
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject" required>
-    </div>
-    
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
-    
-    <button type="submit" class="btn">Send Message</button>
-  </form>
-</div>
 
 ## Direct Email
 
@@ -106,51 +79,6 @@ I typically respond to all inquiries within 24-48 hours. For urgent matters, ple
     flex: 1;
   }
   
-  .contact-form-container {
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 4px 12px var(--shadow);
-    margin: 2rem 0;
-    transition: box-shadow var(--transition-normal);
-  }
-  
-  .contact-form-container:hover {
-    box-shadow: 0 8px 24px var(--shadow-hover);
-  }
-  
-  .contact-form {
-    display: grid;
-    gap: 1.5rem;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .form-group label {
-    font-weight: 600;
-    color: var(--primary-color);
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    padding: 0.75rem;
-    border: 2px solid var(--secondary-color);
-    border-radius: var(--border-radius-md);
-    font-family: var(--body-font);
-    font-size: 1rem;
-    transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
-  }
-  
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.2);
-  }
   
   .email-link {
     color: var(--primary-color);
@@ -251,36 +179,3 @@ I typically respond to all inquiries within 24-48 hours. For urgent matters, ple
     }
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Simple form validation
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-        
-        if (!name || !email || !subject || !message) {
-          alert('Please fill in all fields');
-          return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          alert('Please enter a valid email address');
-          return;
-        }
-        
-        // If validation passes, submit the form
-        this.submit();
-      });
-    }
-  });
-</script>
