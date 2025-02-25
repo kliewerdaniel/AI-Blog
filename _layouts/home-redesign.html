@@ -123,7 +123,60 @@
 
   <main>
     <div class="container">
+      <!-- Featured Posts Section -->
       <section class="featured-section">
+        <h2 class="section-title animate-on-scroll">Featured Posts</h2>
+        <div class="post-list">
+          {% assign featured_posts = "" | split: "" %}
+              
+          {% for post in site.posts %}
+            {% if post.title == "Step-by-Step Guide to Running Open Deep Research with smolagents" %}
+              {% assign featured_posts = featured_posts | push: post %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          
+          {% for post in site.posts %}
+            {% if post.title == "Building a Multimodal Story Generation System Complete Setup Guide" %}
+              {% assign featured_posts = featured_posts | push: post %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          
+          {% for post in site.posts %}
+            {% if post.title == "Ollama Smolagents Open Deep Research Integration" %}
+              {% assign featured_posts = featured_posts | push: post %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          
+          {% for post in site.posts %}
+            {% if post.title == "Setting Up Continue.dev with Ollama for Local LLMs in VSCode" %}
+              {% assign featured_posts = featured_posts | push: post %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          
+          {% for post in featured_posts %}
+            <div class="post-item animate-on-scroll">
+              <span class="image-placeholder" aria-label="{{ post.title }}"></span>
+              <div class="post-item-content">
+                <h3>
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
+                <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                {% if post.description %}
+                  <p class="post-excerpt">{{ post.description | truncate: 120 }}</p>
+                {% endif %}
+                <a href="{{ post.url | relative_url }}" class="btn">Read More</a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+      
+      <!-- Recent Posts Section -->
+      <section class="recent-posts-section">
         <h2 class="section-title animate-on-scroll">Recent Posts</h2>
         <div class="post-list">
           {% for post in site.posts limit:6 %}
