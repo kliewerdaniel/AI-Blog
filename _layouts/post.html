@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ site.description | truncate: 160 }}{% endif %}">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ page.content | strip_html | truncate: 160 }}{% endif %}">
   
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ site.description | truncate: 160 }}{% endif %}">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ page.content | strip_html | truncate: 160 }}{% endif %}">
   {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}">{% endif %}
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@{{ site.twitter_username }}">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ site.description | truncate: 160 }}{% endif %}">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ page.content | strip_html | truncate: 160 }}{% endif %}">
   {% if page.image %}<meta name="twitter:image" content="{{ page.image | absolute_url }}">{% endif %}
   
   <!-- Canonical URL -->
@@ -54,39 +54,6 @@
     !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
   </script>
   
-  <!-- Structured Data for Website -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "{{ site.title }}",
-    "url": "{{ site.url }}",
-    "description": "{{ site.description | strip_html | strip_newlines | truncate: 160 }}",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "{{ site.url }}/search/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-  
-  <!-- Structured Data for Blog -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "{{ site.title }}'s Blog",
-    "url": "{{ site.url }}/blog/",
-    "description": "{{ site.description | strip_html | strip_newlines | truncate: 160 }}",
-    "publisher": {
-      "@type": "Person",
-      "name": "Daniel Kliewer",
-      "url": "{{ site.url }}"
-    }
-  }
-  </script>
-  
-  {% if page.layout == 'post' %}
   <!-- Structured Data for Blog Post -->
   <script type="application/ld+json">
   {
@@ -99,11 +66,17 @@
     "headline": "{{ page.title | escape }}",
     "description": "{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ page.content | strip_html | strip_newlines | truncate: 160 }}{% endif %}",
     "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}",
     "author": {
       "@type": "Person",
       "name": "Daniel Kliewer"
     },
+    {% if page.categories %}
+    "keywords": "{{ page.categories | join: ', ' }}",
+    {% endif %}
+    {% if page.tags %}
+    "keywords": "{{ page.tags | join: ', ' }}",
+    {% endif %}
     "publisher": {
       "@type": "Organization",
       "name": "{{ site.title }}",
@@ -111,10 +84,20 @@
         "@type": "ImageObject",
         "url": "{{ site.url }}/static/images/a.png"
       }
+    },
+    {% if page.image %}
+    "image": {
+      "@type": "ImageObject",
+      "url": "{{ page.image | absolute_url }}"
     }
+    {% else %}
+    "image": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/static/images/a.png"
+    }
+    {% endif %}
   }
   </script>
-  {% endif %}
 </head>
 <body>
   <header>
@@ -148,7 +131,55 @@
   <main class="container">
     <div class="content-wrapper">
       <article class="post-content">
-        {{ content }}
+        <header class="post-header">
+          <h1 class="post-title">{{ page.title }}</h1>
+          <div class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+            {% if page.categories %}
+            <span class="post-categories">
+              Categories:
+              {% for category in page.categories %}
+              <a href="{{ '/blog/' | append: category | downcase | relative_url }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+              {% endfor %}
+            </span>
+            {% endif %}
+            {% if page.tags %}
+            <span class="post-tags">
+              Tags:
+              {% for tag in page.tags %}
+              <a href="{{ '/tags/' | append: tag | downcase | relative_url }}">#{{ tag }}</a>{% unless forloop.last %} {% endunless %}
+              {% endfor %}
+            </span>
+            {% endif %}
+          </div>
+        </header>
+        
+        <div class="post-content">
+          {{ content }}
+        </div>
+        
+        <footer class="post-footer">
+          <div class="post-share">
+            <h3>Share this post</h3>
+            <div class="share-buttons">
+              <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}&via={{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" class="share-twitter">Twitter</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" class="share-facebook">Facebook</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url | url_encode }}&title={{ page.title | url_encode }}" target="_blank" rel="noopener noreferrer" class="share-linkedin">LinkedIn</a>
+            </div>
+          </div>
+          
+          <div class="post-navigation">
+            <div class="post-navigation-links">
+              {% if page.previous.url %}
+              <a href="{{ page.previous.url | relative_url }}" class="prev-post">&laquo; {{ page.previous.title }}</a>
+              {% endif %}
+              
+              {% if page.next.url %}
+              <a href="{{ page.next.url | relative_url }}" class="next-post">{{ page.next.title }} &raquo;</a>
+              {% endif %}
+            </div>
+          </div>
+        </footer>
       </article>
       
       <aside class="sidebar">
@@ -177,6 +208,17 @@
             <li><a href="{{ '/blog/tutorials/' | relative_url }}">Tutorials</a></li>
           </ul>
         </div>
+        
+        {% if page.tags %}
+        <div class="sidebar-widget tags-widget">
+          <h3>Tags</h3>
+          <div class="tag-cloud">
+            {% for tag in page.tags %}
+            <a href="{{ '/tags/' | append: tag | downcase | relative_url }}" class="tag">#{{ tag }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
       </aside>
     </div>
   </main>

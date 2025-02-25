@@ -21,9 +21,12 @@
 title: Daniel Kliewer
 email: daniel.kliewer@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Daniel Kliewer is a writer, researcher, and software developer.
+  Daniel Kliewer is a writer, researcher, and software developer specializing in AI projects, 
+  personal development, and technical tutorials. Explore insights on machine learning, 
+  large language models, and software development.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://danielkliewer.com" # the base hostname & protocol for your site
+
 twitter_username: kliewer_daniel
 github_username:  kliewerdaniel
 

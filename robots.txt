@@ -1,0 +1,10 @@
+# robots.txt for danielkliewer.com
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://danielkliewer.com/sitemap.xml
+
+# Disallow specific directories if needed
+# Disallow: /private/
+# Disallow: /admin/
