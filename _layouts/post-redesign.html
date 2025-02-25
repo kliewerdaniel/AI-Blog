@@ -133,7 +133,7 @@
       <div class="content-wrapper">
         <article class="post-content animate-on-scroll">
           <header class="post-header">
-            {% if page.image %}
+            {% if page.image and page.permalink == '/about/' %}
             <div class="post-featured-image">
               <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="lazy">
             </div>
@@ -162,7 +162,12 @@
           </header>
           
           <div class="post-content">
-            {{ content }}
+            {% if page.permalink == '/about/' %}
+              {{ content }}
+            {% else %}
+              {% assign content_without_images = content | replace: '<img', '<span class="image-placeholder"' | replace: '</img>', '</span>' %}
+              {{ content_without_images }}
+            {% endif %}
           </div>
           
           <footer class="post-footer">
@@ -236,7 +241,7 @@
           <div class="sidebar-widget author-widget">
             <h3>About the Author</h3>
             <div class="author-info">
-              <img src="/static/images/a.png" alt="Daniel Kliewer" class="author-image">
+              <span class="image-placeholder" aria-label="Daniel Kliewer"></span>
               <h4>Daniel Kliewer</h4>
               <p>Writer, Researcher, Software Developer with a passion for AI and technology.</p>
               <a href="{{ '/about/' | relative_url }}" class="btn btn-secondary">Learn More</a>

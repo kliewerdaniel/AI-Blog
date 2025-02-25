@@ -216,11 +216,6 @@
               {% for post in featured_posts %}
                 <div class="carousel-slide">
                   <div class="carousel-card">
-                    {% if post.image %}
-                      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="carousel-image" loading="lazy">
-                    {% else %}
-                      <img src="/static/images/a.png" alt="{{ post.title }}" class="carousel-image" loading="lazy">
-                    {% endif %}
                     <div class="carousel-content">
                       <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
                       <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>

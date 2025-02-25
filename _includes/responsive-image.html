@@ -13,6 +13,7 @@ Usage:
 {% assign file_name = base_path[0] %}
 {% assign file_ext = base_path[1] %}
 
+{% if page.permalink == '/about/' %}
 <img 
   src="{{ include.src }}" 
   srcset="
@@ -26,3 +27,7 @@ Usage:
   loading="lazy"
   {% if include.class %}class="{{ include.class }}"{% endif %}
 >
+{% else %}
+<!-- Image hidden: Only showing images on About page -->
+<span class="image-placeholder" aria-label="{{ include.alt }}"></span>
+{% endif %}

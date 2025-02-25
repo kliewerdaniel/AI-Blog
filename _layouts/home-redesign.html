@@ -110,7 +110,7 @@
   </header>
 
   <section class="hero-header">
-    <div class="hero-background" style="background-image: url('/static/images/a.png');"></div>
+    <div class="hero-background"></div>
     <div class="hero-content">
       <h1 class="hero-title">Daniel Kliewer</h1>
       <p class="hero-subtitle">Writer, Researcher, Software Developer</p>
@@ -128,11 +128,7 @@
         <div class="post-list">
           {% for post in site.posts limit:6 %}
             <div class="post-item animate-on-scroll">
-              {% if post.image %}
-                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-item-image" loading="lazy">
-              {% else %}
-                <img src="/static/images/a.png" alt="{{ post.title }}" class="post-item-image" loading="lazy">
-              {% endif %}
+              <span class="image-placeholder" aria-label="{{ post.title }}"></span>
               <div class="post-item-content">
                 <h3>
                   <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -153,7 +149,7 @@
       </section>
       
       <section class="parallax-section">
-        <div class="parallax-bg" style="background-image: url('/static/images/culture.png');"></div>
+        <div class="parallax-bg"></div>
         <div class="parallax-content animate-on-scroll">
           <h2>Explore My Projects</h2>
           <p>Check out my latest software development and research projects.</p>

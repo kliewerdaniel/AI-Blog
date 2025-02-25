@@ -155,7 +155,12 @@
         </header>
         
         <div class="post-content">
-          {{ content }}
+          {% if page.permalink == '/about/' %}
+            {{ content }}
+          {% else %}
+            {% assign content_without_images = content | replace: '<img', '<span class="image-placeholder"' | replace: '</img>', '</span>' %}
+            {{ content_without_images }}
+          {% endif %}
         </div>
         
         <footer class="post-footer">

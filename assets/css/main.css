@@ -736,6 +736,14 @@ footer {
   }
 }
 
+/* Image placeholder for hidden images */
+.image-placeholder {
+  display: block;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
 /* Post list styling */
 .post-list {
   list-style-type: none;

@@ -154,7 +154,12 @@
     <div class="container">
       <div class="content-wrapper">
         <article class="post-content">
-          {{ content }}
+          {% if page.permalink == '/about/' %}
+            {{ content }}
+          {% else %}
+            {% assign content_without_images = content | replace: '<img', '<span class="image-placeholder"' | replace: '</img>', '</span>' %}
+            {{ content_without_images }}
+          {% endif %}
         </article>
         
         <aside class="sidebar">
