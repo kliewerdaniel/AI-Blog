@@ -2,7 +2,7 @@
 layout: home
 ---
 
-![Alt text](/static/images/a.png){:loading="lazy"}
+
 
 
 <h1>Recent Posts</h1>
