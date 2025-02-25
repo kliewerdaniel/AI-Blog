@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "optimize-images": "node optimize-images.js",
+    "build": "jekyll build",
+    "serve": "jekyll serve",
+    "minify-css": "cleancss -o assets/css/main.min.css assets/css/main.css",
+    "minify-js": "uglifyjs assets/js/main.js -o assets/js/main.min.js"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +17,10 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "stripe": "^17.1.0"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "sharp": "^0.33.2",
+    "uglify-js": "^3.17.4"
   }
 }
