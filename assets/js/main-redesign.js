@@ -1,0 +1,211 @@
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu toggle
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const mainNav = document.querySelector('.main-nav');
+  
+  if (mobileMenuToggle && mainNav) {
+    mobileMenuToggle.addEventListener('click', function() {
+      mainNav.classList.toggle('active');
+      this.classList.toggle('active');
+      
+      // Accessibility: Update ARIA attributes
+      const expanded = mainNav.classList.contains('active');
+      this.setAttribute('aria-expanded', expanded);
+      mainNav.setAttribute('aria-hidden', !expanded);
+    });
+    
+    // Initialize ARIA attributes
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    mobileMenuToggle.setAttribute('aria-label', 'Toggle navigation menu');
+    mainNav.setAttribute('aria-hidden', 'true');
+  }
+  
+  // Dropdown menu for mobile
+  const dropdowns = document.querySelectorAll('.dropdown');
+  
+  dropdowns.forEach(dropdown => {
+    const dropdownLink = dropdown.querySelector('a');
+    const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+    
+    if (dropdownLink && dropdownMenu) {
+      // Add ARIA attributes
+      dropdownLink.setAttribute('aria-haspopup', 'true');
+      dropdownLink.setAttribute('aria-expanded', 'false');
+      dropdownMenu.setAttribute('aria-hidden', 'true');
+      
+      dropdown.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          // Only prevent default if it's a direct click on the dropdown link
+          if (e.target === dropdownLink) {
+            e.preventDefault();
+            
+            const isActive = this.classList.toggle('active');
+            dropdownLink.setAttribute('aria-expanded', isActive);
+            dropdownMenu.setAttribute('aria-hidden', !isActive);
+          }
+        }
+      });
+      
+      // For keyboard navigation
+      dropdownLink.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          dropdown.click();
+        }
+      });
+    }
+  });
+  
+  // Add post list styling
+  const postList = document.querySelector('.post-list');
+  if (postList) {
+    postList.classList.add('styled-post-list');
+    
+    const postItems = postList.querySelectorAll('li');
+    postItems.forEach((item, index) => {
+      item.classList.add('post-item');
+      
+      // Add animation delay based on index
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      item.style.animation = `fadeInUp 0.6s ease forwards ${0.2 + (index * 0.1)}s`;
+    });
+  }
+  
+  // Add active class to current navigation item
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.main-nav li a');
+  
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath || 
+        (currentPath.includes('/blog/') && linkPath === '/blog/') ||
+        (currentPath.includes('/projects/') && linkPath === '/projects/') ||
+        (currentPath.includes('/guides/') && linkPath === '/guides/')) {
+      link.parentElement.classList.add('active');
+    }
+  });
+  
+  // Header scroll effect
+  const header = document.querySelector('header');
+  let lastScrollTop = 0;
+  
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    
+    lastScrollTop = scrollTop;
+    
+    // Parallax effect for sections with parallax-bg class
+    const parallaxBgs = document.querySelectorAll('.parallax-bg');
+    parallaxBgs.forEach(bg => {
+      const speed = 0.5;
+      const yPos = -(scrollTop * speed);
+      bg.style.transform = `translate3d(0, ${yPos}px, 0)`;
+    });
+  });
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      
+      if (targetId !== '#') {
+        e.preventDefault();
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Update URL without page reload
+          history.pushState(null, null, targetId);
+        }
+      }
+    });
+  });
+  
+  // Image lazy loading with fade-in effect
+  if ('IntersectionObserver' in window) {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.style.opacity = '0';
+          img.style.transition = 'opacity 0.5s ease';
+          
+          // When the image is loaded, fade it in
+          img.onload = () => {
+            img.style.opacity = '1';
+          };
+          
+          // Stop observing the image
+          observer.unobserve(img);
+        }
+      });
+    });
+    
+    lazyImages.forEach(img => {
+      // Add initial styles
+      img.style.opacity = '0';
+      imageObserver.observe(img);
+    });
+  }
+  
+  // Animate elements when they come into view
+  const animateOnScroll = function() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    elements.forEach(element => {
+      observer.observe(element);
+    });
+  };
+  
+  // Initialize animation on scroll if supported
+  if ('IntersectionObserver' in window) {
+    animateOnScroll();
+  }
+  
+  // Add parallax effect to hero background if exists
+  const heroBackground = document.querySelector('.hero-background');
+  if (heroBackground) {
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.pageYOffset;
+      heroBackground.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+    });
+  }
+  
+  // Add hover effect to featured items
+  const featuredItems = document.querySelectorAll('.featured-item');
+  featuredItems.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px)';
+      this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+      this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+    });
+  });
+});
