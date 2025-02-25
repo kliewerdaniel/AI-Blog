@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   #search-container button {
-    background-color: #007bff;
+    background-color: #333333;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -84,10 +84,12 @@ document.addEventListener('DOMContentLoaded', function() {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    white-space: nowrap;
+    min-width: 100px;
   }
   
   #search-container button:hover {
-    background-color: #0056b3;
+    background-color: #666666;
   }
   
   .search-result-item {

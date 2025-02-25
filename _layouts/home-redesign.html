@@ -234,5 +234,28 @@
 
   <!-- Deferred JavaScript loading -->
   <script src="{{ '/assets/js/min/main-redesign.min.js' | relative_url }}" defer></script>
+  
+  <!-- Additional styles for view-all-button -->
+  <style>
+    .view-all-posts {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    
+    .view-all-button {
+      display: inline-block;
+      background-color: #333333;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    
+    .view-all-button:hover {
+      background-color: #666666;
+    }
+  </style>
 </body>
 </html>

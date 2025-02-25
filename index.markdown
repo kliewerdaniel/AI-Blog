@@ -33,7 +33,7 @@ layout: home
   
   .view-all-button {
     display: inline-block;
-    background-color: #007bff;
+    background-color: #333333;
     color: white;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
@@ -43,6 +43,6 @@ layout: home
   }
   
   .view-all-button:hover {
-    background-color: #0056b3;
+    background-color: #666666;
   }
 </style>
