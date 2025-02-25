@@ -181,6 +181,8 @@
                 <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
                 {% if post.description %}
                   <p class="post-excerpt">{{ post.description | truncate: 120 }}</p>
+                {% else %}
+                  <p class="post-excerpt">{{ post.content | strip_html | truncate: 120 }}</p>
                 {% endif %}
                 <a href="{{ post.url | relative_url }}" class="btn">Read More</a>
               </div>
@@ -203,6 +205,8 @@
                 <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
                 {% if post.description %}
                   <p class="post-excerpt">{{ post.description | truncate: 120 }}</p>
+                {% else %}
+                  <p class="post-excerpt">{{ post.content | strip_html | truncate: 120 }}</p>
                 {% endif %}
                 <a href="{{ post.url | relative_url }}" class="btn">Read More</a>
               </div>

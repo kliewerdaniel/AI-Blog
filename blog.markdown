@@ -17,6 +17,8 @@ Browse through my latest articles and insights on various topics.
       <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
       {% if post.description %}
         <p class="post-excerpt">{{ post.description }}</p>
+      {% else %}
+        <p class="post-excerpt">{{ post.content | strip_html | truncate: 150 }}</p>
       {% endif %}
     </li>
   {% endfor %}
