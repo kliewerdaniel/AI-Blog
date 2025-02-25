@@ -12,22 +12,22 @@ Explore my significant projects and open-source initiatives.
 
 An open-source initiative designed to help writers and content creators generate high-quality content with the assistance of AI.
 
-[Learn More](/projects/ghostwriter/)
+[Learn More](/2024/10/24/Ghost-Writer.html)
 
 ## AI Agents
 
 A collection of AI agent implementations for various tasks and applications.
 
-[Learn More](/projects/ai-agents/)
+[Learn More](/2024/10/30/Creating-AI-Agents.html)
 
 ## Data Annotation Platform
 
 A platform for annotating and labeling data for machine learning models.
 
-[Learn More](/projects/data-annotation/)
+[Learn More](/2024/11/21/Build-a-data-annotation-platform.html)
 
 ## Persona Generator
 
 A tool for generating realistic personas for user research and marketing.
 
-[Learn More](/projects/persona-generator/)
+[Learn More](/2024/11/27/Enhanced-Persona-Generator.html)
