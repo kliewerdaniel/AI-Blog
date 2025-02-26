@@ -81,7 +81,7 @@ My aspirations have evolved. Armed with the knowledge and skills I've painstakin
 
 Through this blog, I aim to share my journey—not as a mere recounting of events, but as a testament to the indomitable human spirit. If my experiences can inspire even one soul to persist in the face of adversity, then every hardship endured gains purpose.
 
-I offer these words freely, without pretense or expectation. If you find value herein and wish to support the continuation of this endeavor, your generosity would be received with the deepest gratitude.
+I offer these words freely, without pretense or expectation. 
 
 <div class="skills-section">
   <h3>Technical Skills</h3>
