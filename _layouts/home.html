@@ -71,7 +71,7 @@
     "@type": "WebSite",
     "name": "{{ site.title }}",
     "url": "{{ site.url }}",
-    "description": "{{ site.description | strip_html | strip_newlines | truncate: 160 }}",
+    "description": "{{ site.description | strip_html | strip_newlines | truncate: 300 }}",
     "potentialAction": {
       "@type": "SearchAction",
       "target": "{{ site.url }}/search/?q={search_term_string}",
@@ -87,7 +87,7 @@
     "@type": "Blog",
     "name": "{{ site.title }}'s Blog",
     "url": "{{ site.url }}/blog/",
-    "description": "{{ site.description | strip_html | strip_newlines | truncate: 160 }}",
+    "description": "{{ site.description | strip_html | strip_newlines | truncate: 300 }}",
     "publisher": {
       "@type": "Person",
       "name": "Daniel Kliewer",
@@ -107,7 +107,7 @@
       "@id": "{{ page.url | absolute_url }}"
     },
     "headline": "{{ page.title | escape }}",
-    "description": "{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ page.content | strip_html | strip_newlines | truncate: 160 }}{% endif %}",
+    "description": "{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 300 }}{% else %}{{ page.content | strip_html | strip_newlines | truncate: 300 }}{% endif %}",
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     "dateModified": "{{ page.date | date_to_xmlschema }}",
     "author": {
