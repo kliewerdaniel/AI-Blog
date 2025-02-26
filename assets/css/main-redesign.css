@@ -360,34 +360,14 @@ a:hover {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Fullscreen Mobile Menu */
+/* Dropdown Mobile Menu (like desktop) */
 .mobile-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--neutral-dark);
-  z-index: 50;
   display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  overflow-y: auto;
+  z-index: 50;
 }
 
 .mobile-menu.active {
-  display: flex;
-  opacity: 1;
-  visibility: visible;
-}
-
-.mobile-menu.active {
-  opacity: 1;
-  visibility: visible;
+  display: block;
 }
 
 .mobile-nav-items {

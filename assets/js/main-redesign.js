@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Initialize modern navigation with fullscreen mobile menu
+ * Initialize modern navigation with dropdown mobile menu (like desktop)
  */
 function initModernNavigation() {
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -38,19 +38,14 @@ function initModernNavigation() {
     mobileMenuToggle.addEventListener('click', function() {
       mobileMenu.classList.toggle('active');
       this.classList.toggle('active');
-      body.classList.toggle('menu-open');
       
       // Accessibility: Update ARIA attributes
       const expanded = mobileMenu.classList.contains('active');
       this.setAttribute('aria-expanded', expanded);
       mobileMenu.setAttribute('aria-hidden', !expanded);
       
-      // Prevent scrolling when menu is open
-      if (expanded) {
-        body.style.overflow = 'hidden';
-      } else {
-        body.style.overflow = '';
-      }
+      // No need to prevent scrolling for dropdown menu
+      // We want it to behave like the desktop menu
     });
     
     // Initialize ARIA attributes
@@ -65,8 +60,18 @@ function initModernNavigation() {
         mobileMenuToggle.classList.remove('active');
         mobileMenuToggle.setAttribute('aria-expanded', 'false');
         mobileMenu.setAttribute('aria-hidden', 'true');
-        body.classList.remove('menu-open');
-        body.style.overflow = '';
+      }
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (mobileMenu.classList.contains('active') && 
+          !mobileMenu.contains(e.target) && 
+          !mobileMenuToggle.contains(e.target)) {
+        mobileMenu.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
       }
     });
   }

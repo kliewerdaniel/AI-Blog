@@ -67,3 +67,60 @@ footer ul {
   flex-direction: column;
   gap: 0.5rem;
 }
+
+/* Redesigned mobile menu fix to match desktop behavior */
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Make mobile menu behave like desktop menu */
+  .mobile-menu.active {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--neutral-dark, #333);
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    height: auto;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  /* Reset fullscreen mobile menu styles */
+  .mobile-menu {
+    position: absolute;
+    background-color: var(--neutral-dark, #333);
+    opacity: 1;
+    height: auto;
+    width: 100%;
+    transform: none;
+    transition: none;
+  }
+  
+  /* Style mobile menu items to match desktop */
+  .mobile-nav-items {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .mobile-nav-item {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .mobile-nav-item a {
+    font-size: 1rem !important;
+    text-align: left;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Prevent body scroll lock when menu is open */
+  body.menu-open {
+    overflow: auto !important;
+  }
+}
