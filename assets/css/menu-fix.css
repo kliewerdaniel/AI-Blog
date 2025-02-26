@@ -1,84 +1,19 @@
-/* Menu Fix CSS */
+/* Menu Fix CSS - Aggressive Version */
 
-/* Remove bullet points from all navigation lists */
-.main-nav,
-.mobile-nav-items,
-.breadcrumbs,
-footer ul {
-  list-style-type: none !important;
-  margin: 0;
-  padding: 0;
-}
-
-/* Fix for main navigation */
-.main-nav li {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-
-.main-nav li::before,
-.main-nav li::after {
-  display: none;
-  content: none;
-}
-
-/* Fix for mobile navigation */
-.mobile-nav-items li {
-  margin: 0;
-  padding: 0;
-}
-
-.mobile-nav-items li::before,
-.mobile-nav-items li::after {
-  display: none;
-  content: none;
-}
-
-/* Fix for breadcrumbs */
-.breadcrumbs li::before {
-  display: none;
-  content: none;
-}
-
-/* Ensure no bullet points in footer navigation */
-footer ul li {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-footer ul li::before {
-  display: none;
-  content: none;
-}
-
-/* Fix for any other potential bullet points */
-li.nav-item::before,
-li.mobile-nav-item::before,
-li.nav-item::after,
-li.mobile-nav-item::after {
-  display: none !important;
-  content: none !important;
-}
-
-/* Improve spacing in mobile menu */
-.mobile-nav-items {
+/* Reset all list styles */
+ul, ol, li {
+  list-style: none !important;
+  margin: 0 !important;
   padding: 0 !important;
 }
 
-.mobile-nav-item {
-  padding: 0.5rem 0 !important;
-}
-
-/* Ensure clean display for navigation links */
-.nav-link, 
-.mobile-nav-item a {
-  display: block;
-  text-decoration: none;
-}
-
-/* Fix for any content: "•" that might be added by other styles */
+/* Remove all pseudo-elements that might add content */
+li::before,
+li::after,
+ul::before,
+ul::after,
+ol::before,
+ol::after,
 .nav-item::before,
 .nav-item::after,
 .mobile-nav-item::before,
@@ -86,6 +21,103 @@ li.mobile-nav-item::after {
 .main-nav li::before,
 .main-nav li::after,
 .mobile-nav-items li::before,
-.mobile-nav-items li::after {
+.mobile-nav-items li::after,
+.breadcrumbs li::before,
+.breadcrumbs li::after,
+footer ul li::before,
+footer ul li::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Fix for main navigation */
+.main-nav {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1rem !important;
+}
+
+.main-nav li {
+  display: block !important;
+  margin-right: 1rem !important;
+}
+
+.main-nav li:last-child {
+  margin-right: 0 !important;
+}
+
+/* Fix for mobile navigation */
+.mobile-nav-items {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+}
+
+.mobile-nav-item {
+  display: block !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Ensure clean display for navigation links */
+.nav-link, 
+.mobile-nav-item a {
+  display: block !important;
+  text-decoration: none !important;
+}
+
+/* Fix for breadcrumbs */
+.breadcrumbs {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0.5rem !important;
+}
+
+.breadcrumbs li {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: "/" !important;
+  display: inline-block !important;
+  margin: 0 0.5rem !important;
+  color: var(--text-light) !important;
+}
+
+/* Fix for footer navigation */
+footer ul {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+footer ul li {
+  display: block !important;
+}
+
+/* Fix for any bullet points in the top navigation */
+header nav ul li::before,
+header nav ul li::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Fix for any bullet points in the mobile menu */
+.mobile-menu ul li::before,
+.mobile-menu ul li::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Fix for any bullet points in the breadcrumbs */
+.breadcrumbs li::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Fix for any bullet points in the footer */
+footer ul li::before,
+footer ul li::after {
+  display: none !important;
   content: none !important;
 }
