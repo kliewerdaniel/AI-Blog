@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Build a Data Annotation Platform
 date:   2024-11-21 03:40:44 -0500
 ---

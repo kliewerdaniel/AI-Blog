@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 import os
 import re
-import frontmatter
-
-print("Script is running...")
 
 def update_post_layouts(posts_dir='_posts'):
     """
@@ -22,20 +19,18 @@ def update_post_layouts(posts_dir='_posts'):
         print(f"Processing: {filename}")
         
         try:
-            # Parse the frontmatter
-            post = frontmatter.load(filepath)
+            # Read the file content
+            with open(filepath, 'r') as f:
+                content = f.read()
             
             # Check if the layout needs to be updated
-            current_layout = post.get('layout')
-            print(f"  Current layout: {current_layout}")
-            
-            if current_layout == 'post-redesign':
+            if 'layout: post-redesign' in content:
                 # Update the layout
-                post['layout'] = 'post'
+                updated_content = content.replace('layout: post-redesign', 'layout: post')
                 
                 # Write the updated content back to the file
                 with open(filepath, 'w') as f:
-                    f.write(frontmatter.dumps(post))
+                    f.write(updated_content)
                 
                 modified_count += 1
                 print(f"  Updated layout in: {filename}")

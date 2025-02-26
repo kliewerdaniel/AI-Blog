@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Next Gen PersonaGen
 date:   2024-12-10 07:42:44 -0500
 ---

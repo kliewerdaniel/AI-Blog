@@ -1,6 +1,6 @@
 ---
 date: 2024-10-04 07:40:44 -0500
-layout: post-redesign
+layout: post
 title: Detailed Description of Insight Journal
 ---
 # **Developing an AI-Integrated Insight Journal: Enhancing Personal Reflection through Locally Hosted Language Models**
@@ -3938,5 +3938,3 @@ For further assistance or questions regarding the Insight Journal platform, plea
 # **End of Appendices**
 
 These supplementary materials provide the necessary resources to understand, set up, and utilize the Insight Journal platform as discussed in the dissertation. By following the provided code listings and user guides, one can replicate the platform and explore the integration of AI into personal knowledge management tools.
-
-

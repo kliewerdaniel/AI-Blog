@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Building a Multimodal Story Generation System Complete Setup Guide
 date:   2025-01-23 07:42:44 -0500
 ---

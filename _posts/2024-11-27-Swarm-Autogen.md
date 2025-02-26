@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Swarm Autogen
 date:   2024-11-27 05:40:44 -0500
 ---

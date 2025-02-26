@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Instagram Feed Summarizer
 date:   2024-11-27 09:40:44 -0500
 ---

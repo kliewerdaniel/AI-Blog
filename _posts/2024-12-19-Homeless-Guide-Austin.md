@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Homeless Guide Austin
 date:   2024-12-25 07:42:44 -0500
 ---

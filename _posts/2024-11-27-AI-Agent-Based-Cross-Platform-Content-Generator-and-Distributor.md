@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Guide to Building an AI Agent-Based Cross-Platform Content Generator and Distributor
 date:   2024-11-27 11:40:44 -0500
 ---

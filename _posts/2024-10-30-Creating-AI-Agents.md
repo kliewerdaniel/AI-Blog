@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Creating AI Agents
 date:   2024-10-30 03:40:44 -0500
 ---
