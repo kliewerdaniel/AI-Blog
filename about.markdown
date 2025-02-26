@@ -7,8 +7,8 @@ description: Learn about Daniel Kliewer's journey, expertise, and passion for te
 
 # About Me
 
-<div class="about-image">
-  <img src="/static/images/captain.jpg" alt="Daniel Kliewer" loading="lazy" class="profile-image">
+<div >
+  <img src="/static/images/captain.jpg" alt="Daniel Kliewer" loading="lazy" >
 </div>
 
 ## My Journey

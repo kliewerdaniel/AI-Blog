@@ -1,9 +1,6 @@
 /* Grayscale Theme CSS */
 
-/* Apply grayscale filter to all images */
-img, .carousel-image, .post-image {
-  filter: grayscale(100%);
-}
+
 
 /* Override any remaining color definitions with grayscale equivalents */
 :root {
@@ -176,10 +173,6 @@ footer .border-white-10 {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-/* Apply grayscale to any SVG elements */
-svg {
-  filter: grayscale(100%);
-}
 
 /* Ensure all links have proper hover states in grayscale */
 .main-nav li a:after {
@@ -217,7 +210,4 @@ input:focus, textarea:focus, select:focus {
   text-decoration: underline;
 }
 
-/* Apply grayscale to the entire page as a fallback */
-html {
-  filter: grayscale(100%);
-}
+
