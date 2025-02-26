@@ -126,23 +126,11 @@
         </ul>
         
         <!-- Mobile menu toggle -->
-        <button class="mobile-menu-toggle md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none" aria-label="Toggle menu">
-          <span class="block w-6 h-0.5 bg-primary"></span>
-          <span class="block w-6 h-0.5 bg-primary"></span>
-          <span class="block w-6 h-0.5 bg-primary"></span>
+        <button class="mobile-menu-toggle md:hidden" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-        
-        <!-- Mobile menu (hidden by default) -->
-        <div class="mobile-menu hidden absolute top-full left-0 right-0 bg-white shadow-lg z-50 p-4 md:hidden">
-          <ul class="space-y-4">
-            <li><a href="{{ '/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">Home</a></li>
-            <li><a href="{{ '/blog/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">Blog</a></li>
-            <li><a href="{{ '/projects/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">Projects</a></li>
-            <li><a href="{{ '/guides/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">Guides</a></li>
-            <li><a href="{{ '/about/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">About</a></li>
-            <li><a href="{{ '/contact/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">Contact</a></li>
-          </ul>
-        </div>
       </nav>
     </div>
   </header>

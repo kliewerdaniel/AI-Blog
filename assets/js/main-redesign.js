@@ -5,16 +5,23 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Mobile menu toggle
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-  const mobileMenu = document.querySelector('.mobile-menu');
+  const mainNav = document.querySelector('.main-nav');
   
-  if (mobileMenuToggle && mobileMenu) {
+  if (mobileMenuToggle && mainNav) {
     mobileMenuToggle.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-      // Add animation class
-      if (!mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.add('animate-fade-in');
-      }
+      mainNav.classList.toggle('active');
+      this.classList.toggle('active');
+      
+      // Accessibility: Update ARIA attributes
+      const expanded = mainNav.classList.contains('active');
+      this.setAttribute('aria-expanded', expanded);
+      mainNav.setAttribute('aria-hidden', !expanded);
     });
+    
+    // Initialize ARIA attributes
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    mobileMenuToggle.setAttribute('aria-label', 'Toggle navigation menu');
+    mainNav.setAttribute('aria-hidden', 'true');
   }
   
   // Handle carousel functionality
