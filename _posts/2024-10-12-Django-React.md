@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Django React
 date:   2024-10-12 05:40:44 -0500
 ---

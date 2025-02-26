@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  PydanticAI-RAG
 date:   2024-12-09 07:42:44 -0500
 ---

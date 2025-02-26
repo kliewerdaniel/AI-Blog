@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Tech Company Orchestrator
 date:   2024-11-29 07:42:44 -0500
 ---

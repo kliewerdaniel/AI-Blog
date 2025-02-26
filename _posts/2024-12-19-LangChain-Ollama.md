@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  High-Level Architecture for the LangChain Application using Ollama
 date:   2024-12-27 07:42:44 -0500
 ---

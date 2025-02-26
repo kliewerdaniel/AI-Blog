@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Integrating Django-Reac-Ollama with XAi API
 date:   2024-10-22 05:40:44 -0500
 ---

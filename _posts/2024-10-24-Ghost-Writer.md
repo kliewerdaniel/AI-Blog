@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Ghost Writer
 date:   2024-10-24 05:40:44 -0500
 ---

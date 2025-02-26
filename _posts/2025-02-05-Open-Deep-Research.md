@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Step-by-Step Guide to Running Open Deep Research with smolagents
 date:   2025-02-05 07:42:44 -0500
 ---

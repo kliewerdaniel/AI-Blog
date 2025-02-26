@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Cultural Fingerprints in AI; A Comparative Analysis of Ethical Guardrails in Large Language Models Across US, Chinese, and French Implementations
 date:   2024-12-30 07:42:44 -0500
 ---

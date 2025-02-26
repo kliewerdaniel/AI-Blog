@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  RLHF-Lab Business Plan
 date:   2024-11-23 04:40:44 -0500
 ---

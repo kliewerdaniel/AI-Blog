@@ -3,9 +3,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#1e40af",
-        secondary: "#60a5fa",
-        accent: "#f97316",
+        primary: "#000000", // Black
+        secondary: "#333333", // Dark gray
+        accent: "#666666", // Medium gray
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],

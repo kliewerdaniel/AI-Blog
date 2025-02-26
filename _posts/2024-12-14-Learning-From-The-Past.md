@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Learning from the Past
 date:   2024-12-14 07:42:44 -0500
 ---

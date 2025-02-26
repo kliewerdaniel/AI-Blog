@@ -9,15 +9,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-  /* Monochromatic Color Palette - Black and White with Shades of Gray */
-  --primary-color: #333333; /* Dark gray (almost black) for primary elements */
-  --primary-light: #666666; /* Medium gray for hover states */
+  /* Strict Black and White Color Palette */
+  --primary-color: #000000; /* Black for primary elements */
+  --primary-light: #333333; /* Dark gray for hover states */
   --secondary-color: #f0f0f0; /* Light gray for backgrounds */
   --accent-color: #000000; /* Black for accents */
   --neutral-light: #f8f8f8; /* Very light gray - off-white */
-  --neutral-dark: #1a1a1a; /* Very dark gray for contrast */
-  --text-color: #333333; /* Dark gray for main text */
-  --text-light: #666666; /* Medium gray for secondary text */
+  --neutral-dark: #000000; /* Black for contrast */
+  --text-color: #000000; /* Black for main text */
+  --text-light: #333333; /* Dark gray for secondary text */
   --white: #ffffff;
   --shadow: rgba(0, 0, 0, 0.05);
   --shadow-hover: rgba(0, 0, 0, 0.1);

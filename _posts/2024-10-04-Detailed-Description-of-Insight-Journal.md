@@ -1,6 +1,6 @@
 ---
 date: 2024-10-04 07:40:44 -0500
-layout: home
+layout: post-redesign
 title: Detailed Description of Insight Journal
 ---
 # **Developing an AI-Integrated Insight Journal: Enhancing Personal Reflection through Locally Hosted Language Models**

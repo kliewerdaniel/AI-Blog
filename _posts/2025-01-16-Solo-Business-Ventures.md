@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  The Solo Developer's Guide to Upwork Success A Psychological Analysis with Practical Implementation
 
 date:   2025-01-16 07:42:44 -0500

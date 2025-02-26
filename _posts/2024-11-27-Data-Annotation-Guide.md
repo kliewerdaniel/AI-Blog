@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Data Annotation Guide
 date:   2024-11-27 04:40:44 -0500
 ---

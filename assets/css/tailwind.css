@@ -10,11 +10,11 @@
   }
   
   body {
-    @apply font-sans text-gray-800 bg-gray-50;
+    @apply font-sans text-black bg-white;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold text-primary;
+    @apply font-display font-bold text-black;
   }
   
   h1 {
@@ -30,11 +30,11 @@
   }
   
   p {
-    @apply mb-4 max-w-prose;
+    @apply mb-4 max-w-prose text-black;
   }
   
   a {
-    @apply text-primary hover:text-secondary transition-colors duration-300;
+    @apply text-black hover:text-secondary transition-colors duration-300;
   }
 }
 
@@ -44,15 +44,15 @@
   }
   
   .btn-primary {
-    @apply bg-primary text-white hover:bg-secondary focus:ring-primary;
+    @apply bg-black text-white hover:bg-secondary focus:ring-black;
   }
   
   .btn-secondary {
-    @apply bg-secondary text-white hover:bg-primary focus:ring-secondary;
+    @apply bg-secondary text-white hover:bg-black focus:ring-secondary;
   }
   
   .btn-accent {
-    @apply bg-accent text-white hover:bg-orange-600 focus:ring-accent;
+    @apply bg-accent text-white hover:bg-black focus:ring-accent;
   }
   
   .card {

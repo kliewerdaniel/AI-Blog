@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Building a full stack application with Django and React
 date:   2024-10-18 05:40:44 -0500
 ---

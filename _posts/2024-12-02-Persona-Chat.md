@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Persona Chat
 date:   2024-12-02 07:42:44 -0500
 ---

@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Reddit Blog Generator
 date:   2024-11-27 07:40:44 -0500
 ---

@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Basic AutoGen
 date:   2024-11-28 07:42:44 -0500
 ---

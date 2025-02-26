@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Building an Enhanced Persona Generator and Responder with Python and OpenAI
 date:   2024-11-27 06:40:44 -0500
 ---

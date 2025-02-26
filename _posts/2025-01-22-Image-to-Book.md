@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Image to Book Generator
 date:   2025-01-22 07:42:44 -0500
 ---

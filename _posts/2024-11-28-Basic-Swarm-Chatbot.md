@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post-redesign
 title:  Basic Swarm Chatbot
 date:   2024-11-28 07:40:44 -0500
 ---
