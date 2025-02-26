@@ -76,20 +76,21 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   #search-container button {
-    background-color: #333333;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: 0 4px 4px 0;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all var(--transition-normal);
     white-space: nowrap;
     min-width: 100px;
   }
   
   #search-container button:hover {
-    background-color: #666666;
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
   }
   
   .search-result-item {
@@ -103,16 +104,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   .search-result-item h2 a {
-    color: #007bff;
+    color: var(--primary-color);
     text-decoration: none;
+    transition: color var(--transition-normal);
   }
   
   .search-result-item h2 a:hover {
+    color: var(--primary-light);
     text-decoration: underline;
   }
   
   .search-result-item p {
     margin-bottom: 0.5rem;
-    color: #666;
+    color: var(--text-light);
+  }
+  
+  .search-result-item:hover {
+    border-left: 3px solid var(--primary-color);
+    padding-left: 1rem;
+    transition: all var(--transition-normal);
   }
 </style>

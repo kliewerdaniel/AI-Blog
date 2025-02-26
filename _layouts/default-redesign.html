@@ -31,8 +31,9 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"></noscript>
   
-  <!-- Modern CSS -->
+  <!-- Modern CSS (minified) -->
   <link rel="stylesheet" href="{{ '/assets/css/tailwind.min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/min/main-redesign.min.css' | relative_url }}">
   <!-- Grayscale Theme -->
   <link rel="stylesheet" href="{{ '/assets/css/grayscale.css' | relative_url }}">
   
@@ -66,33 +67,66 @@
   <header class="header py-4 sticky top-0 bg-white shadow-md z-50">
     <div class="container">
       <nav class="flex justify-between items-center">
-        <a href="{{ '/' | relative_url }}" class="text-2xl font-display font-bold text-black hover:text-secondary transition-colors duration-300">{{ site.title }}</a>
+        <a href="{{ '/' | relative_url }}" class="text-2xl font-display font-bold text-primary hover:text-secondary transition-colors duration-300">{{ site.title }}</a>
         
-        <ul class="main-nav flex space-x-6">
-          <li><a href="{{ '/' | relative_url }}" class="nav-link">Home</a></li>
-          <li><a href="{{ '/about/' | relative_url }}" class="nav-link">About</a></li>
-          <li><a href="{{ '/blog/' | relative_url }}" class="nav-link">Blog</a></li>
-          <li><a href="{{ '/projects/' | relative_url }}" class="nav-link">Projects</a></li>
-          <li><a href="{{ '/guides/' | relative_url }}" class="nav-link">Guides</a></li>
-          <li><a href="{{ '/contact/' | relative_url }}" class="nav-link">Contact</a></li>
+        <!-- Simplified navigation menu -->
+        <ul class="main-nav hidden md:flex space-x-8">
+          <li><a href="{{ '/' | relative_url }}" class="nav-link py-2 px-1 border-b-2 border-transparent hover:border-primary transition-colors duration-300">Home</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}" class="nav-link py-2 px-1 border-b-2 border-transparent hover:border-primary transition-colors duration-300">Blog</a></li>
+          <li><a href="{{ '/projects/' | relative_url }}" class="nav-link py-2 px-1 border-b-2 border-transparent hover:border-primary transition-colors duration-300">Projects</a></li>
+          <li><a href="{{ '/guides/' | relative_url }}" class="nav-link py-2 px-1 border-b-2 border-transparent hover:border-primary transition-colors duration-300">Guides</a></li>
+          <li><a href="{{ '/about/' | relative_url }}" class="nav-link py-2 px-1 border-b-2 border-transparent hover:border-primary transition-colors duration-300">About</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}" class="nav-link py-2 px-1 border-b-2 border-transparent hover:border-primary transition-colors duration-300">Contact</a></li>
         </ul>
         
-        <div class="mobile-menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
+        <!-- Mobile menu toggle -->
+        <button class="mobile-menu-toggle md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none" aria-label="Toggle menu">
+          <span class="block w-6 h-0.5 bg-primary"></span>
+          <span class="block w-6 h-0.5 bg-primary"></span>
+          <span class="block w-6 h-0.5 bg-primary"></span>
+        </button>
+        
+        <!-- Mobile menu (hidden by default) -->
+        <div class="mobile-menu hidden absolute top-full left-0 right-0 bg-white shadow-lg z-50 p-4 md:hidden">
+          <ul class="space-y-4">
+            <li><a href="{{ '/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">Home</a></li>
+            <li><a href="{{ '/blog/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">Blog</a></li>
+            <li><a href="{{ '/projects/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">Projects</a></li>
+            <li><a href="{{ '/guides/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">Guides</a></li>
+            <li><a href="{{ '/about/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">About</a></li>
+            <li><a href="{{ '/contact/' | relative_url }}" class="block py-2 px-4 hover:bg-light rounded transition-colors">Contact</a></li>
+          </ul>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- Page header -->
-  <div class="bg-black text-white py-16">
+  <!-- Page header with improved contrast -->
+  <div class="bg-primary text-white py-16">
     <div class="container">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ page.title }}</h1>
       {% if page.subtitle %}
-      <p class="text-xl text-white/80">{{ page.subtitle }}</p>
+      <p class="text-xl text-white opacity-90">{{ page.subtitle }}</p>
       {% endif %}
+    </div>
+  </div>
+  
+  <!-- Breadcrumb navigation -->
+  <div class="bg-light py-3">
+    <div class="container">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumbs flex flex-wrap items-center text-sm">
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          {% if page.layout == 'post' or page.layout == 'post-redesign' %}
+            <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+          {% elsif page.url contains '/projects/' %}
+            <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+          {% elsif page.url contains '/guides/' %}
+            <li><a href="{{ '/guides/' | relative_url }}">Guides</a></li>
+          {% endif %}
+          <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+        </ol>
+      </nav>
     </div>
   </div>
 
@@ -107,37 +141,38 @@
     </div>
   </main>
 
-  <footer class="bg-black text-white py-12 mt-16">
+  <footer class="bg-neutral-dark text-white py-12 mt-16">
     <div class="container">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <div>
-          <h3 class="text-xl font-bold mb-4 border-b border-white/20 pb-2">Quick Links</h3>
+          <h3 class="text-xl font-bold mb-4 border-b border-white/30 pb-2">Quick Links</h3>
           <ul class="space-y-2">
-            <li><a href="{{ '/' | relative_url }}" class="text-white/80 hover:text-white">Home</a></li>
-            <li><a href="{{ '/about/' | relative_url }}" class="text-white/80 hover:text-white">About</a></li>
-            <li><a href="{{ '/blog/' | relative_url }}" class="text-white/80 hover:text-white">Blog</a></li>
-            <li><a href="{{ '/projects/' | relative_url }}" class="text-white/80 hover:text-white">Projects</a></li>
-            <li><a href="{{ '/guides/' | relative_url }}" class="text-white/80 hover:text-white">Guides</a></li>
-            <li><a href="{{ '/contact/' | relative_url }}" class="text-white/80 hover:text-white">Contact</a></li>
+            <li><a href="{{ '/' | relative_url }}" class="text-white hover:text-primary transition-colors">Home</a></li>
+            <li><a href="{{ '/about/' | relative_url }}" class="text-white hover:text-primary transition-colors">About</a></li>
+            <li><a href="{{ '/blog/' | relative_url }}" class="text-white hover:text-primary transition-colors">Blog</a></li>
+            <li><a href="{{ '/projects/' | relative_url }}" class="text-white hover:text-primary transition-colors">Projects</a></li>
+            <li><a href="{{ '/guides/' | relative_url }}" class="text-white hover:text-primary transition-colors">Guides</a></li>
+            <li><a href="{{ '/contact/' | relative_url }}" class="text-white hover:text-primary transition-colors">Contact</a></li>
           </ul>
         </div>
         
         <div>
-          <h3 class="text-xl font-bold mb-4 border-b border-white/20 pb-2">Connect</h3>
+          <h3 class="text-xl font-bold mb-4 border-b border-white/30 pb-2">Connect</h3>
           <div class="flex space-x-4">
-            <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white">Twitter</a>
-            <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white">GitHub</a>
+            <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition-colors">Twitter</a>
+            <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition-colors">GitHub</a>
           </div>
         </div>
       </div>
       
-      <div class="border-t border-white/10 pt-4 text-center text-white/70 text-sm">
+      <div class="border-t border-white/30 pt-4 text-center text-white text-sm">
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Animation JavaScript -->
-  <script src="{{ '/assets/js/animations.js' | relative_url }}" defer></script>
+  <!-- JavaScript (minified) -->
+  <script src="{{ '/assets/js/min/animations.min.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/min/main-redesign.min.js' | relative_url }}" defer></script>
 </body>
 </html>
