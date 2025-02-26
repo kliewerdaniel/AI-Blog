@@ -5,6 +5,8 @@ date:   2025-02-25 07:42:44 -0500
 ---
 # Building an AI-Powered Filename Generator Chrome Extension
 
+[Chrome Web Store](https://chromewebstore.google.com/detail/ai-filename-generator/eocbkbnabbmclgneeakdbglicbhbimbj)
+
 ## Introduction
 
 Managing files efficiently can be a challenge, especially when dealing with vague or cluttered filenames. To solve this, I developed the **AI Filename Generator**—a Chrome extension that intelligently renames files based on their content. This blog post will walk you through how I built it using my open-source repository: [chrome-ai-filename-generator](https://github.com/kliewerdaniel/chrome-ai-filename-generator).
