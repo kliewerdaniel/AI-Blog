@@ -314,14 +314,7 @@
             </ul>
           </div>
           
-          <div class="card p-6 animate-on-scroll" data-animation="slide-in-right">
-            <h3 class="text-xl font-bold mb-4">Categories</h3>
-            <ul class="space-y-2">
-              {% for category in site.categories %}
-                <li><a href="{{ '/blog/' | relative_url }}?category={{ category[0] | slugify }}" class="hover:text-secondary">{{ category[0] }}</a></li>
-              {% endfor %}
-            </ul>
-          </div>
+          
         </aside>
       </div>
     </div>
