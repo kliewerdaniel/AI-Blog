@@ -12,7 +12,7 @@ Explore my significant projects and open-source initiatives that integrate AI, w
 
 This Chrome extension leverages AI to suggest contextually relevant filenames during file downloads or saves. It analyzes the content and proposes descriptive names, enhancing file organization and retrieval efficiency.
 
-[Blog Post](/2025/02/25/Building-an-AI-Powered-Filename-generator-chrome-extension.html) | [GitHub Repository](https://github.com/kliewerdaniel/ai-filename-generator-extension)
+[Blog Post](/2025/02/25/Building-an-AI-Powered-Filename-generator-chrome-extension.html) | [GitHub Repository](https://github.com/kliewerdaniel/chrome-ai-filename-generator)
 
 ## Tech Company Orchestrator
 
