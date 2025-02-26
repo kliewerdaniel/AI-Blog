@@ -1,0 +1,91 @@
+/* Menu Fix CSS */
+
+/* Remove bullet points from all navigation lists */
+.main-nav,
+.mobile-nav-items,
+.breadcrumbs,
+footer ul {
+  list-style-type: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix for main navigation */
+.main-nav li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li::before,
+.main-nav li::after {
+  display: none;
+  content: none;
+}
+
+/* Fix for mobile navigation */
+.mobile-nav-items li {
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav-items li::before,
+.mobile-nav-items li::after {
+  display: none;
+  content: none;
+}
+
+/* Fix for breadcrumbs */
+.breadcrumbs li::before {
+  display: none;
+  content: none;
+}
+
+/* Ensure no bullet points in footer navigation */
+footer ul li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer ul li::before {
+  display: none;
+  content: none;
+}
+
+/* Fix for any other potential bullet points */
+li.nav-item::before,
+li.mobile-nav-item::before,
+li.nav-item::after,
+li.mobile-nav-item::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Improve spacing in mobile menu */
+.mobile-nav-items {
+  padding: 0 !important;
+}
+
+.mobile-nav-item {
+  padding: 0.5rem 0 !important;
+}
+
+/* Ensure clean display for navigation links */
+.nav-link, 
+.mobile-nav-item a {
+  display: block;
+  text-decoration: none;
+}
+
+/* Fix for any content: "•" that might be added by other styles */
+.nav-item::before,
+.nav-item::after,
+.mobile-nav-item::before,
+.mobile-nav-item::after,
+.main-nav li::before,
+.main-nav li::after,
+.mobile-nav-items li::before,
+.mobile-nav-items li::after {
+  content: none !important;
+}
