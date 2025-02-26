@@ -8,6 +8,12 @@ permalink: /projects/
 
 Explore my significant projects and open-source initiatives that integrate AI, web technologies, and workflow automation.
 
+## AI-Powered Filename Generator Chrome Extension
+
+This Chrome extension leverages AI to suggest contextually relevant filenames during file downloads or saves. It analyzes the content and proposes descriptive names, enhancing file organization and retrieval efficiency.
+
+[Blog Post](/2025/02/25/Building-an-AI-Powered-Filename-generator-chrome-extension.html) | [GitHub Repository](https://github.com/kliewerdaniel/ai-filename-generator-extension)
+
 ## Tech Company Orchestrator
 
 A simulation tool that models the workflow of a tech company by orchestrating various agents to collaboratively process prompts. It generates comprehensive outputs like code, design specifications, and deployment scripts using OpenAI models and NetworkX for directed graph interactions.
@@ -55,3 +61,9 @@ A tool that analyzes a user's Reddit activity to extract meaningful insights and
 A full-stack application that integrates Django for the backend and React for the frontend. The application allows users to upload writing samples, analyzes them using an AI language model, and generates blog posts in the style of the uploaded samples.
 
 [Blog Post](/2024/10/18/Building-a-full-stack-application-with-django-and-react.html) | [GitHub Repository](https://github.com/kliewerdaniel/Django-React-Ollama-Integration)
+
+## Image to Book Generator
+
+This project transforms static images into coherent, long-form narratives using modern AI tools. The system combines multimodal perception, recursive context management, and human-in-the-loop editing to create stories that maintain stylistic consistency while evolving organically from a visual seed.
+
+[Blog Post](/2025/01/22/Image-to-Book.html) | [GitHub Repository](https://github.com/kliewerdaniel/image-to-book-generator)
