@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Test</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f3f4f6;
+      font-size: 16px;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #1f2937;
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Desktop navigation */
+    .main-nav {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-item {
+      margin-left: 2rem;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #f59e0b;
+    }
+
+    /* Mobile menu toggle */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      z-index: 60;
+    }
+
+    .hamburger-line {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background-color: white;
+      margin-bottom: 6px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .hamburger-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      z-index: 50;
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-nav-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mobile-nav-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .mobile-nav-item a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-nav-item a:hover {
+      color: #f59e0b;
+    }
+
+    /* For testing purposes, always show mobile view */
+    .nav-container {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      display: flex;
+    }
+
+    /* Media queries */
+    @media (max-width: 768px) {
+
+      /* Make mobile menu behave like desktop menu */
+      .mobile-menu.active {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #1f2937;
+        padding: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        z-index: 100;
+        height: auto;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      
+      /* Reset fullscreen mobile menu styles */
+      .mobile-menu {
+        position: absolute;
+        background-color: #1f2937;
+        opacity: 1;
+        height: auto;
+        width: 100%;
+        transform: none;
+        transition: none;
+      }
+      
+      /* Style mobile menu items to match desktop */
+      .mobile-nav-items {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .mobile-nav-item {
+        margin: 0 0 0.5rem 0;
+      }
+      
+      .mobile-nav-item a {
+        font-size: 1rem;
+        text-align: left;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    /* Main content */
+    main {
+      padding: 2rem 0;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="site-logo">My Website</a>
+        
+        <!-- Desktop navigation -->
+        <div class="nav-container">
+          <ul class="main-nav">
+            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Projects</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Mobile menu toggle -->
+        <div class="mobile-menu-toggle">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </div>
+      </nav>
+    </div>
+    
+    <!-- Mobile menu (dropdown style) -->
+    <div class="mobile-menu">
+      <div class="container">
+        <ul class="mobile-nav-items">
+          <li class="mobile-nav-item"><a href="#">Home</a></li>
+          <li class="mobile-nav-item"><a href="#">About</a></li>
+          <li class="mobile-nav-item"><a href="#">Blog</a></li>
+          <li class="mobile-nav-item"><a href="#">Projects</a></li>
+          <li class="mobile-nav-item"><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Mobile Menu Test</h1>
+    <p>This page demonstrates the mobile menu working like the desktop version. Resize your browser window to see the mobile menu in action.</p>
+    <p>When viewed on mobile (or with a narrow browser window), the menu should appear as a dropdown below the header, not as a fullscreen overlay.</p>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu toggle
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          mobileMenu.classList.toggle('active');
+          this.classList.toggle('active');
+          
+          // Accessibility: Update ARIA attributes
+          const expanded = mobileMenu.classList.contains('active');
+          this.setAttribute('aria-expanded', expanded);
+          mobileMenu.setAttribute('aria-hidden', !expanded);
+        });
+        
+        // Initialize ARIA attributes
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenuToggle.setAttribute('aria-label', 'Toggle navigation menu');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+          }
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+          if (mobileMenu.classList.contains('active') && 
+              !mobileMenu.contains(e.target) && 
+              !mobileMenuToggle.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
