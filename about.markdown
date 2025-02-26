@@ -121,6 +121,7 @@ I offer these words freely, without pretense or expectation. If you find value h
     border-radius: 50%;
     box-shadow: 0 4px 12px var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    filter: grayscale(0%) !important; /* Override grayscale filter to display in color */
   }
   
   .profile-image:hover {
