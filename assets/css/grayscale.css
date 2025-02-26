@@ -1,0 +1,168 @@
+/* Grayscale Theme CSS */
+
+/* Apply grayscale filter to all images */
+img, .carousel-image, .post-image {
+  filter: grayscale(100%);
+}
+
+/* Override any remaining color definitions with grayscale equivalents */
+:root {
+  /* Strict Grayscale Color Palette */
+  --primary-color: #333333; /* Dark gray for primary elements */
+  --primary-light: #666666; /* Medium gray for hover states */
+  --secondary-color: #f0f0f0; /* Light gray for backgrounds */
+  --accent-color: #000000; /* Black for accents */
+  --neutral-light: #f8f8f8; /* Very light gray - off-white */
+  --neutral-dark: #1a1a1a; /* Very dark gray for contrast */
+  --text-color: #333333; /* Dark gray for main text */
+  --text-light: #666666; /* Medium gray for secondary text */
+  --white: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure all text and backgrounds use grayscale colors */
+body {
+  color: var(--text-color);
+  background-color: var(--neutral-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--neutral-dark);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-light);
+}
+
+/* Button styles in grayscale */
+.btn, .donate-button {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn:hover, .donate-button:hover {
+  background-color: var(--primary-light);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+  color: var(--white);
+}
+
+.btn-accent:hover {
+  background-color: var(--primary-light);
+}
+
+/* Ensure all elements with background colors use grayscale */
+header, footer, .post-content, .sidebar-widget, .carousel-card {
+  background-color: var(--white);
+}
+
+footer {
+  background-color: var(--primary-color);
+}
+
+/* Override any Tailwind color classes with grayscale equivalents */
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+.bg-accent {
+  background-color: var(--accent-color) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-secondary {
+  color: var(--primary-light) !important;
+}
+
+.text-accent {
+  color: var(--accent-color) !important;
+}
+
+/* Ensure proper contrast for accessibility */
+.post-content blockquote {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border-left: 4px solid var(--primary-color);
+}
+
+.post-content pre {
+  background-color: #f4f4f4;
+}
+
+.post-content code {
+  background-color: #f4f4f4;
+  color: var(--primary-color);
+}
+
+/* Carousel buttons in grayscale */
+.carousel-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Apply grayscale to any SVG elements */
+svg {
+  filter: grayscale(100%);
+}
+
+/* Ensure all links have proper hover states in grayscale */
+.main-nav li a:after {
+  background-color: var(--primary-color);
+}
+
+.post-content a:not(.btn):after {
+  background-color: var(--primary-light);
+}
+
+/* Ensure all form elements use grayscale */
+input, textarea, select, button {
+  border-color: var(--secondary-color);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Apply grayscale to the entire page as a fallback */
+html {
+  filter: grayscale(100%);
+}
