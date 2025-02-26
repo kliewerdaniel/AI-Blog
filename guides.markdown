@@ -18,7 +18,7 @@ This comprehensive guide delves into the process of data annotation, essential f
 
 A detailed resource for individuals facing homelessness in Austin, combining practical information with personal insights from someone who has experienced homelessness firsthand. The guide covers legal rights, emergency shelters, transitional housing, affordable housing resources, food pantries, healthcare services, mental health support, employment opportunities, transportation options, hygiene maintenance, safety tips, community networking, and steps toward long-term stability. It includes specific local resources, contact information, and strategies for navigating the challenges of homelessness.
 
-[Read Guide](/2024-12-19-Homeless-Guide-Austin.html)
+[Read Guide](/2024/12/25/homeless-guide-austin.html)
 
 ## Step-by-Step Guide to Running Open Deep Research with smolagents
 
