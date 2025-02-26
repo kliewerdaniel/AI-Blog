@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Privacy Policy
 date:   2025-02-23 07:42:44 -0500
 ---
@@ -45,4 +45,3 @@ If you have any questions or concerns regarding this Privacy Policy, feel free t
 danielkliewer@gmail.com
 
 _Last Updated: 02/23/2025
-

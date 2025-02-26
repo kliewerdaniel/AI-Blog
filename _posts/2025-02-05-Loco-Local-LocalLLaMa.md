@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Announcing the Loco LLM Hackathon 1.0 Building Open-Source AI for Everyone 
 date:   2025-02-05 08:42:44 -0500
 ---

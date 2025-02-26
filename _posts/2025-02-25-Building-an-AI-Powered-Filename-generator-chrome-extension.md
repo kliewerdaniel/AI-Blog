@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Building an AI-Powered Filename Generator Chrome Extension
 date:   2025-02-25 07:42:44 -0500
 ---

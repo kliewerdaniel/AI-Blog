@@ -1,5 +1,5 @@
 ---
-layout: post-redesign
+layout: post
 title:  Ollama Smolagents Open Deep Research Integration
 date:   2025-02-05 09:42:44 -0500
 ---
