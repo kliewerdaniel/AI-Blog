@@ -1,3 +1,3 @@
 ---
-layout: home-redesign
+layout: home
 ---

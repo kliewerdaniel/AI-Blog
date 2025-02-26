@@ -1,123 +1,69 @@
-/* Menu Fix CSS - Aggressive Version */
+/* Menu Fix CSS - Simplified Version */
 
-/* Reset all list styles */
-ul, ol, li {
-  list-style: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
+/* Basic list reset for navigation only */
+header nav ul, 
+header nav li,
+.mobile-menu ul,
+.mobile-menu li,
+footer ul,
+footer li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Remove all pseudo-elements that might add content */
-li::before,
-li::after,
-ul::before,
-ul::after,
-ol::before,
-ol::after,
-.nav-item::before,
-.nav-item::after,
-.mobile-nav-item::before,
-.mobile-nav-item::after,
-.main-nav li::before,
-.main-nav li::after,
-.mobile-nav-items li::before,
-.mobile-nav-items li::after,
-.breadcrumbs li::before,
-.breadcrumbs li::after,
-footer ul li::before,
-footer ul li::after {
-  content: none !important;
-  display: none !important;
+/* Remove pseudo-elements from navigation */
+header nav li::before,
+header nav li::after,
+.mobile-menu li::before,
+.mobile-menu li::after,
+footer li::before,
+footer li::after {
+  content: none;
+  display: none;
 }
 
-/* Fix for main navigation */
+/* Simple main navigation styling */
 .main-nav {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 1rem !important;
+  display: flex;
+  flex-direction: row;
 }
 
 .main-nav li {
-  display: block !important;
-  margin-right: 1rem !important;
+  margin-left: 2rem;
 }
 
-.main-nav li:last-child {
-  margin-right: 0 !important;
+.main-nav li:first-child {
+  margin-left: 0;
 }
 
-/* Fix for mobile navigation */
-.mobile-nav-items {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 1rem !important;
+/* Mobile navigation styling */
+@media (max-width: 768px) {
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 100;
+  }
+  
+  .main-nav.active {
+    display: flex;
+  }
+  
+  .main-nav li {
+    margin: 0 0 0.5rem 0;
+  }
 }
 
-.mobile-nav-item {
-  display: block !important;
-  margin-bottom: 0.5rem !important;
-}
-
-/* Ensure clean display for navigation links */
-.nav-link, 
-.mobile-nav-item a {
-  display: block !important;
-  text-decoration: none !important;
-}
-
-/* Fix for breadcrumbs */
-.breadcrumbs {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 0.5rem !important;
-}
-
-.breadcrumbs li {
-  display: flex !important;
-  align-items: center !important;
-}
-
-.breadcrumbs li:not(:last-child)::after {
-  content: "/" !important;
-  display: inline-block !important;
-  margin: 0 0.5rem !important;
-  color: var(--text-light) !important;
-}
-
-/* Fix for footer navigation */
+/* Footer navigation styling */
 footer ul {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.5rem !important;
-}
-
-footer ul li {
-  display: block !important;
-}
-
-/* Fix for any bullet points in the top navigation */
-header nav ul li::before,
-header nav ul li::after {
-  display: none !important;
-  content: none !important;
-}
-
-/* Fix for any bullet points in the mobile menu */
-.mobile-menu ul li::before,
-.mobile-menu ul li::after {
-  display: none !important;
-  content: none !important;
-}
-
-/* Fix for any bullet points in the breadcrumbs */
-.breadcrumbs li::before {
-  display: none !important;
-  content: none !important;
-}
-
-/* Fix for any bullet points in the footer */
-footer ul li::before,
-footer ul li::after {
-  display: none !important;
-  content: none !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
