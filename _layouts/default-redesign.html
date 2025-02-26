@@ -224,10 +224,43 @@
   <!-- Main content with modern styling -->
   <main class="py-16">
     <div class="container">
-      <div class="card p-8 animate-on-scroll" data-animation="fade-in">
-        <div class="prose prose-lg max-w-none">
-          {{ content }}
-        </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Main content area -->
+        <article class="lg:col-span-2 animate-on-scroll" data-animation="fade-in">
+          <div class="card p-8">
+            <div class="prose prose-lg max-w-none">
+              {{ content }}
+            </div>
+          </div>
+        </article>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="card p-6 mb-8 animate-on-scroll" data-animation="slide-in-right">
+            <h3 class="text-xl font-bold mb-4">Search</h3>
+            <form action="{{ '/search/' | relative_url }}" method="get" class="flex">
+              <input type="text" name="q" placeholder="Search..." class="flex-grow p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary">
+              <button type="submit" class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-secondary transition-colors">Search</button>
+            </form>
+          </div>
+          
+          <div class="card p-6 mb-8 animate-on-scroll" data-animation="slide-in-right">
+            <h3 class="text-xl font-bold mb-4">Recent Posts</h3>
+            <ul class="space-y-4">
+              {% for post in site.posts limit:5 %}
+                <li class="border-b border-gray-200 pb-2 last:border-0">
+                  <a href="{{ post.url | relative_url }}" class="font-medium hover:text-secondary"><strong>{{ post.title }}</strong></a>
+                  <span class="text-sm text-gray-500 block">{{ post.date | date: "%B %d, %Y" }}</span>
+                  {% if post.description %}
+                    <p class="post-excerpt text-sm mt-1">{{ post.description | truncate: 200 }}</p>
+                  {% else %}
+                    <p class="post-excerpt text-sm mt-1">{{ post.content | strip_html | truncate: 200 }}</p>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </aside>
       </div>
     </div>
   </main>

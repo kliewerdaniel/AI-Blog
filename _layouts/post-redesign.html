@@ -313,8 +313,13 @@
             <ul class="space-y-4">
               {% for post in site.posts limit:5 %}
                 <li class="border-b border-gray-200 pb-2 last:border-0">
-                  <a href="{{ post.url | relative_url }}" class="font-medium hover:text-secondary">{{ post.title }}</a>
+                  <a href="{{ post.url | relative_url }}" class="font-medium hover:text-secondary"><strong>{{ post.title }}</strong></a>
                   <span class="text-sm text-gray-500 block">{{ post.date | date: "%B %d, %Y" }}</span>
+                  {% if post.description %}
+                    <p class="post-excerpt text-sm mt-1">{{ post.description | truncate: 200 }}</p>
+                  {% else %}
+                    <p class="post-excerpt text-sm mt-1">{{ post.content | strip_html | truncate: 200 }}</p>
+                  {% endif %}
                 </li>
               {% endfor %}
             </ul>

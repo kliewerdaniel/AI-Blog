@@ -235,7 +235,7 @@
                 <div class="carousel-slide">
                   <div class="carousel-card">
                     <div class="carousel-content">
-                      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                      <h3><a href="{{ post.url | relative_url }}"><strong>{{ post.title }}</strong></a></h3>
                       <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
                       {% if post.description %}
                         <p class="post-excerpt">{{ post.description | truncate: 100 }}</p>
@@ -270,7 +270,7 @@
           <ul>
             {% for post in site.posts limit:5 %}
               <li>
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <a href="{{ post.url | relative_url }}"><strong>{{ post.title }}</strong></a>
                 <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
                 {% if post.description %}
                   <p class="post-excerpt">{{ post.description | truncate: 200 }}</p>

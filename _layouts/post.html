@@ -189,12 +189,12 @@
           <ul>
             {% for post in site.posts limit:5 %}
               <li>
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <a href="{{ post.url | relative_url }}"><strong>{{ post.title }}</strong></a>
                 <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
                 {% if post.description %}
-                  <p class="post-excerpt">{{ post.description | truncate: 80 }}</p>
+                  <p class="post-excerpt">{{ post.description | truncate: 200 }}</p>
                 {% else %}
-                  <p class="post-excerpt">{{ post.content | strip_html | truncate: 80 }}</p>
+                  <p class="post-excerpt">{{ post.content | strip_html | truncate: 200 }}</p>
                 {% endif %}
               </li>
             {% endfor %}
