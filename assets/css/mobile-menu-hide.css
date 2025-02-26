@@ -1,0 +1,17 @@
+/* Hide top menu completely on mobile devices */
+@media (max-width: 768px) {
+  /* Hide the main navigation */
+  .main-nav {
+    display: none !important;
+  }
+  
+  /* Hide the mobile menu toggle button */
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  /* Hide any mobile menu that might be used */
+  .mobile-menu {
+    display: none !important;
+  }
+}
