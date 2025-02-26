@@ -1,28 +1,17 @@
 /**
  * Main JavaScript for the redesigned website
+ * Enhanced with modern, edgy navigation functionality
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile menu toggle
-  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-  const mainNav = document.querySelector('.main-nav');
+  // Initialize the modern navigation
+  initModernNavigation();
   
-  if (mobileMenuToggle && mainNav) {
-    mobileMenuToggle.addEventListener('click', function() {
-      mainNav.classList.toggle('active');
-      this.classList.toggle('active');
-      
-      // Accessibility: Update ARIA attributes
-      const expanded = mainNav.classList.contains('active');
-      this.setAttribute('aria-expanded', expanded);
-      mainNav.setAttribute('aria-hidden', !expanded);
-    });
-    
-    // Initialize ARIA attributes
-    mobileMenuToggle.setAttribute('aria-expanded', 'false');
-    mobileMenuToggle.setAttribute('aria-label', 'Toggle navigation menu');
-    mainNav.setAttribute('aria-hidden', 'true');
-  }
+  // Initialize scroll effects
+  initScrollEffects();
+  
+  // Initialize search functionality
+  initSearchOverlay();
   
   // Handle carousel functionality
   initCarousel();
@@ -36,6 +25,113 @@ document.addEventListener('DOMContentLoaded', function() {
   // Make interactive elements keyboard accessible
   enhanceKeyboardAccessibility();
 });
+
+/**
+ * Initialize modern navigation with fullscreen mobile menu
+ */
+function initModernNavigation() {
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const body = document.body;
+  
+  if (mobileMenuToggle && mobileMenu) {
+    mobileMenuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('active');
+      this.classList.toggle('active');
+      body.classList.toggle('menu-open');
+      
+      // Accessibility: Update ARIA attributes
+      const expanded = mobileMenu.classList.contains('active');
+      this.setAttribute('aria-expanded', expanded);
+      mobileMenu.setAttribute('aria-hidden', !expanded);
+      
+      // Prevent scrolling when menu is open
+      if (expanded) {
+        body.style.overflow = 'hidden';
+      } else {
+        body.style.overflow = '';
+      }
+    });
+    
+    // Initialize ARIA attributes
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    mobileMenuToggle.setAttribute('aria-label', 'Toggle navigation menu');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        body.classList.remove('menu-open');
+        body.style.overflow = '';
+      }
+    });
+  }
+}
+
+/**
+ * Initialize scroll effects for the header
+ */
+function initScrollEffects() {
+  const header = document.querySelector('.header');
+  let lastScrollTop = 0;
+  
+  if (!header) return;
+  
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Add scrolled class when page is scrolled
+    if (scrollTop > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    
+    lastScrollTop = scrollTop;
+  });
+}
+
+/**
+ * Initialize search overlay functionality
+ */
+function initSearchOverlay() {
+  const searchToggle = document.querySelector('.search-toggle');
+  const searchOverlay = document.querySelector('.search-overlay');
+  const searchClose = document.querySelector('.search-close');
+  const searchInput = searchOverlay ? searchOverlay.querySelector('input[type="text"]') : null;
+  const body = document.body;
+  
+  if (searchToggle && searchOverlay && searchClose) {
+    // Open search overlay
+    searchToggle.addEventListener('click', function() {
+      searchOverlay.classList.add('active');
+      body.style.overflow = 'hidden';
+      
+      // Focus the search input after a short delay to allow for animation
+      setTimeout(() => {
+        if (searchInput) searchInput.focus();
+      }, 300);
+    });
+    
+    // Close search overlay
+    searchClose.addEventListener('click', function() {
+      searchOverlay.classList.remove('active');
+      body.style.overflow = '';
+    });
+    
+    // Close search overlay on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
+        searchOverlay.classList.remove('active');
+        body.style.overflow = '';
+      }
+    });
+  }
+}
 
 /**
  * Initialize carousel functionality
@@ -108,7 +204,10 @@ function initAnimations() {
       if (entry.isIntersecting) {
         const element = entry.target;
         const animation = element.getAttribute('data-animation');
+        const delay = element.style.getPropertyValue('--delay') || '0s';
         
+        // Add animation class with delay
+        element.style.animationDelay = delay;
         element.classList.add(`animate-${animation}`);
         observer.unobserve(element);
       }

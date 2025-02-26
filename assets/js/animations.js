@@ -1,6 +1,6 @@
 /**
- * Animations for the website
- * This file handles scroll-based animations and transitions
+ * Enhanced Animations for the website
+ * This file handles modern, edgy animations and transitions
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize smooth scrolling for anchor links
   initSmoothScroll();
+  
+  // Initialize hover effects
+  initHoverEffects();
+  
+  // Initialize text animations
+  initTextAnimations();
 });
 
 /**
@@ -140,6 +146,91 @@ function smoothScrollTo(targetPosition, duration) {
 }
 
 /**
+ * Initialize hover effects for interactive elements
+ */
+function initHoverEffects() {
+  // Add magnetic hover effect to buttons
+  const magneticElements = document.querySelectorAll('.btn, .nav-item, .card');
+  
+  magneticElements.forEach(element => {
+    element.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      // Calculate position relative to center
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Calculate distance from center (0-1)
+      const distanceX = (x - centerX) / centerX;
+      const distanceY = (y - centerY) / centerY;
+      
+      // Apply subtle transform
+      this.style.transform = `perspective(800px) rotateX(${distanceY * -2}deg) rotateY(${distanceX * 2}deg) scale(1.02)`;
+    });
+    
+    element.addEventListener('mouseleave', function() {
+      this.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
+    });
+  });
+  
+  // Add glitch effect on hover for edgy elements
+  const glitchElements = document.querySelectorAll('.site-logo, .mobile-menu-toggle');
+  
+  glitchElements.forEach(element => {
+    element.addEventListener('mouseenter', function() {
+      this.classList.add('glitch-effect');
+    });
+    
+    element.addEventListener('mouseleave', function() {
+      this.classList.remove('glitch-effect');
+    });
+  });
+}
+
+/**
+ * Initialize text animations for headings and important text
+ */
+function initTextAnimations() {
+  // Split text into spans for letter-by-letter animation
+  const textElements = document.querySelectorAll('[data-text-animation]');
+  
+  textElements.forEach(element => {
+    const text = element.textContent;
+    const animationType = element.getAttribute('data-text-animation');
+    
+    // Skip if already processed
+    if (element.classList.contains('text-animated')) return;
+    
+    // Clear the element
+    element.textContent = '';
+    element.classList.add('text-animated');
+    
+    // Create wrapper for better positioning
+    const wrapper = document.createElement('span');
+    wrapper.classList.add('text-animation-wrapper');
+    element.appendChild(wrapper);
+    
+    // Add each letter as a span
+    [...text].forEach((char, index) => {
+      const span = document.createElement('span');
+      span.textContent = char;
+      span.style.setProperty('--index', index);
+      
+      if (char === ' ') {
+        span.classList.add('space');
+      } else {
+        span.classList.add('letter');
+        span.classList.add(animationType);
+      }
+      
+      wrapper.appendChild(span);
+    });
+  });
+}
+
+/**
  * Add animation to elements when they come into view
  * This is called when new content is loaded dynamically
  * @param {HTMLElement} container - The container element with new content
@@ -154,6 +245,10 @@ function refreshAnimations(container) {
       if (entry.isIntersecting) {
         const element = entry.target;
         const animation = element.getAttribute('data-animation');
+        const delay = element.style.getPropertyValue('--delay') || '0s';
+        
+        // Add animation delay if specified
+        element.style.animationDelay = delay;
         
         // Add the animation class based on the data attribute
         switch (animation) {
@@ -165,6 +260,12 @@ function refreshAnimations(container) {
             break;
           case 'slide-in-right':
             element.classList.add('animate-slide-in-right');
+            break;
+          case 'scale-in':
+            element.classList.add('animate-scale-in');
+            break;
+          case 'clip-path-circle':
+            element.classList.add('animate-clip-path-circle');
             break;
           default:
             element.classList.add(`animate-${animation}`);
@@ -183,10 +284,18 @@ function refreshAnimations(container) {
   newAnimatedElements.forEach(element => {
     observer.observe(element);
   });
+  
+  // Also initialize text animations for any new content
+  const newTextElements = container.querySelectorAll('[data-text-animation]');
+  if (newTextElements.length) {
+    initTextAnimations();
+  }
 }
 
 // Export functions for use in other scripts
 window.animations = {
   refreshAnimations,
-  smoothScrollTo
+  smoothScrollTo,
+  initHoverEffects,
+  initTextAnimations
 };

@@ -118,6 +118,46 @@ a:hover {
   }
 }
 
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes clipPathInCircle {
+  from {
+    clip-path: circle(0% at center);
+  }
+  to {
+    clip-path: circle(150% at center);
+  }
+}
+
+@keyframes clipPathInLeft {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 /* Utility classes */
 .container {
   width: 100%;
@@ -216,4 +256,513 @@ a:hover {
   color: var(--text-color);
   font-weight: 500;
   pointer-events: none;
+}
+
+/* Modern Edgy Header Styles */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--neutral-dark);
+  color: var(--white);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: rgba(31, 41, 55, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.site-logo {
+  position: relative;
+  z-index: 60;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Modern Navigation Menu */
+.nav-container {
+  position: relative;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--white);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+/* Animated underline effect */
+.nav-link .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover .underline {
+  transform: scaleX(1);
+}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  position: relative;
+  z-index: 60;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger-line {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background-color: var(--white);
+  margin-bottom: 6px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-line:last-child {
+  margin-bottom: 0;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Fullscreen Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--neutral-dark);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  overflow-y: auto;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.mobile-nav-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.mobile-menu.active .mobile-nav-item {
+  animation: slideUp 0.5s forwards;
+}
+
+.mobile-menu.active .mobile-nav-item:nth-child(1) { animation-delay: 0.1s; }
+.mobile-menu.active .mobile-nav-item:nth-child(2) { animation-delay: 0.2s; }
+.mobile-menu.active .mobile-nav-item:nth-child(3) { animation-delay: 0.3s; }
+.mobile-menu.active .mobile-nav-item:nth-child(4) { animation-delay: 0.4s; }
+.mobile-menu.active .mobile-nav-item:nth-child(5) { animation-delay: 0.5s; }
+.mobile-menu.active .mobile-nav-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Search Toggle and Overlay */
+.search-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.search-toggle:hover {
+  background-color: var(--accent-color);
+}
+
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(31, 41, 55, 0.98);
+  z-index: 70;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.search-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--white);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.search-close:hover {
+  color: var(--accent-color);
+  transform: rotate(90deg);
+}
+
+.search-overlay input[type="text"] {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  font-size: 1.5rem;
+  padding: 0.75rem 0;
+  transition: border-color 0.3s ease;
+}
+
+.search-overlay input[type="text"]:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.search-overlay button[type="submit"] {
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.search-overlay button[type="submit"]:hover {
+  color: var(--accent-color);
+}
+
+/* Animation classes for mobile menu items */
+.animate-slide-up {
+  animation: slideUp 0.5s forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s forwards;
+}
+
+.animate-clip-path-circle {
+  animation: clipPathInCircle 0.5s forwards;
+}
+
+.animate-clip-path-left {
+  animation: clipPathInLeft 0.5s forwards;
+}
+
+/* Focus styles for accessibility */
+.focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Glitch effect for edgy elements */
+.glitch-effect {
+  position: relative;
+  animation: glitch 0.5s infinite;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch-effect::before {
+  left: 2px;
+  text-shadow: -1px 0 var(--accent-color);
+  animation: glitch-anim-1 0.5s infinite linear alternate-reverse;
+}
+
+.glitch-effect::after {
+  left: -2px;
+  text-shadow: 1px 0 var(--primary-color);
+  animation: glitch-anim-2 0.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-anim-1 {
+  0% {
+    clip: rect(2px, 9999px, 56px, 0);
+  }
+  10% {
+    clip: rect(36px, 9999px, 16px, 0);
+  }
+  20% {
+    clip: rect(76px, 9999px, 48px, 0);
+  }
+  30% {
+    clip: rect(12px, 9999px, 59px, 0);
+  }
+  40% {
+    clip: rect(48px, 9999px, 29px, 0);
+  }
+  50% {
+    clip: rect(94px, 9999px, 46px, 0);
+  }
+  60% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+  70% {
+    clip: rect(59px, 9999px, 5px, 0);
+  }
+  80% {
+    clip: rect(23px, 9999px, 65px, 0);
+  }
+  90% {
+    clip: rect(10px, 9999px, 17px, 0);
+  }
+  100% {
+    clip: rect(67px, 9999px, 91px, 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip: rect(39px, 9999px, 79px, 0);
+  }
+  10% {
+    clip: rect(89px, 9999px, 32px, 0);
+  }
+  20% {
+    clip: rect(46px, 9999px, 64px, 0);
+  }
+  30% {
+    clip: rect(9px, 9999px, 92px, 0);
+  }
+  40% {
+    clip: rect(57px, 9999px, 84px, 0);
+  }
+  50% {
+    clip: rect(19px, 9999px, 72px, 0);
+  }
+  60% {
+    clip: rect(28px, 9999px, 43px, 0);
+  }
+  70% {
+    clip: rect(81px, 9999px, 33px, 0);
+  }
+  80% {
+    clip: rect(62px, 9999px, 51px, 0);
+  }
+  90% {
+    clip: rect(45px, 9999px, 24px, 0);
+  }
+  100% {
+    clip: rect(5px, 9999px, 88px, 0);
+  }
+}
+
+/* Text animation styles */
+.text-animation-wrapper {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.letter {
+  display: inline-block;
+  transform-origin: center bottom;
+}
+
+.letter.fade-in {
+  opacity: 0;
+  animation: letterFadeIn 0.5s forwards;
+  animation-delay: calc(var(--index) * 0.05s);
+}
+
+.letter.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: letterSlideUp 0.5s forwards;
+  animation-delay: calc(var(--index) * 0.05s);
+}
+
+.letter.scale-in {
+  opacity: 0;
+  transform: scale(0);
+  animation: letterScaleIn 0.5s forwards;
+  animation-delay: calc(var(--index) * 0.05s);
+}
+
+.letter.rotate-in {
+  opacity: 0;
+  transform: rotateX(90deg);
+  animation: letterRotateIn 0.5s forwards;
+  animation-delay: calc(var(--index) * 0.05s);
+}
+
+@keyframes letterFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes letterSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes letterScaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes letterRotateIn {
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+/* Enhanced hover effects for navigation */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Edgy button styles */
+.btn-edgy {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--neutral-dark);
+  color: var(--white);
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.btn-edgy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.btn-edgy:hover {
+  color: var(--white);
+}
+
+.btn-edgy:hover::before {
+  transform: translateX(0);
 }
