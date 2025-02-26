@@ -369,7 +369,7 @@ a:hover {
   bottom: 0;
   background-color: var(--neutral-dark);
   z-index: 50;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -377,6 +377,12 @@ a:hover {
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   overflow-y: auto;
+}
+
+.mobile-menu.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 .mobile-menu.active {
@@ -432,12 +438,18 @@ a:hover {
   bottom: 0;
   background-color: rgba(31, 41, 55, 0.98);
   z-index: 70;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.search-overlay.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 .search-overlay.active {
