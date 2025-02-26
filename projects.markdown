@@ -1,5 +1,5 @@
 ---
-layout: default-redesign
+layout: default
 title: Projects
 permalink: /projects/
 ---
