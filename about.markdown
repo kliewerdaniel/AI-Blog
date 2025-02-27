@@ -111,7 +111,6 @@ Through this blog, I share both technical knowledge and personal insights, aimin
 
 <div class="contact-info">
   <p>📍 Austin, Texas, United States</p>
-  <p>📞 (917) 727-9624</p>
   <p>📧 danielkilewer@gmail.com</p>
 </div>
 
