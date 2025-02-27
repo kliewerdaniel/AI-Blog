@@ -82,152 +82,149 @@ My aspirations have evolved. Armed with the knowledge and skills I've painstakin
 Through this blog, I aim to share my journey—not as a mere recounting of events, but as a testament to the indomitable human spirit. If my experiences can inspire even one soul to persist in the face of adversity, then every hardship endured gains purpose.
 
 I offer these words freely, without pretense or expectation. 
+<style>
+.resume {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  color: #333;
+}
 
-<div class="skills-section">
-  <h3>Technical Skills</h3>
-  <div class="skills-grid">
-    <div class="skill-item">
-      <h4>Web Development</h4>
-      <p>HTML, CSS, JavaScript, React</p>
-    </div>
-    <div class="skill-item">
-      <h4>AI & Machine Learning</h4>
-      <p>Large Language Models, Data Annotation</p>
-    </div>
-    <div class="skill-item">
-      <h4>Content Creation</h4>
-      <p>Technical Writing, Blogging</p>
-    </div>
-    <div class="skill-item">
-      <h4>Digital Marketing</h4>
-      <p>SEO, Affiliate Marketing</p>
-    </div>
+.header {
+  text-align: center;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+.name {
+  font-size: 32px;
+  color: #2c3e50;
+  margin: 10px 0;
+}
+
+.contact-info {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #7f8c8d;
+}
+
+.section-title {
+  color: #2c3e50;
+  font-size: 22px;
+  border-bottom: 1px solid #bdc3c7;
+  padding-bottom: 5px;
+  margin: 25px 0 15px;
+}
+
+.job-title {
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 5px 0;
+}
+
+.company {
+  font-size: 16px;
+  color: #3498db;
+}
+
+.duration {
+  float: right;
+  color: #95a5a6;
+  font-style: italic;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.skill-badge {
+  background-color: #ecf0f1;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin: 3px;
+  display: inline-block;
+}
+
+.link {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+</style>
+
+<div class="resume">
+
+<div class="header">
+  <div class="name">Daniel Kilewer</div>
+  <div class="job-title">Independent Fine Art Professional | Data Annotation Specialist | Web Developer</div>
+  
+  <div class="contact-info">
+    📍 Austin, Texas, United States<br>
+    📞 (917) 727-9624 | 📧 danielkilewer@gmail.com
   </div>
 </div>
 
-<div class="cta-container">
-  <a href="/contact/" class="btn">Get in Touch</a>
-  <a href="/projects/" class="btn btn-secondary">View My Projects</a>
-</div>
+## 🎯 Professional Summary
+Multifaceted professional with **15+ years of expertise** in web design, data annotation, and digital/traditional art. Proven track record of enhancing AI model accuracy through meticulous data labeling and automating workflows with Python. Combines technical proficiency with creative vision in experimental media.
 
-<style>
-  .about-image {
-    text-align: center;
-    margin: 2rem 0;
-  }
-  
-  .profile-image {
-    max-width: 300px;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    filter: grayscale(0%) !important; /* Override grayscale filter to display in color */
-  }
-  
-  .profile-image:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 24px var(--shadow-hover);
-  }
-  
-  .quote-box {
-    background-color: var(--secondary-color);
-    border-left: 4px solid var(--primary-color);
-    padding: 1.5rem;
-    margin: 2rem 0;
-    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
-  }
-  
-  .quote-box blockquote {
-    font-style: italic;
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    margin: 0;
-  }
-  
-  .timeline {
-    position: relative;
-    margin: 3rem 0;
-    padding-left: 2rem;
-  }
-  
-  .timeline:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 2px;
-    background-color: var(--primary-color);
-  }
-  
-  .timeline-item {
-    position: relative;
-    margin-bottom: 2rem;
-  }
-  
-  .timeline-marker {
-    position: absolute;
-    left: -2rem;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    border: 2px solid var(--white);
-    box-shadow: 0 0 0 2px var(--primary-color);
-  }
-  
-  .timeline-content {
-    padding-left: 1rem;
-  }
-  
-  .timeline-content h4 {
-    margin-top: 0;
-    color: var(--primary-color);
-  }
-  
-  .skills-section {
-    margin: 3rem 0;
-  }
-  
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-  }
-  
-  .skill-item {
-    background-color: var(--white);
-    padding: 1.5rem;
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 4px 12px var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .skill-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px var(--shadow-hover);
-  }
-  
-  .skill-item h4 {
-    margin-top: 0;
-    color: var(--primary-color);
-  }
-  
-  .cta-container {
-    display: flex;
-    gap: 1rem;
-    margin: 3rem 0;
-    justify-content: center;
-  }
-  
-  @media (max-width: 768px) {
-    .skills-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .cta-container {
-      flex-direction: column;
-    }
-  }
-</style>
+**Key Achievements:**
+- Developed portfolio websites including [danielkilewer.com](https://www.danielkilewer.com)
+- Created AI-driven data annotation systems improving model accuracy
+- Exhibited digital installations at Austin Film Society and Co-lab Space
+
+## 🛠️ Core Competencies
+<span class="skill-badge">Google Analytics</span>
+<span class="skill-badge">Python</span>
+<span class="skill-badge">JavaScript</span>
+<span class="skill-badge">Adobe Creative Suite</span>
+<span class="skill-badge">Data Annotation</span>
+
+**Languages:**  
+English (Native) | German (Professional) | Russian (Elementary)
+
+## 💼 Professional Experience
+
+### <span class="company">Centific</span> | Data Annotation Specialist
+<span class="duration">Remote | Nov 2020 – Present</span>
+- Led AI localization projects ensuring 99.8% annotation accuracy
+- Curated diverse datasets improving model training efficiency by 40%
+- Developed quality control protocols adopted company-wide
+
+### <span class="company">Amazon Mechanical Turk & Connect Cloud Research</span> | Research Data Annotator
+<span class="duration">Remote | Jan 2010 – Nov 2020</span>
+- Processed 50,000+ data points with 98% consistency rating
+- Implemented annotation taxonomy reducing processing time by 25%
+- Mentored team of 15 annotators in quality assurance practices
+
+### <span class="company">DanielKilewer.com</span> | Animation & Web Designer
+<span class="duration">Jan 2010 – Present</span>
+- Developed 3 responsive websites with 100% client satisfaction
+- Created experimental film art featured at Austin Film Society (2012)
+
+## 🎓 Education
+### <span class="company">University of Mary Hardin-Baylor</span>
+<span class="duration">2003 – 2007</span>  
+BA, History
+
+## 🎨 Creative Projects
+**Experimental Film Installation**  
+- Mixed analog/digital media using Photoshop/Wacom  
+- Featured in Austin Film Society’s Avant Cinema (2012)
+
+**Digital Art Fabrication**  
+- Created interactive displays using vintage hardware/modulators
+
+## 📚 Publications & Exhibitions
+- **"Possible and Remembered Time"** | Co-lab Space, Austin (2012)  
+- **Avant Cinema Program** | Austin Film Society (2012)
+</div>
