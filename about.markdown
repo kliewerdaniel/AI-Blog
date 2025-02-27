@@ -29,14 +29,14 @@ I'm a multifaceted professional with over 15 years of experience spanning web de
 ### Data Annotation Specialist | Centific
 <span class="duration">Remote | Nov 2020 – Present</span>
 - Lead AI localization projects with 99.8% annotation accuracy
-- Curate diverse datasets improving model training efficiency by 40%
+- Curate diverse datasets improving model training efficiency
 - Develop quality control protocols adopted company-wide
 
 ### Research Data Annotator | Amazon Mechanical Turk & Connect Cloud Research
 <span class="duration">Remote | Jan 2010 – Nov 2020</span>
 - Processed 50,000+ data points with 98% consistency rating
-- Implemented annotation taxonomy reducing processing time by 25%
-- Mentored team of 15 annotators in quality assurance practices
+- Implemented annotation taxonomy reducing processing time
+- Mentored team of annotators in quality assurance practices
 
 ### Animation & Web Designer | DanielKliewer.com
 <span class="duration">Jan 2010 – Present</span>
