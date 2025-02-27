@@ -111,7 +111,7 @@ Through this blog, I share both technical knowledge and personal insights, aimin
 
 <div class="contact-info">
   <p>📍 Austin, Texas, United States</p>
-  <p>📧 danielkilewer@gmail.com</p>
+  <p>📧 danielkliewer@gmail.com</p>
 </div>
 
 <style>
