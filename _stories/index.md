@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Shadows of the Lost Cities"
+---
+
 # **"Shadows of the Lost Cities"**
 
 Alternatively, consider these options:
