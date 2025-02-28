@@ -8,6 +8,12 @@ permalink: /projects/
 
 Explore my significant projects and open-source initiatives that integrate AI, web technologies, and workflow automation.
 
+## Interactive Story Collection
+
+An interactive collection of AI-generated adventure stories set in the Amazon rainforest. Each story segment offers multiple paths, allowing readers to choose their own adventure through a series of interconnected narratives.
+
+[Explore Stories](/stories/)
+
 ## AI-Powered Filename Generator Chrome Extension
 
 This Chrome extension leverages AI to suggest contextually relevant filenames during file downloads or saves. It analyzes the content and proposes descriptive names, enhancing file organization and retrieval efficiency.
