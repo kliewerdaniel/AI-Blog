@@ -34,6 +34,12 @@ theme: minima
 plugins:
   - jekyll-feed
 
+# Collections
+collections:
+  stories:
+    output: true
+    permalink: /stories/:path/
+
 # Default layouts
 defaults:
   -
@@ -42,6 +48,12 @@ defaults:
       type: "posts"
     values:
       layout: "post-redesign"
+  -
+    scope:
+      path: ""
+      type: "stories"
+    values:
+      layout: "post"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
