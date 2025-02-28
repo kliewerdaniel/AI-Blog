@@ -13,4 +13,10 @@ Usage:
 {% assign file_name = base_path[0] %}
 {% assign file_ext = base_path[1] %}
 
-
+<img 
+  src="{{ include.src | relative_url }}" 
+  alt="{{ include.alt }}" 
+  {% if include.sizes %}sizes="{{ include.sizes }}"{% endif %}
+  {% if include.class %}class="{{ include.class }}"{% endif %}
+  loading="lazy"
+>

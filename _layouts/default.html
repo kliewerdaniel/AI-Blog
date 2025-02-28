@@ -48,6 +48,8 @@
   <link rel="stylesheet" href="{{ '/assets/css/bullet-fix.css' | relative_url }}">
   <!-- Mobile Menu Hide CSS - Loaded last to ensure it takes precedence -->
   <link rel="stylesheet" href="{{ '/assets/css/mobile-menu-hide.css' | relative_url }}">
+  <!-- Image Fix CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/image-fix.css' | relative_url }}">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GT-WF3JPD4"></script>
@@ -157,12 +159,7 @@
   <main class="container">
     <div class="content-wrapper">
       <article class="post-content">
-        {% if page.permalink == '/about/' %}
-          {{ content }}
-        {% else %}
-          {% assign content_without_images = content | replace: '<img', '<span class="image-placeholder"' | replace: '</img>', '</span>' %}
-          {{ content_without_images }}
-        {% endif %}
+        {{ content }}
       </article>
       
       <aside class="sidebar">

@@ -1,0 +1,56 @@
+/* Image display fixes */
+
+/* Ensure all images are displayed properly */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for images in markdown content */
+.post-content img,
+.prose img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for responsive images */
+picture {
+  display: block;
+  max-width: 100%;
+  margin: 1.5rem auto;
+}
+
+picture img {
+  margin: 0 auto; /* Override the margin from the img selector */
+}
+
+/* Fix for image captions */
+figure {
+  margin: 2rem 0;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Fix for images in lists */
+li img {
+  margin: 1rem 0;
+}
+
+/* Fix for images in tables */
+td img {
+  margin: 0;
+  display: inline-block;
+}
