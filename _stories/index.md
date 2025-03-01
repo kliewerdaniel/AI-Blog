@@ -15,7 +15,7 @@ Alternatively, consider these options:
 
 These segments appear to be excerpts from various adventure narratives set in dense Amazonian jungles. Each story involves a group of explorers led by a knowledgeable guide and a determined leader (either Dr. Elena Hart or another character). They are all searching for legendary lost cities—Zora, El Dorado—and encounter unexpected obstacles and dangers along the way.
 
-Here’s a summary and analysis of each segment:
+Here's a summary and analysis of each segment:
 
 ### Segment 1:
 **Key Elements:**
@@ -35,7 +35,7 @@ The first segment sets up a classic adventure narrative with exploration and dis
 - **Obstacles:** Footprints leading away from the city; armed men in masks.
 
 **Analysis:**
-This segment continues the theme of discovery and danger. The presence of footprints and armed men suggests competition and potential conflict. Elena’s leadership is highlighted as she decides to follow the prints but remain hidden, showing both bravery and caution.
+This segment continues the theme of discovery and danger. The presence of footprints and armed men suggests competition and potential conflict. Elena's leadership is highlighted as she decides to follow the prints but remain hidden, showing both bravery and caution.
 
 ### Segment 3:
 **Key Elements:**
@@ -45,7 +45,7 @@ This segment continues the theme of discovery and danger. The presence of footpr
 - **Obstacles:** Armed men in masks; competition for treasure.
 
 **Analysis:**
-The third segment intensifies the conflict and tension. The team is spotted by one of the masked men, adding a sense of urgency and danger. Elena’s decision to proceed with caution while being determined shows her strategic mindset and resolve.
+The third segment intensifies the conflict and tension. The team is spotted by one of the masked men, adding a sense of urgency and danger. Elena's decision to proceed with caution while being determined shows her strategic mindset and resolve.
 
 ### Common Themes:
 1. **Discovery:** Each narrative involves the search for legendary cities.
@@ -300,7 +300,7 @@ Alternatives:
 * "Secrets Beneath the Canopy"
 * "Into the Heart of Shadows"
 * "Ancient Whispers Await"
-* "The Rainforest’s Hidden Breath](./20221013_172115.md)
+* "The Rainforest's Hidden Breath](./20221013_172115.md)
 * [**"Whispers in the Primordial Jungle"**](./20221113_161556.md)
 * [**Moonlit Path to Mystery**
 
@@ -367,7 +367,7 @@ Alternatively:
  -  **"Mystery in the Ruins"**](./289641143_5461602423934149_1613512193125880228_n.md)
 * [Elena's Jungle Pursuit"
 
-I chose this title because it captures Dr. Elena Hart’s quest in the Amazonian jungle while keeping the details intriguing yet enigmatic, without giving away too much about her mission or the challenges she faces.](./20221013_140515.md)
+I chose this title because it captures Dr. Elena Hart's quest in the Amazonian jungle while keeping the details intriguing yet enigmatic, without giving away too much about her mission or the challenges she faces.](./20221013_140515.md)
 * [**"Shadows of the Ancient Forest"**
 
 Alternatively, here are a few more options:
@@ -390,19 +390,19 @@ Alternatively, here are a few other options:
 - **"Lost in the Canopy"**
 - **"Ancient Paths Await"**
 - **"Whispers of the Rainforest"**
-- **"Mysteries in the Murk"**](./books 007.JPG)
-* [**Mysteries in the Shadow Jungle**](./books 013.JPG)
+- **"Mysteries in the Murk"**](./books 007.md)
+* [**Mysteries in the Shadow Jungle**](./books 013.md)
 * [Shadows of the Amazon"
 
-This title captures the setting and mood of the scene without revealing too much about the plot.](./books 005.JPG)
+This title captures the setting and mood of the scene without revealing too much about the plot.](./books 005.md)
 * [Here are a few title suggestions:
 
 1. "Shadows of the Amazon"
 2. "Whispers in the Rainforest"
 3. "Secrets Beneath the Canopy"
 
-These titles aim to capture the atmosphere and mystery of the scene without revealing too much about the story.](./books 015.JPG)
-* [**"Whispers in the Amazon Shadow"**](./books 003.JPG)
+These titles aim to capture the atmosphere and mystery of the scene without revealing too much about the story.](./books 015.md)
+* [**"Whispers in the Amazon Shadow"**](./books 003.md)
 
 ---
 *Generated with AI assistance*
