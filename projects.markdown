@@ -10,7 +10,7 @@ Explore my significant projects and open-source initiatives that integrate AI, w
 
 ## Interactive Story Collection
 
-An interactive collection of AI-generated adventure stories set in the Amazon rainforest. Each story segment offers multiple paths, allowing readers to choose their own adventure through a series of interconnected narratives.
+An interactive collection of AI-generated  stories. Each story segment offers multiple paths, allowing readers to choose their own adventure through a series of interconnected narratives.
 
 [Explore Stories](/stories/)
 
