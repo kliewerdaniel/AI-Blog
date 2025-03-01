@@ -1,3 +1,8 @@
+---
+layout: story
+title: "Shadows of the Amazon"
+---
+
 # Shadows of the Amazon"
 
 This title captures the setting and mood of the scene without revealing too much about the plot.

@@ -1,3 +1,8 @@
+---
+layout: story
+title: "Here are a few title suggestions:"
+---
+
 # Here are a few title suggestions:
 
 1. "Jungle's Primordial Pulse"

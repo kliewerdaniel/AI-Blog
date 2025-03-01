@@ -1,3 +1,8 @@
+---
+layout: story
+title: "**Shadows of the Amazon"
+---
+
 # **"Shadows of the Amazon"**
 
 Alternatively, here are a few other options:

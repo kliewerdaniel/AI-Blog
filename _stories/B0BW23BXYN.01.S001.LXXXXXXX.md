@@ -1,3 +1,8 @@
+---
+layout: story
+title: "Jungle's Hidden Breath"
+---
+
 # Jungle's Hidden Breath"
 
 Alternative titles:

@@ -1,3 +1,8 @@
+---
+layout: story
+title: "**Mysteries in the Shadow Jungle"
+---
+
 # **Mysteries in the Shadow Jungle**
 
 ![**Mysteries in the Shadow Jungle**](../input_images/books 013.JPG)

@@ -1,3 +1,8 @@
+---
+layout: story
+title: "Whispers in the Jungle Shadows"
+---
+
 # Whispers in the Jungle Shadows
 
 ![Whispers in the Jungle Shadows](../input_images/B0BHLH14NQ.01._SCLZZZZZZZ_SX500_.jpg)

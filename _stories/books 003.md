@@ -1,3 +1,8 @@
+---
+layout: story
+title: "**Whispers in the Amazon Shadow"
+---
+
 # **"Whispers in the Amazon Shadow"**
 
 ![**"Whispers in the Amazon Shadow"**](../input_images/books 003.JPG)
