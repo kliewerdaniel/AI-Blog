@@ -5,7 +5,7 @@ title: "Whispers in the Jungle Shadows"
 
 # Whispers in the Jungle Shadows
 
-![Whispers in the Jungle Shadows](../input_images/B0BHLH14NQ.01._SCLZZZZZZZ_SX500_.jpg)
+![Whispers in the Jungle Shadows](/input_images/B0BHLH14NQ.01._SCLZZZZZZZ_SX500_.jpg)
 
 In the heart of the dense, ancient Amazonian jungle, the air thick with humidity and the scent of damp earth, Dr. Elena Hart and Marco trekked through the undergrowth. The canopy above filtered the sunlight, casting dappled shadows that danced eerily around them, as if whispering secrets of a lost age. Every crackle of a twig underfoot and every rustle in the bushes sent shivers down their spines.
 
@@ -15,7 +15,7 @@ Marco nodded, his eyes scanning the surroundings with intense focus. He had seen
 
 Suddenly, a low growl echoed through the forest. The hairs on the back of Marco's neck stood up. "Did you hear that?" he asked, his voice barely audible.
 
-Elena froze, her hand clutching the ancient artifact at her side—a relic from another time, said to hold the key to Zora’s secrets. "Yeah... we're not alone."
+Elena froze, her hand clutching the ancient artifact at her side—a relic from another time, said to hold the key to Zora's secrets. "Yeah... we're not alone."
 
 The sound grew louder, more menacing. They exchanged a determined glance and quickly ducked behind a large tree trunk. The growl turned into a snarl, and then a shadow moved swiftly through the underbrush.
 
@@ -40,8 +40,8 @@ What lay ahead was anyone's guess, but one thing was certain: this adventure had
 
 ## Choices
 
-* [Continue the adventure](./books 003.JPG)
-* [Continue the adventure](./463437008_8751402828287409_6880135836708144342_n.md)
+* [Continue the adventure](/stories/books%20003/)
+* [Continue the adventure](/stories/463437008_8751402828287409_6880135836708144342_n/)
 
 
 ---

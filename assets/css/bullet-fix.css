@@ -1,106 +1,53 @@
-/* Bullet Fix CSS */
-
-/* Remove any bullet points or dots between menu items */
-.main-nav li::after,
-.main-nav li::before,
-.nav-item::after,
-.nav-item::before,
-.mobile-nav-item::after,
-.mobile-nav-item::before {
-  content: none !important;
-  display: none !important;
-}
-
-/* Remove any bullet points or dots in the mobile menu */
-.mobile-nav-items li::after,
-.mobile-nav-items li::before {
-  content: none !important;
-  display: none !important;
-}
-
-/* Fix for any bullet points in the breadcrumbs */
-.breadcrumbs li::before {
-  content: none !important;
-  display: none !important;
-}
-
-/* Fix for any bullet points in the footer */
-footer ul li::before,
-footer ul li::after {
-  content: none !important;
-  display: none !important;
-}
-
-/* Override any Tailwind spacing classes that might add content */
-.space-x-1 > :not([hidden]) ~ :not([hidden]),
-.space-y-1 > :not([hidden]) ~ :not([hidden]),
-.space-x-2 > :not([hidden]) ~ :not([hidden]),
-.space-y-2 > :not([hidden]) ~ :not([hidden]),
-.space-x-3 > :not([hidden]) ~ :not([hidden]),
-.space-y-3 > :not([hidden]) ~ :not([hidden]),
-.space-x-4 > :not([hidden]) ~ :not([hidden]),
-.space-y-4 > :not([hidden]) ~ :not([hidden]),
-.space-x-5 > :not([hidden]) ~ :not([hidden]),
-.space-y-5 > :not([hidden]) ~ :not([hidden]),
-.space-x-6 > :not([hidden]) ~ :not([hidden]),
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0 !important;
-  --tw-space-y-reverse: 0 !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  margin-right: 0 !important;
-  margin-left: 0 !important;
-}
-
-/* Add proper spacing for navigation items */
-.main-nav {
-  display: flex !important;
-}
-
-.main-nav li {
-  margin-right: 1.5rem !important;
-}
-
-.main-nav li:last-child {
-  margin-right: 0 !important;
-}
-
-/* Fix for mobile navigation */
-.mobile-nav-items {
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-.mobile-nav-item {
-  margin-bottom: 1rem !important;
-}
-
-.mobile-nav-item:last-child {
-  margin-bottom: 0 !important;
-}
-
-/* Ensure clean display for navigation links */
-.nav-link, 
-.mobile-nav-item a {
+/* Fix for bullet points in stories */
+.post-content ul {
+  list-style-type: disc !important;
+  margin-left: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
   display: block !important;
-  text-decoration: none !important;
+  visibility: visible !important;
 }
 
-/* Fix for any content added by Tailwind's space utilities */
-.space-x-1, .space-x-2, .space-x-3, .space-x-4, .space-x-5, .space-x-6,
-.space-y-1, .space-y-2, .space-y-3, .space-y-4, .space-y-5, .space-y-6 {
-  --tw-space-x-reverse: 0 !important;
-  --tw-space-y-reverse: 0 !important;
+.post-content ul li {
+  margin-bottom: 0.5rem !important;
+  display: list-item !important;
+  visibility: visible !important;
 }
 
-/* Override any content added by pseudo-elements */
-*::before, *::after {
-  content: none !important;
-}
-
-/* Exception for breadcrumb separators */
-.breadcrumbs li:not(:last-child)::after {
-  content: "/" !important;
+.post-content ul li a {
   display: inline-block !important;
-  margin: 0 0.5rem !important;
+  color: #3a6ea5 !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+  visibility: visible !important;
+}
+
+.post-content ul li a:hover {
+  color: #ff6b6b !important;
+  text-decoration: underline !important;
+}
+
+/* Fix for the second link */
+.post-content ul li:nth-child(2) {
+  display: list-item !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.post-content ul li:nth-child(2) a {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fix for all list items */
+.post-content ul li:nth-child(n) {
+  display: list-item !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.post-content ul li:nth-child(n) a {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
