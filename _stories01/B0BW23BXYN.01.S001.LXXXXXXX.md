@@ -43,8 +43,8 @@ The shadows seemed to close around her, and she could hear the footsteps echoing
 ## Choices
 
 * [Continue the adventure](./books 005.JPG)
-* [Continue the adventure](./463751864_8751403184954040_8729498268726413009_n.md)
-* [Continue the adventure](./38524618_2014124792015280_5352241592616878080_n.md)
+* [Continue the adventure](./463751864_8751403184954040_8729498268726413009_n)
+* [Continue the adventure](./38524618_2014124792015280_5352241592616878080_n)
 
 
 ---

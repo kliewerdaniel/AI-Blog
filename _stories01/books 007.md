@@ -54,9 +54,9 @@ As they delved deeper, the choices before them became clearer: to uncover ancien
 
 ## Choices
 
-* [Continue the adventure](./20221010_145455.md)
-* [Continue the adventure](./463437008_8751402828287409_6880135836708144342_n.md)
-* [Continue the adventure](./20221013_134808.md)
+* [Continue the adventure](./20221010_145455)
+* [Continue the adventure](./463437008_8751402828287409_6880135836708144342_n)
+* [Continue the adventure](./20221013_134808)
 
 
 ---

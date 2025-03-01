@@ -44,8 +44,8 @@ Elena nodded, taking another tentative step closer. The tension in the air was p
 
 ## Choices
 
-* [Continue the adventure](./463430190_8751461418281550_7714871349040429364_n.md)
-* [Continue the adventure](./477085949_1376430796875724_8916528934155297778_n.md)
+* [Continue the adventure](./463430190_8751461418281550_7714871349040429364_n)
+* [Continue the adventure](./477085949_1376430796875724_8916528934155297778_n)
 * [Continue the adventure](./books 013.JPG)
 
 

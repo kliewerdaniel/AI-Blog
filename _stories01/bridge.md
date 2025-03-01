@@ -52,8 +52,8 @@ The lake swallowed her up, leaving only ripples in her wake. The forest fell sil
 
 ## Choices
 
-* [Continue the adventure](./20221014_124553.md)
-* [Continue the adventure](./B0BHLH14NQ.01._SCLZZZZZZZ_SX500_.md)
+* [Continue the adventure](./20221014_124553)
+* [Continue the adventure](./B0BHLH14NQ.01._SCLZZZZZZZ_SX500_)
 
 
 ---

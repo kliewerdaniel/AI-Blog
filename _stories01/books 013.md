@@ -32,9 +32,9 @@ The choices before her were clear: confront El Fantasma directly or retreat to g
 
 ## Choices
 
-* [Continue the adventure](./B0BHLH14NQ.01._SCLZZZZZZZ_SX500_.md)
-* [Continue the adventure](./20221013_144257.md)
-* [Continue the adventure](./20221113_162250.md)
+* [Continue the adventure](./B0BHLH14NQ.01._SCLZZZZZZZ_SX500_)
+* [Continue the adventure](./20221013_144257)
+* [Continue the adventure](./20221113_162250)
 
 
 ---

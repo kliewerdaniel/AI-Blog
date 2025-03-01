@@ -100,14 +100,14 @@ Alternatively, here are a few more options:
 * **"Rain-Soaked Despair in Berlin"**
 * **"Emma's Forgotten Corner"**
 * **"Berlin's Grimy Sanctuary"**
-* **"Lost in the Capital's Shadows"**](./20221012_105602.md)
-* [Hidden Shadows in the Market's Wake](./20221011_005157.md)
-* [Neon Shadows in the Cold](./20221013_125636.md)
+* **"Lost in the Capital's Shadows"**](./20221012_105602)
+* [Hidden Shadows in the Market's Wake](./20221011_005157)
+* [Neon Shadows in the Cold](./20221013_125636)
 * [Alley Shadows of the City"
 Or
 "Neon Night Despair"
 
-Both titles aim to capture the grimy, neon-lit setting and the mood of despair without revealing too much about the story itself.](./20221010_145455.md)
+Both titles aim to capture the grimy, neon-lit setting and the mood of despair without revealing too much about the story itself.](./20221010_145455)
 * [**Shadows of Silicon Valley**
 
  Alternatives:
@@ -115,7 +115,7 @@ Both titles aim to capture the grimy, neon-lit setting and the mood of despair w
 - **Silicon Shadows**
 - **Glitch in the Glow**
 - **Valley of Lost Code**
-- **Rain and Ruin in Tech Town**](./20221012_145451.md)
+- **Rain and Ruin in Tech Town**](./20221012_145451)
 * [Jake's Neon Shadows"
 
 Alternatives:
@@ -124,15 +124,15 @@ Alternatives:
 * "Alleyway Chill"
 * "Glimmers in the Grime"
 * "Market's Hidden Cold"
-* "Neon and Rotting Garbage](./20221013_134808.md)
+* "Neon and Rotting Garbage](./20221013_134808)
 * [**"Alley's Hidden Code"**
 
 Alternatively:
 
 *"Whispers in the Rain"*
 *"Tech Hub Shadows"*
-*"Pixelated Refuge"*](./20221010_111253.md)
-* [**"Hunger in the Shadows"**](./20221013_134815.md)
+*"Pixelated Refuge"*](./20221010_111253)
+* [**"Hunger in the Shadows"**](./20221013_134815)
 * [**"Night's Hidden Whispers"**
 
 Alternatively, consider these options:
@@ -140,10 +140,10 @@ Alternatively, consider these options:
 - **"Alley of Shadows"**
 - **"Cold Comfort in Darkness"**
 - **"Whispers in the Night"**
-- **"Solitary Vigil"**](./20221013_133924.md)
+- **"Solitary Vigil"**](./20221013_133924)
 * [**"Cold Shadows of Survival"**
 
-This title captures the grim setting and Jake's struggle to survive without revealing too much about the plot.](./20221013_140515.md)
+This title captures the grim setting and Jake's struggle to survive without revealing too much about the plot.](./20221013_140515)
 
 ---
 *Generated with AI assistance*

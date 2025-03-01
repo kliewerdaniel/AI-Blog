@@ -53,9 +53,9 @@ As the first rays of sunlight pierced through the dense canopy and illuminated t
 
 ## Choices
 
-* [Continue the adventure](./20221014_111722.md)
-* [Continue the adventure](./captain.md)
-* [Continue the adventure](./20221113_161248.md)
+* [Continue the adventure](./20221014_111722)
+* [Continue the adventure](./captain)
+* [Continue the adventure](./20221113_161248)
 
 
 ---

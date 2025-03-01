@@ -48,8 +48,8 @@ The decision hung in the balance as the scene ended on a cliffhanger that left e
 
 ## Choices
 
-* [Continue the adventure](./20221012_105602.md)
-* [Continue the adventure](./20221113_153653.md)
+* [Continue the adventure](./20221012_105602)
+* [Continue the adventure](./20221113_153653)
 
 
 ---
