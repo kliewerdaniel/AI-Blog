@@ -53,7 +53,7 @@ defaults:
       path: ""
       type: "stories"
     values:
-      layout: "post"
+      layout: "story"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

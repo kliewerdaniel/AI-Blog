@@ -1,0 +1,70 @@
+/* Story image fixes */
+
+/* Fix for all images in the site */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 1.5rem auto !important;
+}
+
+/* Fix for story images with relative paths */
+.post-content img[src^="../input_images/"] {
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+/* Ensure all story images are displayed properly */
+.stories-content img,
+.post-content.stories img,
+.story-image {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 1.5rem auto !important;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+/* Add a class to the post content for stories */
+.post-content.stories {
+  position: relative;
+}
+
+/* Fix for image containers */
+p:has(img) {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Fix for image captions */
+p:has(img) + p:first-of-type {
+  text-align: center;
+  font-style: italic;
+  margin-top: -1rem;
+  color: #666;
+}
+
+/* Fix for image links */
+a:has(img) {
+  display: inline-block;
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+/* Fix for image paths in stories - important override */
+img[src$=".jpg"],
+img[src$=".jpeg"],
+img[src$=".png"],
+img[src$=".gif"] {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 1.5rem auto !important;
+}

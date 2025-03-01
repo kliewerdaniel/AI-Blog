@@ -1,0 +1,21 @@
+{% comment %}
+  Story Image Include
+  
+  This include handles images in story files, fixing the relative paths.
+  
+  Parameters:
+  - src: The source path of the image
+  - alt: The alt text for the image (optional)
+{% endcomment %}
+
+{% assign filename = include.src | split: '/' | last %}
+{% assign alt_text = include.alt | default: 'Story image' %}
+
+<div class="story-image-container">
+  <img 
+    src="{{ '/static/input_images/' | append: filename | relative_url }}" 
+    alt="{{ alt_text }}"
+    class="story-image"
+    onerror="this.onerror=null; this.src='{{ include.src }}'; console.log('Fallback to original path: {{ include.src }}');"
+  >
+</div>
