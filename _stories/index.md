@@ -57,11 +57,11 @@ The stories of Emma, Alex, Eli, and others demonstrate the profound impact that 
 
 Choose your starting point:
 
-* [Alex's Alley Secret](/_stories/20221012_105602)
-* [Alley Shadows](/_stories/20221011_005157)
-* [Whispers in the Alley](/_stories/20221010_145455)
-* [Hunger in the Shadows](/_stories/20221012_145451)
-* [Eli's Hidden Haven](/_stories/20221010_111253)
+* [Alex's Alley Secret](/stories/20221012_105602)
+* [Alley Shadows](/stories/20221011_005157)
+* [Whispers in the Alley](/stories/20221010_145455)
+* [Hunger in the Shadows](/stories/20221012_145451)
+* [Eli's Hidden Haven](/stories/20221010_111253)
 
 ---
 *Generated with AI assistance*
