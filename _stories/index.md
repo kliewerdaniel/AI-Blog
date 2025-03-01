@@ -1,9 +1,9 @@
 ---
 layout: story
-title: "Guiding Lights: AI Beacons of Hope"
+title: Guiding Lights: AI Beacons of Hope
 ---
 
-# "Guiding Lights: AI Beacons of Hope"
+# Guiding Lights: AI Beacons of Hope
 
 ## An Interactive Adventure
 
