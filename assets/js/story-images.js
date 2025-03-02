@@ -7,7 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
   storyImages.forEach(function(img) {
     // Get the image filename from the src attribute
     const src = img.getAttribute('src');
-    const filename = src.split('/').pop();
+    let filename = src.split('/').pop();
+    
+    // Add .jpg extension if missing
+    if (!filename.includes('.')) {
+      filename = filename + '.jpg';
+    }
     
     // Try different paths to find the correct one
     const possiblePaths = [
@@ -16,7 +21,27 @@ document.addEventListener('DOMContentLoaded', function() {
       '../input_images/' + filename,
       '../../input_images/' + filename,
       '/stories/input_images/' + filename,
-      '/stories/../input_images/' + filename
+      '/stories/../input_images/' + filename,
+      '/static/images/' + filename,
+      // Add additional input_images directories
+      '/input_images01/' + filename,
+      '/input_images02/' + filename,
+      '/input_images03/' + filename,
+      '/AI-Blog/input_images01/' + filename,
+      '/AI-Blog/input_images02/' + filename,
+      '/AI-Blog/input_images03/' + filename,
+      '../input_images01/' + filename,
+      '../input_images02/' + filename,
+      '../input_images03/' + filename,
+      '../../input_images01/' + filename,
+      '../../input_images02/' + filename,
+      '../../input_images03/' + filename,
+      '/stories/input_images01/' + filename,
+      '/stories/input_images02/' + filename,
+      '/stories/input_images03/' + filename,
+      '/stories/../input_images01/' + filename,
+      '/stories/../input_images02/' + filename,
+      '/stories/../input_images03/' + filename
     ];
     
     // Create a new image element with fallback paths

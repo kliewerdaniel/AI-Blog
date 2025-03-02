@@ -21,7 +21,12 @@
       // Check if the source is a relative path to input_images
       if (src && src.includes('input_images')) {
         // Get the filename from the path
-        const filename = src.split('/').pop();
+        let filename = src.split('/').pop();
+        
+        // Add .jpg extension if missing
+        if (!filename.includes('.')) {
+          filename = filename + '.jpg';
+        }
         
         // Create a new image element
         const newImg = document.createElement('img');
@@ -40,10 +45,26 @@
         const paths = [
           '/input_images/' + filename,
           '/AI-Blog/input_images/' + filename,
-          '/static/input_images/' + filename,
           '../input_images/' + filename,
           '../../input_images/' + filename,
-          '/stories/input_images/' + filename
+          '/stories/input_images/' + filename,
+          '/static/images/' + filename,
+          // Add additional input_images directories
+          '/input_images01/' + filename,
+          '/input_images02/' + filename,
+          '/input_images03/' + filename,
+          '/AI-Blog/input_images01/' + filename,
+          '/AI-Blog/input_images02/' + filename,
+          '/AI-Blog/input_images03/' + filename,
+          '../input_images01/' + filename,
+          '../input_images02/' + filename,
+          '../input_images03/' + filename,
+          '../../input_images01/' + filename,
+          '../../input_images02/' + filename,
+          '../../input_images03/' + filename,
+          '/stories/input_images01/' + filename,
+          '/stories/input_images02/' + filename,
+          '/stories/input_images03/' + filename
         ];
         
         // Set the initial source

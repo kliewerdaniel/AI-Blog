@@ -13,9 +13,55 @@
 
 <div class="story-image-container">
   <img 
-    src="{{ '/static/input_images/' | append: filename | relative_url }}" 
+    src="{{ '/input_images/' | append: filename | append: '.jpg' | relative_url }}" 
     alt="{{ alt_text }}"
     class="story-image"
-    onerror="this.onerror=null; this.src='{{ include.src }}'; console.log('Fallback to original path: {{ include.src }}');"
+    data-filename="{{ filename }}"
+    onerror="this.onerror=null; tryAlternativePaths(this);"
   >
 </div>
+
+<script>
+  function tryAlternativePaths(img) {
+    const filename = img.getAttribute('data-filename');
+    const paths = [
+      '{{ include.src }}.jpg',
+      '/input_images01/' + filename + '.jpg',
+      '/input_images02/' + filename + '.jpg',
+      '/input_images03/' + filename + '.jpg',
+      '../input_images/' + filename + '.jpg',
+      '../input_images01/' + filename + '.jpg',
+      '../input_images02/' + filename + '.jpg',
+      '../input_images03/' + filename + '.jpg'
+    ];
+    
+    let currentPath = 0;
+    
+    function tryNextPath() {
+      if (currentPath < paths.length) {
+        img.src = paths[currentPath];
+        console.log('Trying path: ' + paths[currentPath]);
+        currentPath++;
+      } else {
+        console.log('All paths failed for: ' + filename);
+        // Add a placeholder background
+        img.style.backgroundColor = '#f8f9fa';
+        img.style.border = '1px solid #ddd';
+        img.style.padding = '20px';
+        img.style.minHeight = '200px';
+        
+        // Add a message that the image failed to load
+        const parent = img.parentNode;
+        const message = document.createElement('p');
+        message.textContent = 'Image failed to load: ' + filename;
+        message.style.textAlign = 'center';
+        message.style.color = '#666';
+        message.style.fontStyle = 'italic';
+        parent.appendChild(message);
+      }
+    }
+    
+    img.onerror = tryNextPath;
+    tryNextPath();
+  }
+</script>
