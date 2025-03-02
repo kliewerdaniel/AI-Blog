@@ -1,8 +1,16 @@
-/* Hide top menu completely on mobile devices */
+/* Hide top menu completely on mobile devices, except for dark mode toggle */
 @media (max-width: 768px) {
-  /* Hide the main navigation */
-  .main-nav {
+  /* Hide the main navigation but keep the dark mode toggle visible */
+  .main-nav li:not(:last-child) {
     display: none !important;
+  }
+  
+  /* Keep the dark mode toggle visible */
+  .main-nav li:last-child {
+    display: block !important;
+    position: absolute;
+    right: 20px;
+    top: 15px;
   }
   
   /* Hide the mobile menu toggle button */
