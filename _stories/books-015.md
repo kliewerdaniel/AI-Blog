@@ -31,9 +31,9 @@ Daniel's journey is far from over. As he stood there, surrounded by his art and 
 
 ## Choices
 
-* [Lost in Lines Amidst the Grime](/stories/20221013_140515)
-* [Mystery in the Mist](/stories/20221113_162250)
-* [Whispers in the Shadowed Alley](/stories/bridge)
+* [Lost in Lines Amidst the Grime](/stories/20221013_140515/)
+* [Mystery in the Mist](/stories/20221113_162250/)
+* [Whispers in the Shadowed Alley](/stories/bridge/)
 
 
 ---

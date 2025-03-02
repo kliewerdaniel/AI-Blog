@@ -29,9 +29,9 @@ As he stepped inside, the warmth and quiet enveloped him like a blanket. He look
 
 ## Choices
 
-* [Hope in the Shadows](/stories/20221113_161540)
-* [Art Amidst Desolation](/stories/20221013_134808)
-* [Echoes of Resilience](/stories/476485893_1141800154331157_7662562200996339651_n)
+* [Hope in the Shadows](/stories/20221113_161540/)
+* [Art Amidst Desolation](/stories/20221013_134808/)
+* [Echoes of Resilience](/stories/476485893_1141800154331157_7662562200996339651_n/)
 
 
 ---

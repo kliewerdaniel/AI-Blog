@@ -1,41 +1,47 @@
 #!/usr/bin/env python3
+"""
+Script to fix story links in all story files.
+This script adds trailing slashes to all story links to match the permalink format.
+"""
+
 import os
 import re
+from pathlib import Path
 
-def fix_links_in_file(file_path):
-    """Replace all instances of (/_stories/ with (/stories/ in a file."""
-    with open(file_path, 'r', encoding='utf-8') as file:
-        content = file.read()
+def fix_story_links(file_path):
+    """Fix story links in a single file."""
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
     
-    # Replace the links
-    updated_content = re.sub(r'\(\/_stories\/', r'(/stories/', content)
+    # Find all links to stories without trailing slashes
+    pattern = r'(\[.*?\]\(/stories/[^/)]+)(?=\))'
+    
+    # Replace with links that have trailing slashes
+    updated_content = re.sub(pattern, r'\1/', content)
     
     # Only write to the file if changes were made
-    if updated_content != content:
-        with open(file_path, 'w', encoding='utf-8') as file:
-            file.write(updated_content)
+    if content != updated_content:
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(updated_content)
         return True
     return False
 
 def main():
-    """Find all .md files in the _stories directory and fix the links."""
-    stories_dir = '_stories'
-    count = 0
+    """Main function to fix all story links."""
+    stories_dir = Path('_stories')
     
-    # Ensure the directory exists
-    if not os.path.isdir(stories_dir):
-        print(f"Error: {stories_dir} directory not found.")
+    if not stories_dir.exists() or not stories_dir.is_dir():
+        print(f"Error: {stories_dir} directory not found")
         return
     
-    # Process all .md files in the directory
-    for filename in os.listdir(stories_dir):
-        if filename.endswith('.md'):
-            file_path = os.path.join(stories_dir, filename)
-            if fix_links_in_file(file_path):
-                count += 1
-                print(f"Fixed links in {file_path}")
+    files_updated = 0
     
-    print(f"Completed. Fixed links in {count} files.")
+    for file_path in stories_dir.glob('*.md'):
+        if fix_story_links(file_path):
+            print(f"Updated links in {file_path}")
+            files_updated += 1
+    
+    print(f"\nCompleted: {files_updated} files updated")
 
 if __name__ == "__main__":
     main()

@@ -25,11 +25,11 @@ But this was just the beginning. The city had given him a second chance, and Dan
 
 ## Choices
 
-* [Coded Courage Amidst Shadows](/stories/319815256_5961632573931129_6407827479216061436_)
+* [Coded Courage Amidst Shadows](/stories/319815256_5961632573931129_6407827479216061436_/)
 * [The Alley Sketch
 
 I have provided a 4 word title that is intriguing and reflects the key elements and mood of the scene without giving away too much.](/stories/B2B11E10-05AD-4951-ADE3-917B92D36250)
-* [Shadows of Code](/stories/20221014_153920)
+* [Shadows of Code](/stories/20221014_153920/)
 
 
 ---
