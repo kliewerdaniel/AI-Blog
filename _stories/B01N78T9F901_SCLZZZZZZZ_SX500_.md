@@ -1,11 +1,12 @@
 ---
+permalink: /stories/B01N78T9F901_SCLZZZZZZZ_SX500_/
 layout: story
 title: Eerie Refuge in Neon Shadows
 ---
 
 # Eerie Refuge in Neon Shadows
 
-![Eerie Refuge in Neon Shadows](/input_images/B01N78T9F9.01._SCLZZZZZZZ_SX500_.jpg)
+![\1](/input_images/B01N78T9F901_SCLZZZZZZZ_SX500_){: .story-image}
 
 In the grimy, rain-soaked alley behind the city's bustling tech district, Daniel Kliewer huddled under a tattered blanket. The neon lights from the towering skyscrapers cast an eerie glow on his makeshift shelter, making the darkness seem even more oppressive. Despite his harsh surroundings, Daniel's eyes held a spark of determination and a dream to create something extraordinary.
 

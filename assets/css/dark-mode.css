@@ -1,0 +1,142 @@
+/* Dark Mode Styles */
+body.dark-mode {
+  --primary-color: #6d9eeb;
+  --secondary-color: #1a2639;
+  --accent-color: #ff8585;
+  --neutral-light: #1e1e1e;
+  --neutral-dark: #e0e0e0;
+  --text-color: #e0e0e0;
+  --text-light: #b0b0b0;
+  --white: #121212;
+  --shadow: rgba(0,0,0,0.5);
+  
+  background-color: var(--neutral-light);
+  color: var(--text-color);
+}
+
+body.dark-mode header {
+  background-color: var(--white);
+}
+
+body.dark-mode footer {
+  background-color: var(--white);
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6 {
+  color: var(--neutral-dark);
+}
+
+body.dark-mode .sidebar-widget {
+  background-color: var(--white);
+}
+
+body.dark-mode .post-content,
+body.dark-mode .sidebar-widget {
+  background-color: var(--white);
+  border: 1px solid #333;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #2a2a2a;
+  color: var(--text-color);
+  border: 1px solid #444;
+}
+
+body.dark-mode button {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* Dark mode toggle button styles */
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.dark-mode-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-color);
+  transition: fill 0.3s ease;
+}
+
+body.dark-mode .dark-mode-toggle .sun-icon {
+  display: block;
+}
+
+body.dark-mode .dark-mode-toggle .moon-icon {
+  display: none;
+}
+
+.dark-mode-toggle .sun-icon {
+  display: none;
+}
+
+.dark-mode-toggle .moon-icon {
+  display: block;
+}
+
+/* Ensure images have proper contrast in dark mode */
+body.dark-mode img {
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* Code blocks in dark mode */
+body.dark-mode pre,
+body.dark-mode code {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+/* Tables in dark mode */
+body.dark-mode table {
+  border-color: #444;
+}
+
+body.dark-mode th,
+body.dark-mode td {
+  border-color: #444;
+}
+
+body.dark-mode th {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode tr:nth-child(even) {
+  background-color: #1e1e1e;
+}
+
+/* Links in dark mode */
+body.dark-mode a {
+  color: var(--primary-color);
+}
+
+body.dark-mode a:hover {
+  color: var(--accent-color);
+}

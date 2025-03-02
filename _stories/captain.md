@@ -1,11 +1,12 @@
 ---
+permalink: /stories/captain/
 layout: story
 title: Shadows of Creativity
 ---
 
 # Shadows of Creativity
 
-![Shadows of Creativity](/input_images/captain.jpg)
+![\1](/input_images/captain){: .story-image}
 
 In the damp, rain-soaked alley behind the city's library, Daniel Kliewer huddled over a tattered sketchbook, his fingers stained with charcoal. The scent of damp paper and faded dreams permeated the air. Homeless for months, he found refuge in the library during the day, immersing himself in books about technology and artificial intelligence, fueled by an insatiable curiosity.
 

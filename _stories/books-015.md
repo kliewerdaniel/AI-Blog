@@ -1,11 +1,12 @@
 ---
+permalink: /stories/books-015/
 layout: story
 title: Cold Canvas in Shadows
 ---
 
 # Cold Canvas in Shadows
 
-![Cold Canvas in Shadows](/input_images/books 015.JPG)
+![\1](/input_images/books-015){: .story-image}
 
 In the grimy alley behind a bustling city market, Daniel Kliewer found himself living amidst squalor, huddled under a tattered blanket. The cold seeped into his bones, but his spirit remained unbroken. He clutched a small sketchbook, his only possession that held any value—his art.
 

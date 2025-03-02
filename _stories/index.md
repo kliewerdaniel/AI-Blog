@@ -34,8 +34,8 @@ This summary captures the key elements of Daniel’s story—his resilience, the
 Choose your starting point:
 
 * [Shadows of Creation](/stories/B9B57FFB-2251-44C5-8215-3DDD17162E1F)
-* [Whispers in the Alley](/stories/B0BHLH14NQ.01._SCLZZZZZZZ_SX500_)
-* [Awaiting Dawn's Unseen Truth](/stories/B0BW23BXYN.01.S001.LXXXXXXX)
+* [Whispers in the Alley](/stories/B0BHLH14NQ01)
+* [Awaiting Dawn's Unseen Truth](/stories/B0BW23BXYN01S001)
 * [Hidden Hope Amidst Desolation](/stories/474775887_490715300428480_2081408431757738514_n)
 * [Shadows of Downtown](/stories/20221113_161512)
 * [Whispers in the Shadows](/stories/20221113_161248)
@@ -56,7 +56,7 @@ Choose your starting point:
 I have provided a 4 word title that is intriguing and reflects the key elements and mood of the scene without giving away too much.](/stories/B2B11E10-05AD-4951-ADE3-917B92D36250)
 * [Mystery in the Mist](/stories/20221113_162250)
 * [Shadows of Curiosity](/stories/20221012_145451)
-* [Eerie Refuge in Neon Shadows](/stories/B01N78T9F9.01._SCLZZZZZZZ_SX500_)
+* [Eerie Refuge in Neon Shadows](/stories/B01N78T9F901)
 * [Shadows of the City's Market](/stories/463314582_8751461421614883_6093502764820900015_n)
 * [Secrets in the Shadows](/stories/476902298_2026199734459132_8101314172205332991_n)
 * [Shadows in the Alley](/stories/20221013_140630)
@@ -99,11 +99,11 @@ I have provided a 4 word title that is intriguing and reflects the key elements 
 * [Lost in Lines Amidst the Grime](/stories/20221013_140515)
 * [Hidden Paths in Neon Light](/stories/20221014_124553)
 * [Whispers in the Alley](/stories/38524618_2014124792015280_5352241592616878080_n)
-* [Shadows of the Alleys](/stories/books 007.JPG)
-* [Shadows of Potential](/stories/books 013.JPG)
-* [Despair in Shadowed Alley](/stories/books 005.JPG)
-* [Cold Canvas in Shadows](/stories/books 015.JPG)
-* [A Spark in Shadows](/stories/books 003.JPG)
+* [Shadows of the Alleys](/stories/books-007)
+* [Shadows of Potential](/stories/books-013)
+* [Despair in Shadowed Alley](/stories/books-005)
+* [Cold Canvas in Shadows](/stories/books-015)
+* [A Spark in Shadows](/stories/books-003)
 
 ---
 *Generated with AI assistance*

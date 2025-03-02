@@ -1,11 +1,12 @@
 ---
+permalink: /stories/books-005/
 layout: story
 title: Despair in Shadowed Alley
 ---
 
 # Despair in Shadowed Alley
 
-![Despair in Shadowed Alley](/input_images/books 005.JPG)
+![\1](/input_images/books-005){: .story-image}
 
 In the grimy alley behind a bustling city street, Daniel Kliewer huddled under a tattered blanket, his breath visible in the chilly night air. The city lights cast a harsh glow on the crumbling walls, but they couldn't penetrate the darkness of his despair. He had been homeless for months, his life reduced to the few belongings he could carry and the cold concrete beneath him.
 
@@ -31,7 +32,7 @@ The road ahead held endless potential, filled with new challenges and opportunit
 ## Choices
 
 * [Shadows of Code](/stories/20221014_153920)
-* [Cold Canvas in Shadows](/stories/books 015.JPG)
+* [Cold Canvas in Shadows](/stories/books-015)
 
 
 ---

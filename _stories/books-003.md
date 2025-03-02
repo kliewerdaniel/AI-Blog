@@ -1,11 +1,12 @@
 ---
+permalink: /stories/books-003/
 layout: story
 title: A Spark in Shadows
 ---
 
 # A Spark in Shadows
 
-![A Spark in Shadows](/input_images/books 003.JPG)
+![\1](/input_images/books-003){: .story-image}
 
 In the grimy alley behind the bustling city market, Daniel Kliewer huddled under a tattered blanket, his breath misting in the cold night air. His life had been reduced to the hum of distant traffic and the occasional scurry of rats. But amidst the squalor, there was a spark in his eyes—a burning desire to escape his circumstances.
 
@@ -29,7 +30,7 @@ Daniel stood there, the noise of the city fading away as he held back tears of j
 ## Choices
 
 * [Whispers in the Alley](/stories/20221013_133924)
-* [Awaiting Dawn's Unseen Truth](/stories/B0BW23BXYN.01.S001.LXXXXXXX)
+* [Awaiting Dawn's Unseen Truth](/stories/B0BW23BXYN01S001)
 * [Whispers in the Alley](/stories/20221014_134512)
 
 

@@ -1,11 +1,12 @@
 ---
+permalink: /stories/bridge/
 layout: story
 title: Whispers in the Shadowed Alley
 ---
 
 # Whispers in the Shadowed Alley
 
-![Whispers in the Shadowed Alley](/input_images/bridge.jpg)
+![\1](/input_images/bridge){: .story-image}
 
 In the grimy alley behind the bustling city library, Daniel Kliewer huddled against the cold night air. His sketchbook, worn and tattered from years of use, rested on his knees as he penciled intricate patterns onto the page. The sounds of the city—the distant hum of traffic, the occasional laughter from a nearby bar—faded into the background as he lost himself in his art.
 
@@ -29,7 +30,7 @@ The city skyline stretched out before him, a canvas of endless possibilities. Ho
 ## Choices
 
 * [Hope in the Shadows](/stories/463437008_8751402828287409_6880135836708144342_n)
-* [Shadows of Potential](/stories/books 013.JPG)
+* [Shadows of Potential](/stories/books-013)
 
 
 ---

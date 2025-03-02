@@ -1,11 +1,12 @@
 ---
+permalink: /stories/B0BHLH14NQ01_SCLZZZZZZZ_SX500_/
 layout: story
 title: Whispers in the Alley
 ---
 
 # Whispers in the Alley
 
-![Whispers in the Alley](/input_images/B0BHLH14NQ.01._SCLZZZZZZZ_SX500_.jpg)
+![\1](/input_images/B0BHLH14NQ01_SCLZZZZZZZ_SX500_){: .story-image}
 
 In the grimy alley behind a bustling city market, Daniel Kliewer huddled against the cold, his breath visible in the crisp night air. The harsh fluorescent light from the nearby dumpster flickered, casting eerie shadows on the worn sketchbook in his hands. Despite the harsh realities of homelessness, he clung to his artistic passion.
 

@@ -1,11 +1,12 @@
 ---
+permalink: /stories/books-013/
 layout: story
 title: Shadows of Potential
 ---
 
 # Shadows of Potential
 
-![Shadows of Potential](/input_images/books 013.JPG)
+![\1](/input_images/books-013){: .story-image}
 
 In the grimy alley behind the bustling city library, Daniel Kliewer huddled over a crumpled newspaper, his fingers tracing the edges of a rough sketch he had drawn. The scent of stale coffee and damp cardboard filled the air as he dreamed of a future where his drawings could transcend mere pastime and become something extraordinary.
 

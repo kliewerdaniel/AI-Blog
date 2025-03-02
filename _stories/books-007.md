@@ -1,11 +1,12 @@
 ---
+permalink: /stories/books-007/
 layout: story
 title: Shadows of the Alleys
 ---
 
 # Shadows of the Alleys
 
-![Shadows of the Alleys](/input_images/books 007.JPG)
+![\1](/input_images/books-007){: .story-image}
 
 In the grimy alley behind an old diner, Daniel Kliewer huddled against the cold, his breath visible in the chilly night air. His hands were stained with ink and charcoal from the sketchbook he clutched tightly. The flickering streetlight cast long, dancing shadows over his worn-out clothes and gaunt face. But there was a spark in his eyes—a fierce determination that refused to be extinguished.
 

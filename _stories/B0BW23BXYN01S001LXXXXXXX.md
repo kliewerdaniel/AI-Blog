@@ -1,11 +1,12 @@
 ---
+permalink: /stories/B0BW23BXYN01S001LXXXXXXX/
 layout: story
 title: Awaiting Dawn's Unseen Truth
 ---
 
 # Awaiting Dawn's Unseen Truth
 
-![Awaiting Dawn's Unseen Truth](/input_images/B0BW23BXYN.01.S001.LXXXXXXX.jpg)
+![\1](/input_images/B0BW23BXYN01S001LXXXXXXX){: .story-image}
 
 In the grimy alley behind a bustling city market, Daniel Kliewer huddled under an old blanket, his breath visible in the cold night air. The flickering neon sign from the market cast eerie shadows on the damp walls, but it was the only light he had. His fingers were stiff from the cold, but his mind was ablaze with a spark of hope.
 
@@ -32,7 +33,7 @@ As Daniel sat down at his desk, the hum of his computer filling the room, the po
 
 ## Choices
 
-* [Whispers in the Alley](/stories/B0BHLH14NQ.01._SCLZZZZZZZ_SX500_)
+* [Whispers in the Alley](/stories/B0BHLH14NQ01)
 * [Whispers in the Alley](/stories/20221013_133924)
 * [Secrets in the Shadows](/stories/476902298_2026199734459132_8101314172205332991_n)
 
