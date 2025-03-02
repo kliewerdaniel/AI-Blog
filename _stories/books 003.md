@@ -28,9 +28,9 @@ Daniel stood there, the noise of the city fading away as he held back tears of j
 
 ## Choices
 
-* [Whispers in the Alley](/_stories/20221013_133924)
-* [Awaiting Dawn's Unseen Truth](/_stories/B0BW23BXYN.01.S001.LXXXXXXX)
-* [Whispers in the Alley](/_stories/20221014_134512)
+* [Whispers in the Alley](/stories/20221013_133924)
+* [Awaiting Dawn's Unseen Truth](/stories/B0BW23BXYN.01.S001.LXXXXXXX)
+* [Whispers in the Alley](/stories/20221014_134512)
 
 
 ---

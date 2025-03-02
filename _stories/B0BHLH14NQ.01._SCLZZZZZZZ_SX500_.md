@@ -28,8 +28,8 @@ The future held many paths—expanding his art into new mediums, developing cutt
 
 ## Choices
 
-* [Whispers in the Shadowed Alley](/_stories/bridge)
-* [A Glimpse into Nighttime Artistry](/_stories/C8C6DEF8-4239-4B16-ADF3-4EAF62D4795A)
+* [Whispers in the Shadowed Alley](/stories/bridge)
+* [A Glimpse into Nighttime Artistry](/stories/C8C6DEF8-4239-4B16-ADF3-4EAF62D4795A)
 
 
 ---

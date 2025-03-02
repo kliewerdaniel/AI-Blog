@@ -28,8 +28,8 @@ The city skyline stretched out before him, a canvas of endless possibilities. Ho
 
 ## Choices
 
-* [Hope in the Shadows](/_stories/463437008_8751402828287409_6880135836708144342_n)
-* [Shadows of Potential](/_stories/books 013.JPG)
+* [Hope in the Shadows](/stories/463437008_8751402828287409_6880135836708144342_n)
+* [Shadows of Potential](/stories/books 013.JPG)
 
 
 ---

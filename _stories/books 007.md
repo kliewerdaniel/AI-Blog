@@ -30,8 +30,8 @@ The next chapter awaited—maybe more advanced AI projects, maybe even teaching 
 
 ## Choices
 
-* [Shadows of the Market](/_stories/20221112_132825)
-* [Lost in Lines Amidst the Grime](/_stories/20221013_140515)
+* [Shadows of the Market](/stories/20221112_132825)
+* [Lost in Lines Amidst the Grime](/stories/20221013_140515)
 
 
 ---

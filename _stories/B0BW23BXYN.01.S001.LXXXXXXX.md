@@ -32,9 +32,9 @@ As Daniel sat down at his desk, the hum of his computer filling the room, the po
 
 ## Choices
 
-* [Whispers in the Alley](/_stories/B0BHLH14NQ.01._SCLZZZZZZZ_SX500_)
-* [Whispers in the Alley](/_stories/20221013_133924)
-* [Secrets in the Shadows](/_stories/476902298_2026199734459132_8101314172205332991_n)
+* [Whispers in the Alley](/stories/B0BHLH14NQ.01._SCLZZZZZZZ_SX500_)
+* [Whispers in the Alley](/stories/20221013_133924)
+* [Secrets in the Shadows](/stories/476902298_2026199734459132_8101314172205332991_n)
 
 
 ---

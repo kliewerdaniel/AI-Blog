@@ -28,9 +28,9 @@ The future held endless paths—from further technological advancements to poten
 
 ## Choices
 
-* [Code in the Shadows](/_stories/20221113_161531)
-* [Secrets in the Shadows](/_stories/476902298_2026199734459132_8101314172205332991_n)
-* [Whispers in the Alley](/_stories/20221014_134512)
+* [Code in the Shadows](/stories/20221113_161531)
+* [Secrets in the Shadows](/stories/476902298_2026199734459132_8101314172205332991_n)
+* [Whispers in the Alley](/stories/20221014_134512)
 
 
 ---

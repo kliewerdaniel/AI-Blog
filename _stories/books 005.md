@@ -30,8 +30,8 @@ The road ahead held endless potential, filled with new challenges and opportunit
 
 ## Choices
 
-* [Shadows of Code](/_stories/20221014_153920)
-* [Cold Canvas in Shadows](/_stories/books 015.JPG)
+* [Shadows of Code](/stories/20221014_153920)
+* [Cold Canvas in Shadows](/stories/books 015.JPG)
 
 
 ---
