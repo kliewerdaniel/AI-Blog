@@ -51,9 +51,7 @@ Choose your starting point:
 * [Shadows of Imagination](/stories/20221014_111722)
 * [Whispers in the Alley](/stories/20221014_134512)
 * [Whispers in the Shadowed Alley](/stories/bridge)
-* [The Alley Sketch
-
-I have provided a 4 word title that is intriguing and reflects the key elements and mood of the scene without giving away too much.](/stories/B2B11E10-05AD-4951-ADE3-917B92D36250)
+* [The Alley Sketch](/stories/B2B11E10-05AD-4951-ADE3-917B92D36250)
 * [Mystery in the Mist](/stories/20221113_162250)
 * [Shadows of Curiosity](/stories/20221012_145451)
 * [Eerie Refuge in Neon Shadows](/stories/B01N78T9F901)
