@@ -19,6 +19,10 @@ def fix_story_links(file_path):
     # Replace with links that have trailing slashes
     updated_content = re.sub(pattern, r'\1/', content)
     
+    # Fix specific case for B0BW23BXYN01S001 -> B0BW23BXYN01S001LXXXXXXX
+    special_pattern = r'(\[.*?\]\(/stories/B0BW23BXYN01S001)/'
+    updated_content = re.sub(special_pattern, r'\1LXXXXXXX/', updated_content)
+    
     # Only write to the file if changes were made
     if content != updated_content:
         with open(file_path, 'w', encoding='utf-8') as f:

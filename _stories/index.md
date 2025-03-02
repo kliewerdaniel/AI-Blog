@@ -35,7 +35,7 @@ Choose your starting point:
 
 * [Shadows of Creation](/stories/B9B57FFB-2251-44C5-8215-3DDD17162E1F/)
 * [Whispers in the Alley](/stories/B0BHLH14NQ01/)
-* [Awaiting Dawn's Unseen Truth](/stories/B0BW23BXYN01S001/)
+* [Awaiting Dawn's Unseen Truth](/stories/B0BW23BXYN01S001LXXXXXXX/)
 * [Hidden Hope Amidst Desolation](/stories/474775887_490715300428480_2081408431757738514_n/)
 * [Shadows of Downtown](/stories/20221113_161512/)
 * [Whispers in the Shadows](/stories/20221113_161248/)
