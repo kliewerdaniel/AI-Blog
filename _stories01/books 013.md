@@ -5,7 +5,7 @@ title: "**Mysteries in the Shadow Jungle"
 
 # **Mysteries in the Shadow Jungle**
 
-![**Mysteries in the Shadow Jungle**](../input_images/books 013.JPG)
+{% include story-image.html src="../input_images/books 013.JPG" alt="**Mysteries in the Shadow Jungle**" %}
 
 In the heart of the dense, whispered-tale-forested jungle of El Cielo Oscuro, Dr. Elena Hart and her team pushed through the thick underbrush, guided by Marco, their seasoned guide. The air was thick with humidity and the scent of decaying leaves, while the canopy above filtered the sunlight into dappled shadows that seemed to conceal ancient secrets.
 

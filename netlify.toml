@@ -1,0 +1,24 @@
+[build]
+  command = "jekyll build"
+  publish = "_site"
+
+[build.environment]
+  JEKYLL_ENV = "production"
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+# Ensure all image directories are copied to the build
+[[plugins]]
+  package = "netlify-plugin-copy-files"
+  
+  [plugins.inputs]
+    # Copy all image directories to the build directory
+    patterns = [
+      "input_images/**/*",
+      "input_images01/**/*",
+      "input_images02/**/*",
+      "input_images03/**/*",
+      "input_images04/**/*",
+      "static/**/*"
+    ]
