@@ -36,57 +36,21 @@ Three key changes were made to fix this issue:
    - All image directories are copied to the build directory using a custom build command
    - Empty placeholder files are created for problematic symlinks
    
-   The custom build command in netlify.toml:
-   ```toml
-   command = """
-     mkdir -p static/input_images
-     # Copy image files from input_images directories
-     cp -r input_images01/* static/input_images/ || true
-     cp -r input_images02/* static/input_images/ || true
-     cp -r input_images03/* static/input_images/ || true
-     cp -r input_images04/* static/input_images/ || true
-     
-     # Create empty placeholder files for problematic symlinks
-     touch static/input_images/B01N78T9F901_SCLZZZZZZZ_SX500_.jpg
-     touch static/input_images/B0BHLH14NQ01_SCLZZZZZZZ_SX500_.jpg
-     touch static/input_images/B0BW23BXYN01S001LXXXXXXX.jpg
-     touch static/input_images/books-003.JPG
-     touch static/input_images/books-005.JPG
-     touch static/input_images/books-007.JPG
-     touch static/input_images/books-013.JPG
-     touch static/input_images/books-015.JPG
-     touch static/input_images/books
-     
-     # Run Jekyll build
-     jekyll build
-   """
-   ```
+   The custom build command in netlify.toml creates empty placeholder files for all dangling symlinks found in the build logs. This prevents Jekyll from trying to process these files during the build.
 
-3. **Updated _config.yml to exclude problematic files**: Added an exclude section to the Jekyll configuration:
-   ```yaml
-   exclude:
-     # Standard excludes
-     - .sass-cache/
-     - .jekyll-cache/
-     - gemfiles/
-     - Gemfile
-     - Gemfile.lock
-     - node_modules/
-     - vendor/bundle/
-     - vendor/cache/
-     - vendor/gems/
-     - vendor/ruby/
-     # Exclude problematic symlink files
-     - static/input_images/B01N78T9F901_SCLZZZZZZZ_SX500_.jpg
-     - static/input_images/B0BHLH14NQ01_SCLZZZZZZZ_SX500_.jpg
-     - static/input_images/B0BW23BXYN01S001LXXXXXXX.jpg
-     - static/input_images/books-003.JPG
-     - static/input_images/books-005.JPG
-     - static/input_images/books-007.JPG
-     - static/input_images/books-013.JPG
-     - static/input_images/books-015.JPG
-     - static/input_images/books
-   ```
+3. **Updated _config.yml to exclude problematic files**: Added an exclude section to the Jekyll configuration to exclude all problematic symlink files from Jekyll processing.
+
+## March 2025 Update: Additional Dangling Symlinks Fix
+
+After encountering additional build failures with dangling symlinks, the following improvements were made:
+
+1. **Expanded the list of placeholder files**: Added empty placeholder files for all dangling symlinks found in the build logs to the netlify.toml build command.
+
+2. **Updated _config.yml exclusions**: Added all dangling symlink files to the exclude section in _config.yml to prevent Jekyll from processing them.
+
+3. **Updated test_netlify_build.sh**: Ensured the local testing script creates the same placeholder files as the Netlify build process.
+
+These changes address the "No such file or directory @ rb_sysopen" errors that were occurring during the Jekyll build process due to dangling symlinks.
 
 ## How to Fix Similar Issues in the Future
 
