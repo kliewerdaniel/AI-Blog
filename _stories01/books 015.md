@@ -11,13 +11,13 @@ title: "Here are a few title suggestions:"
 
 These titles aim to capture the atmosphere and mystery of the scene without revealing too much about the story.
 
-{% include story-image.html src="../input_images/books 015.JPG" alt="Here are a few title suggestions:
+![Here are a few title suggestions:
 
 1. "Shadows of the Amazon"
 2. "Whispers in the Rainforest"
 3. "Secrets Beneath the Canopy"
 
-These titles aim to capture the atmosphere and mystery of the scene without revealing too much about the story." %}
+These titles aim to capture the atmosphere and mystery of the scene without revealing too much about the story.](../input_images/books 015.JPG)
 
 In the depths of the Amazon rainforest, Dr. Elena Hart led her team through the tangled undergrowth, the air thick with humidity and the chorus of unseen creatures. The sun barely penetrated the dense canopy above, casting flickering shadows that seemed to dance with ancient secrets.
 

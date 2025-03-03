@@ -26,11 +26,6 @@ def main():
         print("Error: Failed to fix story images.")
         return 1
     
-    # Step 2.1: Fix stories01 images
-    if run_script('fix_stories01_images.py') != 0:
-        print("Error: Failed to fix stories01 images.")
-        return 1
-    
     # Step 3: Update sitemap
     if run_script('update_sitemap.py') != 0:
         print("Error: Failed to update sitemap.")

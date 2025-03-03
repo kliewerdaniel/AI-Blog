@@ -128,12 +128,46 @@ The site uses a custom build command in the `netlify.toml` file to ensure all im
 ```toml
 command = """
   mkdir -p static/input_images
-  cp -r -L input_images01/* static/input_images/ || true
-  cp -r -L input_images02/* static/input_images/ || true
-  cp -r -L input_images03/* static/input_images/ || true
-  cp -r -L input_images04/* static/input_images/ || true
+  # Copy image files from input_images directories
+  cp -r input_images01/* static/input_images/ || true
+  cp -r input_images02/* static/input_images/ || true
+  cp -r input_images03/* static/input_images/ || true
+  cp -r input_images04/* static/input_images/ || true
+  
+  # Create empty placeholder files for problematic symlinks
+  touch static/input_images/B01N78T9F901_SCLZZZZZZZ_SX500_.jpg
+  touch static/input_images/B0BHLH14NQ01_SCLZZZZZZZ_SX500_.jpg
+  touch static/input_images/B0BW23BXYN01S001LXXXXXXX.jpg
+  touch static/input_images/books-003.JPG
+  touch static/input_images/books-005.JPG
+  touch static/input_images/books-007.JPG
+  touch static/input_images/books-013.JPG
+  touch static/input_images/books-015.JPG
+  
+  # Run Jekyll build
   jekyll build
 """
+```
+
+### Jekyll Configuration
+
+The `_config.yml` file has been updated to exclude problematic symlink files from Jekyll processing:
+
+```yaml
+exclude:
+  # Standard excludes
+  - .sass-cache/
+  - .jekyll-cache/
+  # ...
+  # Exclude problematic symlink files
+  - static/input_images/B01N78T9F901_SCLZZZZZZZ_SX500_.jpg
+  - static/input_images/B0BHLH14NQ01_SCLZZZZZZZ_SX500_.jpg
+  - static/input_images/B0BW23BXYN01S001LXXXXXXX.jpg
+  - static/input_images/books-003.JPG
+  - static/input_images/books-005.JPG
+  - static/input_images/books-007.JPG
+  - static/input_images/books-013.JPG
+  - static/input_images/books-015.JPG
 ```
 
 For more details on the Netlify build configuration and fixes, see [NETLIFY_BUILD_FIX.md](NETLIFY_BUILD_FIX.md).

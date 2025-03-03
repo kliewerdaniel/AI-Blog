@@ -12,14 +12,14 @@ title: "Here are a few title suggestions:"
 
 These titles aim to capture the mood and key elements of the scene without revealing too much detail.
 
-{% include story-image.html src="../input_images/captain.jpg" alt="Here are a few title suggestions:
+![Here are a few title suggestions:
 
 1. "Jungle's Primordial Pulse"
 2. "Ancient Rhythms in the Amazon"
 3. "Heart of the Unexplored"
 4. "Echoes in the Emerald Depths"
 
-These titles aim to capture the mood and key elements of the scene without revealing too much detail." %}
+These titles aim to capture the mood and key elements of the scene without revealing too much detail.](../input_images/captain.jpg)
 
 In the heart of the Amazonian jungle, the air was thick with humidity and the scent of ancient earth. Dr. Elena Hart, renowned archaeologist and intrepid explorer, pushed through the dense undergrowth, her heart pounding like a primal drumbeat echoing the mysterious rhythm of the jungle. The sun filtered through the canopy above, casting dappled shadows that seemed to dance with hidden secrets.
 

@@ -13,7 +13,7 @@ Alternative titles:
 - "Tangled Paths Await"
 - "Heart of the Amazon
 
-{% include story-image.html src="../input_images/B0BW23BXYN.01.S001.LXXXXXXX.jpg" alt="Jungle's Hidden Breath"
+![Jungle's Hidden Breath"
 
 Alternative titles:
 
@@ -21,7 +21,7 @@ Alternative titles:
 - "Into the Unseen Depths"
 - "Whispers in the Darkness"
 - "Tangled Paths Await"
-- "Heart of the Amazon" %}
+- "Heart of the Amazon](../input_images/B0BW23BXYN.01.S001.LXXXXXXX.jpg)
 
 In the heart of the dense Amazonian jungle, Dr. Elena Hart pushed through the tangled underbrush, her breath coming in short gasps. The air was thick with humidity and the scent of decaying leaves, while the cacophony of distant wildlife echoed around her. Her flashlight cut through the darkness, illuminating the twisted roots and gnarled vines that seemed to reach out like skeletal fingers.
 

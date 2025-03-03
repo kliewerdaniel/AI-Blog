@@ -15,10 +15,11 @@ This occurred because:
 1. Markdown files in `_stories01` were using direct image references like `![alt](../input_images/filename.jpg)`
 2. The actual images were in various directories (`input_images01/`, `static/input_images/`, etc.)
 3. During the Jekyll build process, it couldn't find the images at the specified paths
+4. Some files were symbolic links pointing to non-existent files, causing "dangling symlink" errors
 
 ## The Solution
 
-Two key changes were made to fix this issue:
+Three key changes were made to fix this issue:
 
 1. **Updated image references in markdown files**: Created and ran a script (`fix_stories01_images.py`) that:
    - Replaces direct image references with the `story-image.html` include
@@ -27,20 +28,57 @@ Two key changes were made to fix this issue:
 2. **Added a netlify.toml configuration file**: This ensures:
    - Proper build settings for Jekyll
    - All image directories are copied to the build directory using a custom build command
+   - Empty placeholder files are created for problematic symlinks
    
    The custom build command in netlify.toml:
    ```toml
    command = """
      mkdir -p static/input_images
-     cp -r -L input_images01/* static/input_images/ || true
-     cp -r -L input_images02/* static/input_images/ || true
-     cp -r -L input_images03/* static/input_images/ || true
-     cp -r -L input_images04/* static/input_images/ || true
+     # Copy image files from input_images directories
+     cp -r input_images01/* static/input_images/ || true
+     cp -r input_images02/* static/input_images/ || true
+     cp -r input_images03/* static/input_images/ || true
+     cp -r input_images04/* static/input_images/ || true
+     
+     # Create empty placeholder files for problematic symlinks
+     touch static/input_images/B01N78T9F901_SCLZZZZZZZ_SX500_.jpg
+     touch static/input_images/B0BHLH14NQ01_SCLZZZZZZZ_SX500_.jpg
+     touch static/input_images/B0BW23BXYN01S001LXXXXXXX.jpg
+     touch static/input_images/books-003.JPG
+     touch static/input_images/books-005.JPG
+     touch static/input_images/books-007.JPG
+     touch static/input_images/books-013.JPG
+     touch static/input_images/books-015.JPG
+     
+     # Run Jekyll build
      jekyll build
    """
    ```
-   
-   Note: The `-L` flag is crucial as it tells the `cp` command to follow symbolic links and copy the target files instead of the symlinks themselves. This prevents "dangling symlink" errors during the build process.
+
+3. **Updated _config.yml to exclude problematic files**: Added an exclude section to the Jekyll configuration:
+   ```yaml
+   exclude:
+     # Standard excludes
+     - .sass-cache/
+     - .jekyll-cache/
+     - gemfiles/
+     - Gemfile
+     - Gemfile.lock
+     - node_modules/
+     - vendor/bundle/
+     - vendor/cache/
+     - vendor/gems/
+     - vendor/ruby/
+     # Exclude problematic symlink files
+     - static/input_images/B01N78T9F901_SCLZZZZZZZ_SX500_.jpg
+     - static/input_images/B0BHLH14NQ01_SCLZZZZZZZ_SX500_.jpg
+     - static/input_images/B0BW23BXYN01S001LXXXXXXX.jpg
+     - static/input_images/books-003.JPG
+     - static/input_images/books-005.JPG
+     - static/input_images/books-007.JPG
+     - static/input_images/books-013.JPG
+     - static/input_images/books-015.JPG
+   ```
 
 ## How to Fix Similar Issues in the Future
 
@@ -51,6 +89,8 @@ If you encounter similar build errors:
 3. Update the markdown files to use the `story-image.html` include instead of direct image references
 4. Run the `fix_stories01_images.py` script to automate this process
 5. Ensure your `netlify.toml` file is configured to copy all necessary directories
+6. For problematic symlinks, create empty placeholder files using the `touch` command
+7. Update _config.yml to exclude problematic files from Jekyll processing
 
 ## The `story-image.html` Include
 

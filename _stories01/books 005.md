@@ -7,9 +7,9 @@ title: "Shadows of the Amazon"
 
 This title captures the setting and mood of the scene without revealing too much about the plot.
 
-{% include story-image.html src="../input_images/books 005.JPG" alt="Shadows of the Amazon"
+![Shadows of the Amazon"
 
-This title captures the setting and mood of the scene without revealing too much about the plot." %}
+This title captures the setting and mood of the scene without revealing too much about the plot.](../input_images/books 005.JPG)
 
 In the heart of the Amazon rainforest, the air was thick with humidity and the scent of earth and decay. The dense canopy above filtered the sunlight, casting dappled shadows on the forest floor as Dr. Elena Hart led her team through the tangled undergrowth. Her heart pounded like a primal drumbeat, echoing the ancient rhythm of the jungle.
 

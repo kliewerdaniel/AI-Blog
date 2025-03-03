@@ -63,14 +63,23 @@ defaults:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  # Exclude problematic symlink files
+  - static/input_images/B01N78T9F901_SCLZZZZZZZ_SX500_.jpg
+  - static/input_images/B0BHLH14NQ01_SCLZZZZZZZ_SX500_.jpg
+  - static/input_images/B0BW23BXYN01S001LXXXXXXX.jpg
+  - static/input_images/books-003.JPG
+  - static/input_images/books-005.JPG
+  - static/input_images/books-007.JPG
+  - static/input_images/books-013.JPG
+  - static/input_images/books-015.JPG

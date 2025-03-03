@@ -15,7 +15,7 @@ OR
 
 These titles aim to capture the atmospheric and slightly ominous mood of the scene while leaving room for intrigue.
 
-{% include story-image.html src="../input_images/bridge.jpg" alt="**Shadows of the Ancient Jungle**
+![**Shadows of the Ancient Jungle**
 
 OR
 
@@ -25,7 +25,7 @@ OR
 
 **Echoes Under the Canopy**
 
-These titles aim to capture the atmospheric and slightly ominous mood of the scene while leaving room for intrigue." %}
+These titles aim to capture the atmospheric and slightly ominous mood of the scene while leaving room for intrigue.](../input_images/bridge.jpg)
 
 The dense canopy above filtered the moonlight, casting dappled shadows that danced ominously on the forest floor. Dr. Elena Hart slowed her pace as the crunching leaves underfoot seemed to echo louder than usual. She was deep in the heart of the Amazonian jungle, a place shrouded in legend and fear, searching for the fabled city of Zora.
 

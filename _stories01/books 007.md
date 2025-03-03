@@ -12,14 +12,14 @@ Alternatively, here are a few other options:
 - **"Whispers of the Rainforest"**
 - **"Mysteries in the Murk"**
 
-{% include story-image.html src="../input_images/books 007.JPG" alt="**"Shadows of the Amazon"**
+![**"Shadows of the Amazon"**
 
 Alternatively, here are a few other options:
 
 - **"Lost in the Canopy"**
 - **"Ancient Paths Await"**
 - **"Whispers of the Rainforest"**
-- **"Mysteries in the Murk"**" %}
+- **"Mysteries in the Murk"**](../input_images/books 007.JPG)
 
 In the heart of the dense Amazon rainforest, Dr. Elena Hart led her team through the tangled undergrowth, the air thick with humidity and the scent of ancient earth. The sun barely pierced the canopy above, casting eerie shadows on their path. Elena's pulse quickened as she clutched an ancient map, its edges worn from years of study.
 
