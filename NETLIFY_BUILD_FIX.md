@@ -26,7 +26,19 @@ Two key changes were made to fix this issue:
 
 2. **Added a netlify.toml configuration file**: This ensures:
    - Proper build settings for Jekyll
-   - All image directories are copied to the build directory using the `netlify-plugin-copy-files` plugin
+   - All image directories are copied to the build directory using a custom build command
+   
+   The custom build command in netlify.toml:
+   ```toml
+   command = """
+     mkdir -p static/input_images
+     cp -r input_images01/* static/input_images/ || true
+     cp -r input_images02/* static/input_images/ || true
+     cp -r input_images03/* static/input_images/ || true
+     cp -r input_images04/* static/input_images/ || true
+     jekyll build
+   """
+   ```
 
 ## How to Fix Similar Issues in the Future
 

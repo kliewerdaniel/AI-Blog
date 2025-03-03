@@ -106,6 +106,38 @@ Browser caching is configured in the `.htaccess` file with appropriate expiratio
 ### Gzip Compression
 Gzip compression is enabled for text-based resources to reduce file sizes during transfer.
 
+## Netlify Build Configuration
+
+The site is configured to build and deploy on Netlify. Several fixes have been implemented to ensure smooth builds:
+
+### Image Path Fixes
+
+The `fix_stories01_images.py` script addresses issues with image paths in story files:
+- Replaces direct image references with the `story-image.html` include
+- Copies images from `input_images01/` to `static/input_images/` to ensure they're available during build
+
+To run this script:
+```bash
+python fix_stories01_images.py
+```
+
+### Netlify Build Configuration
+
+The site uses a custom build command in the `netlify.toml` file to ensure all image directories are copied to the build directory before running Jekyll:
+
+```toml
+command = """
+  mkdir -p static/input_images
+  cp -r input_images01/* static/input_images/ || true
+  cp -r input_images02/* static/input_images/ || true
+  cp -r input_images03/* static/input_images/ || true
+  cp -r input_images04/* static/input_images/ || true
+  jekyll build
+"""
+```
+
+For more details on the Netlify build configuration and fixes, see [NETLIFY_BUILD_FIX.md](NETLIFY_BUILD_FIX.md).
+
 ## Future Improvements
 
 1. **Content Delivery Network (CDN)**
