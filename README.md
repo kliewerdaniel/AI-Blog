@@ -128,10 +128,10 @@ The site uses a custom build command in the `netlify.toml` file to ensure all im
 ```toml
 command = """
   mkdir -p static/input_images
-  cp -r input_images01/* static/input_images/ || true
-  cp -r input_images02/* static/input_images/ || true
-  cp -r input_images03/* static/input_images/ || true
-  cp -r input_images04/* static/input_images/ || true
+  cp -r -L input_images01/* static/input_images/ || true
+  cp -r -L input_images02/* static/input_images/ || true
+  cp -r -L input_images03/* static/input_images/ || true
+  cp -r -L input_images04/* static/input_images/ || true
   jekyll build
 """
 ```

@@ -32,13 +32,15 @@ Two key changes were made to fix this issue:
    ```toml
    command = """
      mkdir -p static/input_images
-     cp -r input_images01/* static/input_images/ || true
-     cp -r input_images02/* static/input_images/ || true
-     cp -r input_images03/* static/input_images/ || true
-     cp -r input_images04/* static/input_images/ || true
+     cp -r -L input_images01/* static/input_images/ || true
+     cp -r -L input_images02/* static/input_images/ || true
+     cp -r -L input_images03/* static/input_images/ || true
+     cp -r -L input_images04/* static/input_images/ || true
      jekyll build
    """
    ```
+   
+   Note: The `-L` flag is crucial as it tells the `cp` command to follow symbolic links and copy the target files instead of the symlinks themselves. This prevents "dangling symlink" errors during the build process.
 
 ## How to Fix Similar Issues in the Future
 

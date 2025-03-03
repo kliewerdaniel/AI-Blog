@@ -45,8 +45,9 @@ def main():
             if not dest_file.exists():
                 print(f"Copying {img_file} to {dest_file}")
                 try:
-                    with open(img_file, 'rb') as src, open(dest_file, 'wb') as dst:
-                        dst.write(src.read())
+                    # Use subprocess to run cp with -L flag to follow symlinks
+                    import subprocess
+                    subprocess.run(['cp', '-L', str(img_file), str(dest_file)], check=True)
                 except Exception as e:
                     print(f"Error copying {img_file}: {e}")
     
