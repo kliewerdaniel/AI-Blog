@@ -17,6 +17,7 @@
     touch static/input_images/books-007.JPG
     touch static/input_images/books-013.JPG
     touch static/input_images/books-015.JPG
+    touch static/input_images/books
     
     # Run Jekyll build
     jekyll build

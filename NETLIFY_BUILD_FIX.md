@@ -7,6 +7,12 @@ This document explains the fix for the Netlify build error related to missing im
 The Netlify build was failing with the following error:
 
 ```
+No such file or directory @ rb_sysopen - /opt/build/repo/static/input_images/books (Errno::ENOENT)
+```
+
+Previously, a similar error occurred with:
+
+```
 No such file or directory @ rb_sysopen - /opt/build/repo/static/input_images/130188528_3781238605303881_7510459135709865265_n.jpg (Errno::ENOENT)
 ```
 
@@ -49,6 +55,7 @@ Three key changes were made to fix this issue:
      touch static/input_images/books-007.JPG
      touch static/input_images/books-013.JPG
      touch static/input_images/books-015.JPG
+     touch static/input_images/books
      
      # Run Jekyll build
      jekyll build
@@ -78,6 +85,7 @@ Three key changes were made to fix this issue:
      - static/input_images/books-007.JPG
      - static/input_images/books-013.JPG
      - static/input_images/books-015.JPG
+     - static/input_images/books
    ```
 
 ## How to Fix Similar Issues in the Future

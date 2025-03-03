@@ -83,3 +83,4 @@ exclude:
   - static/input_images/books-007.JPG
   - static/input_images/books-013.JPG
   - static/input_images/books-015.JPG
+  - static/input_images/books
