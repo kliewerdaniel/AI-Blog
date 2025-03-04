@@ -1,51 +1,61 @@
 #!/usr/bin/env python3
-"""
-Script to fix story links in all story files.
-This script adds trailing slashes to all story links to match the permalink format.
-"""
-
 import os
 import re
-from pathlib import Path
 
-def fix_story_links(file_path):
-    """Fix story links in a single file."""
-    with open(file_path, 'r', encoding='utf-8') as f:
-        content = f.read()
+def fix_story_links(directory):
+    """
+    Fix links in story files to use consistent format.
+    """
+    # Regular expression to match story links
+    link_pattern = re.compile(r'\[([^\]]+)\]\((/stories/image_\d+)(?:\.JPG|\.jpg)?\)')
     
-    # Find all links to stories without trailing slashes
-    pattern = r'(\[.*?\]\(/stories/[^/)]+)(?=\))'
+    # Get all markdown files in the directory
+    for filename in os.listdir(directory):
+        if not filename.endswith('.md'):
+            continue
+        
+        filepath = os.path.join(directory, filename)
+        
+        # Skip index.md for now, we'll handle it separately
+        if filename == 'index.md':
+            continue
+        
+        with open(filepath, 'r') as file:
+            content = file.read()
+        
+        # Replace links with the correct format
+        updated_content = link_pattern.sub(r'[\1](\2/)', content)
+        
+        if content != updated_content:
+            with open(filepath, 'w') as file:
+                file.write(updated_content)
+            print(f"Updated links in {filepath}")
+
+def fix_index_links(index_file):
+    """
+    Fix links in the index file to use consistent format.
+    """
+    link_pattern = re.compile(r'\[([^\]]+)\]\((/stories/image_\d+)(?:\.JPG|\.jpg)?\)')
     
-    # Replace with links that have trailing slashes
-    updated_content = re.sub(pattern, r'\1/', content)
+    with open(index_file, 'r') as file:
+        content = file.read()
     
-    # Fix specific case for B0BW23BXYN01S001 -> B0BW23BXYN01S001LXXXXXXX
-    special_pattern = r'(\[.*?\]\(/stories/B0BW23BXYN01S001)/'
-    updated_content = re.sub(special_pattern, r'\1LXXXXXXX/', updated_content)
+    # Replace links with the correct format
+    updated_content = link_pattern.sub(r'[\1](\2/)', content)
     
-    # Only write to the file if changes were made
     if content != updated_content:
-        with open(file_path, 'w', encoding='utf-8') as f:
-            f.write(updated_content)
-        return True
-    return False
-
-def main():
-    """Main function to fix all story links."""
-    stories_dir = Path('_stories')
-    
-    if not stories_dir.exists() or not stories_dir.is_dir():
-        print(f"Error: {stories_dir} directory not found")
-        return
-    
-    files_updated = 0
-    
-    for file_path in stories_dir.glob('*.md'):
-        if fix_story_links(file_path):
-            print(f"Updated links in {file_path}")
-            files_updated += 1
-    
-    print(f"\nCompleted: {files_updated} files updated")
+        with open(index_file, 'w') as file:
+            file.write(updated_content)
+        print(f"Updated links in {index_file}")
 
 if __name__ == "__main__":
-    main()
+    stories_dir = "_stories"
+    index_file = os.path.join(stories_dir, "index.md")
+    
+    # Fix links in story files
+    fix_story_links(stories_dir)
+    
+    # Fix links in index file
+    fix_index_links(index_file)
+    
+    print("Story links fixed successfully!")

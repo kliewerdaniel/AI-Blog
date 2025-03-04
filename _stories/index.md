@@ -44,16 +44,16 @@ By analyzing these elements, it becomes clear that the story segments are connec
 
 Choose your starting point:
 
-* [Neon City Secrets Unfold Slowly](/stories/image_1)
-* [Decoding the Neon Nightmare](/stories/image_10)
-* [Unraveling the Hidden Message](/stories/image_11)
-* [Beyond the Neon Veil](/stories/image_12.JPG)
-* [Breach in Neon Darkness Falls](/stories/image_2.JPG)
-* [Decoding the Hidden Message](/stories/image_3.JPG)
-* [Decoding the Neon Night](/stories/image_4.JPG)
-* [Unraveling Secrets in Neon Shadows](/stories/image_6)
-* [Decoding the Dark Fragment](/stories/image_8.JPG)
-* [Code Unveils New Eden Secrets](/stories/image_9)
+* [Neon City Secrets Unfold Slowly](/stories/image_1/)
+* [Decoding the Neon Nightmare](/stories/image_10/)
+* [Unraveling the Hidden Message](/stories/image_11/)
+* [Beyond the Neon Veil](/stories/image_12/)
+* [Breach in Neon Darkness Falls](/stories/image_2/)
+* [Decoding the Hidden Message](/stories/image_3/)
+* [Decoding the Neon Night](/stories/image_4/)
+* [Unraveling Secrets in Neon Shadows](/stories/image_6/)
+* [Decoding the Dark Fragment](/stories/image_8/)
+* [Code Unveils New Eden Secrets](/stories/image_9/)
 
 ---
 *Generated with AI assistance*

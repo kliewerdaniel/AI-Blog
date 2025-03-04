@@ -52,6 +52,20 @@ After encountering additional build failures with dangling symlinks, the followi
 
 These changes address the "No such file or directory @ rb_sysopen" errors that were occurring during the Jekyll build process due to dangling symlinks.
 
+## March 2025 Update: Fixed Story Links and Images
+
+After fixing the build issues, we discovered that links in the stories section were leading to 404 errors. The following improvements were made:
+
+1. **Fixed story links**: Created and ran a script (`fix_story_links.py`) that:
+   - Updates all links in story files to use consistent format with trailing slashes
+   - Ensures links point to the correct URLs based on the Jekyll collection configuration
+
+2. **Fixed story images**: Created and ran scripts (`fix_story_images.py` and `fix_story_image_params.py`) that:
+   - Replace absolute image paths with the `story-image.html` include
+   - Ensure the include parameters are correct (`src` instead of `filename`)
+
+These changes ensure that all story links and images work correctly on the deployed site.
+
 ## How to Fix Similar Issues in the Future
 
 If you encounter similar build errors:
