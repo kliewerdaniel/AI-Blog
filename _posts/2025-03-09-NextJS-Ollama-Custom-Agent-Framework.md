@@ -25,8 +25,11 @@ Before starting, ensure you have:
 Let's begin by creating a fresh Next.js project:
 
 ```bash
-npx create-next-app@latest mastra-ollama-app
-cd mastra-ollama-app
+
+npx create-next-app@latest next-ollama-app
+
+cd next-ollama-app
+
 ```
 
 During the setup, select the following options:
