@@ -62,7 +62,7 @@ This will download the model, which may take several minutes depending on your i
 
 ### 2.5 Creating a Custom Agent Framework
 
-Since we don't have access to the Mastra package, let's create our own lightweight agent framework:
+Let's create our own lightweight agent framework:
 
 Create a file at `src/lib/agent.ts`:
 
